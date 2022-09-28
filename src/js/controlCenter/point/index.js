@@ -5,7 +5,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import "../container/css/areaInfo.scss";
 import "./index.scss";
 var that = null;
-class Main extends React.Component {
+class Point extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class Main extends React.Component {
       pageSize: 10,
       totalCount: 0,
       title: "新增",
-     
+
     };
     that = this;
   }
@@ -98,7 +98,7 @@ class Main extends React.Component {
     }
     this.setState({
       name: name,
-      isSearch:isSearch,
+      isSearch: isSearch,
       isShow: false,
     });
     this.getAreaSearch(name);
@@ -279,11 +279,8 @@ class Main extends React.Component {
     // 搜索显示结果
     let mhItems = this.state.searchList.map((item, i) => {
       return (
-        <div
-          key={"mhItems" + item.id}
-          onClick={this.clickMhItemHander.bind(this, item.pointName, item.id)}
-          className="point_search_list"
-        >
+        <div key={"mhItems" + item.id} className="point_search_list"
+          onClick={this.clickMhItemHander.bind(this, item.pointName, item.id)} >
           <div className="mh-ico">
             {item.categoriesicon && item.categoriesicon != "no" ? (
               <img src={item.categoriesicon} />
@@ -343,32 +340,31 @@ class Main extends React.Component {
             </div>}
         </div>
         {/* <AddPubPointPosition ref="addDepartment" viewId={1} /> */}
-    
-          <div id="rootDiv" className="_rootDiv">
-            <Modal
-              title={this.state.title + "点位管理"}
-              mask={false}
-              zIndex={0}
-              maskClosable={false}
-              visible={this.state.isShow}
-              className="add_modal01Long"
-              onCancel={this.handleCancel.bind(this)}
-              getContainer={this.getloadabsd.bind(this)}
-              footer={[
-                <Button
-                  key="btn2" className="ant-btn ant-btn-lg"
-                  onClick={this.state.title == "新增" ? this.handleOk.bind(this) : this.doUpdate.bind(this)}
-                  loading={this.state.loading}
-                > 保存 </Button>,
-                <Button key="btn1" className="ant-btn ant-btn-lg" onClick={this.handleCancel.bind(this)} >   取 消  </Button>,
-              ]}
-            >
-              {this.state.isShow ? <AddPubPointPosition ref="addDepartment" viewId={this.state.viewId} /> : null}
-            </Modal>
-          </div>
-       
+
+        <div id="rootDiv" className="_rootDiv">
+          <Modal
+            title={this.state.title + "点位管理"}
+            mask={false}
+            zIndex={0}
+            maskClosable={false}
+            visible={this.state.isShow}
+            className="add_modal01Long"
+            onCancel={this.handleCancel.bind(this)}
+            getContainer={this.getloadabsd.bind(this)}
+            footer={[
+              <Button
+                key="btn2" className="ant-btn ant-btn-lg"
+                onClick={this.state.title == "新增" ? this.handleOk.bind(this) : this.doUpdate.bind(this)}
+                loading={this.state.loading}
+              > 保存 </Button>,
+              <Button key="btn1" className="ant-btn ant-btn-lg" onClick={this.handleCancel.bind(this)} >   取 消  </Button>,
+            ]}
+          >
+            {this.state.isShow ? <AddPubPointPosition ref="addDepartment" viewId={this.state.viewId} /> : null}
+          </Modal>
+        </div>
       </div>
     );
   }
 }
-export default Main;
+export default Point;
