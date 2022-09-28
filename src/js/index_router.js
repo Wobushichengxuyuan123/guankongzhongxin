@@ -327,7 +327,7 @@ class IndexRouter extends React.Component {
       return <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            <div>
+            <>
               <div className='headerBox'>
                 <Header
                   data={this.state.menuData}
@@ -377,7 +377,7 @@ class IndexRouter extends React.Component {
               <Home />
               <Alert />
               <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} />
-            </div>
+            </>
           </Router>
         </PersistGate>
       </Provider>

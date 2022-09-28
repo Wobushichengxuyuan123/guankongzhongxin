@@ -132,23 +132,34 @@
             }
         }
     }
+    .point_search_list{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    ._rootDiv>div>div>div {
+        width: fit-content !important;
+        .add_modal01Long {
+            width: 320px !important;
+            position: fixed;
+            right: 0;
+            .ant-modal-header{
+                height: 48px;
+            }
+        
+            .ant-modal-body {
+                height: 500px !important;
+            }
+        
+            .ant-modal-wrap {
+                position: absolute !important;
+            }
+        }
+        
+    }
 }
 
 
 
-.add_modal01Long {
-    width: 320px !important;
-    position: fixed;
-    right: 0;
-
-    .ant-modal-body {
-        height: 300px !important;
-    }
-
-    .ant-modal-wrap {
-        position: absolute !important;
-    }
-}
 
 .addDepartment {
     height: 400px;
@@ -156,7 +167,4 @@
     padding-left: 10px;
 }
 
-// 此写法很另类，暂时没想到其他的
-._rootDiv>div>div>div {
-    width: fit-content !important;
-}
+// // 此写法很另类，暂时没想到其他的

@@ -9,10 +9,10 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isSearch: true,
       areaList: [],
       searchList: [],
       name: "",
-      isMh: false,
       resultList: [],
       id: "",
       isShow: false,
@@ -20,9 +20,8 @@ class Main extends React.Component {
       pageNo: 1,
       pageSize: 10,
       totalCount: 0,
-      isMh: false,
       title: "新增",
-      isSearch: true,
+     
     };
     that = this;
   }
@@ -70,14 +69,11 @@ class Main extends React.Component {
   }
 
   changeSearchInput(e) {
-    let isMh = false;
     if (e.target.value.trim() !== "") {
-      isMh = true;
+      this.state.isSearch = true;
     }
     this.setState({
       name: e.target.value,
-      isMh: isMh,
-      id: "",
       isShow: false,
       isSearch: false
     });
@@ -86,8 +82,6 @@ class Main extends React.Component {
   clearSearchInput() {
     this.setState({
       name: "",
-      isMh: false,
-      id: "",
       isShow: false,
       isSearch: true
     });
@@ -98,15 +92,13 @@ class Main extends React.Component {
     this.getAreaSearchDetails(name);
   }
   clickMhItemHanderS(name) {
-    let isMh = false;
+    let isSearch = false;
     if (name.trim() !== "") {
-      isMh = true;
+      isSearch = true;
     }
     this.setState({
       name: name,
-      isMh: isMh,
-      id: "",
-
+      isSearch:isSearch,
       isShow: false,
     });
     this.getAreaSearch(name);
@@ -290,7 +282,7 @@ class Main extends React.Component {
         <div
           key={"mhItems" + item.id}
           onClick={this.clickMhItemHander.bind(this, item.pointName, item.id)}
-          className="mhItem"
+          className="point_search_list"
         >
           <div className="mh-ico">
             {item.categoriesicon && item.categoriesicon != "no" ? (
@@ -351,7 +343,7 @@ class Main extends React.Component {
             </div>}
         </div>
         {/* <AddPubPointPosition ref="addDepartment" viewId={1} /> */}
-        {this.state.isShow ? (
+    
           <div id="rootDiv" className="_rootDiv">
             <Modal
               title={this.state.title + "点位管理"}
@@ -374,7 +366,7 @@ class Main extends React.Component {
               {this.state.isShow ? <AddPubPointPosition ref="addDepartment" viewId={this.state.viewId} /> : null}
             </Modal>
           </div>
-        ) : null}
+       
       </div>
     );
   }

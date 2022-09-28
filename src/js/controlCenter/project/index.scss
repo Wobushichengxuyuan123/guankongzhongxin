@@ -1,10 +1,12 @@
 .project_info {
     width: 322px;
+
     .project_title {
         line-height: 33px;
         text-align: center;
         border-bottom: 1px solid #e8e8e8;
     }
+
     .project_input {
         margin: 10px 0 0 10px;
         width: 300px;
@@ -34,7 +36,6 @@
 
     }
 
-    // 历史
     .project_history {
         display: flex;
         flex-direction: row;
@@ -72,6 +73,7 @@
         border: 1px solid #e8e8e8;
         margin-left: 3%;
         overflow: scroll;
+
         .project_table_title {
             text-align: center;
             border-bottom: 1px solid #e8e8e8;
@@ -98,11 +100,13 @@
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 10px;
+
                     .project_table_inforight {
                         margin-left: 10px;
                         color: #000
                     }
                 }
+
                 .project_table_liebiao {
                     .project_table_details {
                         display: flex;
@@ -153,8 +157,6 @@
                             background-size: 18px 18px;
                         }
                     }
-
-
                 }
             }
         }
@@ -223,4 +225,3 @@
         }
     }
 }
-
