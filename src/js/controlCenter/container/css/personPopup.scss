@@ -1,0 +1,48 @@
+.personPopup{
+    width:206px;
+    .cbtn{
+        float:right;
+    }
+    .title{
+        font-size: 16px;
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 5px;
+    }
+    a{
+        font-size: 14px;
+        text-decoration: underline;
+    }
+    .info{
+        height:40px;
+        .address{
+           float:left;
+           width:100%; 
+        }
+        .zuzhi{
+            float:left;
+            width: 50%;
+        }
+        .bumen{
+            float:left;
+            width: 50%;
+        }
+    }
+    .operation{
+        overflow: hidden;
+        >div{
+            float:left;
+            padding-left:20px;
+            background-repeat: no-repeat;
+            background-position-y: center;
+        }
+        >div:not(:first-child){
+            margin-left: 30px;
+        }
+        .dingwei{
+            background-image: url(../img/dingwei.png);
+        }
+        .guiji{
+            background-image: url(../img/guiji01.png);
+        }
+    }
+}

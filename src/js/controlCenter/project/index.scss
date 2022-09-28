@@ -1,0 +1,226 @@
+.project_info {
+    width: 322px;
+    .project_title {
+        line-height: 33px;
+        text-align: center;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .project_input {
+        margin: 10px 0 0 10px;
+        width: 300px;
+        height: 36px;
+    }
+
+    // 搜索
+    .project_search {
+        width: 300px;
+        height: calc(100vh - 170px);
+        margin-left: 10px;
+        border: 1px solid #e8e8e8;
+
+        .project_search_Item {
+            margin-left: 10px;
+            margin-top: 10px;
+            overflow: auto;
+            cursor: pointer;
+
+            .mh-ico img {
+                width: 13px;
+                height: 13px;
+                margin-right: 10px;
+                line-height: 30px;
+            }
+        }
+
+    }
+
+    // 历史
+    .project_history {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+
+        .project_history_title {
+            width: 20%;
+            min-width: 60px;
+            line-height: 32px;
+        }
+
+        .project_history_list {
+            max-height: 70px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            line-height: 22px;
+            overflow-x: scroll;
+
+            overflow: hidden;
+
+            .project_history_list_div {
+                margin: 5px 5px 5px;
+                padding: 0 5px 0 5px;
+                color: #057d7a;
+                border: 1px solid #e8e8e8;
+                border-radius: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .project_table {
+        width: 94%;
+        border: 1px solid #e8e8e8;
+        margin-left: 3%;
+        overflow: scroll;
+        .project_table_title {
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+
+        }
+
+        .project_table_List {
+            height: calc(100vh - 280px);
+            overflow-y: auto;
+
+            .project_table_page_wrap {
+                width: 320px;
+                position: absolute;
+                margin: 0 auto;
+                bottom: 10px;
+            }
+
+            .project_table_List_div {
+                border-bottom: 1px solid #e8e8e8;
+                padding: 7px 17px;
+                font-size: 12px;
+
+                .project_table_information {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    .project_table_inforight {
+                        margin-left: 10px;
+                        color: #000
+                    }
+                }
+                .project_table_liebiao {
+                    .project_table_details {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-right: 10px;
+                        cursor: pointer;
+
+                        .project_table_xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon03.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+                    .track {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-right: 10px;
+                        cursor: pointer;
+
+                        .xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon01.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+                    .call {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        cursor: pointer;
+
+                        .xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon04.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .alterwrap {
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        bottom: 0;
+        width: 280px;
+        /*height: 100%;*/
+        overflow-y: auto;
+
+        .alarm {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 280px;
+            border: 1px solid #EEEEEE;
+
+            .contentbox {
+                width: 100%;
+                // background: rgba(240, 228, 228,0.5);
+                background: #fff;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 15px;
+                /*max-height: 810px;*/
+                overflow: auto;
+                border: 1px solid #EEEEEE;
+
+                .closebtn {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                    border-bottom: 1px solid #666;
+                    padding-right: 10px;
+
+                    .namexinxi {
+                        font-size: 15px;
+                    }
+
+                    .closeicon {
+                        width: 11px;
+                        height: 12px;
+                        background: url("../../controlCenter/container/img/close.png");
+                    }
+
+                    .contenttext {
+                        margin-top: 15px;
+                        border-bottom: 1px solid #EEEEEE;
+                    }
+
+                    .texttitle .text {
+                        font-size: 12px;
+                        color: #666666;
+                        padding-right: 10px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+

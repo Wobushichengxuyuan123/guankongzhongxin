@@ -1,0 +1,46 @@
+@import '../../../../css/init.scss';
+.alarmInfo{
+    .alarmTag{
+        margin-left:8px;
+        cursor: pointer;
+        overflow: hidden;
+        margin-bottom: 20px;
+        div{
+            height:30px;
+            float: left;
+            width:48%;
+            line-height: 30px;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-position-x: 18px;
+            background-position-y: center;
+        }
+        div:first-child{
+            border-right: 1px solid #e8e8e8;
+        }
+        .xhbj{
+            background-image: url(../../container/img/xhbj.png);
+        }
+        .lsbj{
+            background-image: url(../../container/img/lsbj.png);
+        }
+    }
+    .alarmTag .active{
+        color: $systemColor;
+        background-color: #FFFFFF;
+    }
+    .alarmList{
+        
+        .historySearch{
+            margin:20px;
+            overflow: hidden;
+            padding-top:10px;
+            .dataPicker{
+                width:128px !important;
+                float:left;
+                margin-right:5px;
+                margin-top:10px;
+            }
+        }
+    }
+}

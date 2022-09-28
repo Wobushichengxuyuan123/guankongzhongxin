@@ -1,0 +1,107 @@
+.solidId img {
+  width: 150px;
+  height: 150px;
+}
+
+.alarm-alter-wrap {
+  position: fixed;
+  top: 65px;
+  right: 0;
+  bottom: 50px;
+  width: 330px;
+  /*height: 100%;*/
+  overflow-y: auto;
+}
+
+.alarmAlterBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px;
+  border: 1px solid #EEEEEE;
+}
+
+.iframe-box {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.img-wrap {
+  width: 62%;
+  height: 90%;
+  position: fixed;
+  top: 9%;
+  left: 20%;
+  animation: img .3s ease;
+}
+
+.alter-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*@keyframes img {*/
+/*0% {*/
+/*transform: scale(0);*/
+/*}*/
+/*100% {*/
+/*transform: scale(1);*/
+/*}*/
+/*}*/
+
+.ldfaList {
+  width: 100%;
+}
+
+.zxBtn {
+  display: none;
+}
+
+.ldfaItem:hover .zxBtn {
+  display: block;
+  float: right;
+  margin-right: 20px;
+  background-color: #108EE9;
+  padding: 0 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.sBtn {
+  margin-right: 2px;
+  background-color: #1AA094;
+  padding: 0 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+table {
+  text-align: center;
+}
+
+table tr td {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.slick-list {
+  width: 85%;
+  margin: 0 auto !important;
+}
+
+.slick-prev {
+  left: 0 !important;
+  /*z-index: 999 !important;*/
+}
+
+.slick-next {
+  right: 0 !important;
+  /*z-index: 999 !important;*/
+}
+
+.slick-next:before, .slick-prev:before {
+  color: #1AA094 !important;
+}

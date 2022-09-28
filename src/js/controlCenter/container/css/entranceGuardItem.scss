@@ -1,0 +1,94 @@
+.entranceGuardItem {
+  line-height: 25px;
+  overflow: hidden;
+  padding: 9px 5px 9px 26px;
+  border-bottom: 1px solid #d9d9d9;
+  .entranceGuardIcon {
+    display: none;
+    float: left;
+    margin-left: -20px;
+    padding-top: 2px;
+    img {
+      width: 13px;
+      height: 13px;
+      background-repeat: no-repeat;
+      background-position-y: center;
+    }
+  }
+  .entranceGuardNo {
+    float: left;
+    margin-right: 10px;
+    margin-left: -20px;
+  }
+  .entranceGuardName {
+    .entranceGuardWz {
+      color: #999999;
+      padding-left: 25px;
+      padding-right: 15px;
+      background-repeat: no-repeat;
+      background-position-x: right;
+      background-position-y: center;
+    }
+    .sxt1 {
+      background-image: url(../img/sxt1.png);
+    }
+    .sxt0 {
+      background-image: url(../img/sxt0.png);
+    }
+
+  }
+  .entranceGuardOperation {
+    display: none;
+    div {
+      float: left;
+      //width: 45px;
+      background-repeat: no-repeat;
+      padding-left: 20px;
+      background-position-y: center;
+      cursor: pointer;
+    }
+    div:not(:first-child) {
+      margin-left: 20px;
+    }
+    .kaimen {
+      background-image: url(../img/kaimen.png);
+    }
+    .guanmen {
+      background-image: url(../img/guanmen.png);
+    }
+    .changkai {
+      background-image: url(../img/changkai.png);
+    }
+    .changguan {
+      background-image: url(../img/changguan.png);
+    }
+  }
+}
+
+.entranceGuardItem:hover {
+  cursor:pointer;
+  background-color: #f7f7f7;
+  .entranceGuardOperation {
+    display: block;
+  }
+}
+
+.searchInfo {
+  .entranceGuardItem {
+    .entranceGuardIcon {
+      display: block;
+    }
+    .entranceGuardNo {
+      margin-left: 0;
+    }
+  }
+}
+
+.ant-modal {
+  margin: 0 60px;
+}
+
+.ant-modal-body {
+  height: 220px;
+  overflow: auto;
+}

@@ -1,0 +1,19 @@
+.centerVideoCon {
+    position: fixed;
+    z-index: 9;
+    height: 200px;
+    width: 100%;
+    bottom: 4px;
+    right: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -moz-box;
+}
+
+.centerVideos {
+    height: 200px;
+    width: 200px;
+    border: 1px solid #92DFDDFF;
+}

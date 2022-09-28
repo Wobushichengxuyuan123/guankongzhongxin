@@ -1,0 +1,22 @@
+.sw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .ant-form {
+        .ant-form-item-label {
+            text-align: left !important;
+        }
+    }
+
+    .swcheck {
+        width: 25px;
+        height: 0px;
+        line-height: 30px;
+    }
+
+    .huigui {
+        width: 80px !important;
+        // margin-left: 10px !important;
+    }
+}

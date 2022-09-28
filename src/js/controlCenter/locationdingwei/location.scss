@@ -1,0 +1,181 @@
+.shijian{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.zuoyou{
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #666;
+    background-image:url(../container//img/zuotian.png);
+    background-size: 32px 29px;
+}
+.mingtian{
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #666;
+    background-image:url(../container//img/mingtian.png);
+    background-size: 32px 29px;
+}
+.time{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.searchPromptone{
+    display: flex;
+    flex-direction: row;
+    .historyleft{
+        width: 70px;
+    }
+    .history{
+        width: 210px;
+    }
+}
+.historyDivstyle{
+    text-align: center;
+    background: #e8e8e8;
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+.hist{
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 20px;
+    font-size: 12px;
+    .information{
+        margin-bottom: 10px;
+        .inforight{
+            margin-left: 10px;
+            color:#000
+        }
+    }
+    .liebiao{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        .trajectory{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-right: 10px;
+           cursor: pointer;
+            .guiji{
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+                background-image: url(../container/img/ry_icon02.png);
+                background-size: 18px 18px;
+            }
+        }
+        .details{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-right: 10px;
+            cursor: pointer;
+            .xiangqing{
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+                background-image: url(../container/img/ry_icon03.png);
+                background-size: 18px 18px;
+            }
+        }
+        .track{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-right: 10px;
+            cursor: pointer;
+            .xiangqing{
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+                background-image: url(../container/img/ry_icon01.png);
+                background-size: 18px 18px;
+            }
+        }
+        .call{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+            .xiangqing{
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+                background-image: url(../container/img/ry_icon04.png);
+                background-size: 18px 18px;
+            }
+        }
+        
+       
+    }
+}
+
+#demoP{
+    position: fixed;
+    bottom:20px;
+    left:383px;
+    right:50px;
+    border:1px solid blue;
+    height:10px;
+    .info{
+        background:#2caba2;
+        // width:calc(100% - 10px);
+        height: 100%;
+        position: absolute;
+    }
+    .timeBox{
+        position: absolute;
+        height:20px;
+        bottom:-20px;
+        font-size: 12px;
+        width:16px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    .zhiz {
+        width: 55px;
+        border: 1px solid #2caba2;
+        position: absolute;
+        font-size: 9px;
+        padding: 0 2px;
+        margin-top: -26px;
+        transform: translateX(-50%);
+        cursor: pointer;
+        text-align: center;
+    }
+    .zhiz::after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: -10px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -5px;
+        overflow: hidden;
+        border: 5px solid transparent;
+        border-top-color: #2caba2;
+    }
+    .closebtn{
+        position: absolute;
+        top: -50px;
+        display: flex;
+        flex-direction: row;
+        .namexinxi{
+            margin-right: 10px;
+        }
+        .active{
+            color: #1AA094;
+        }
+    }
+}

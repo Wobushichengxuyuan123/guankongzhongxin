@@ -1,0 +1,108 @@
+.control-box {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+
+    .control {
+        display: grid;
+        grid-template-columns: repeat(3, 33.33%);
+        grid-template-rows: repeat(3, 33.33%);
+        width: 150px;
+        height: 150px;
+
+        .arrow-icon {
+            background-image: url(../img//fangxiangicon/yuntai.png);
+            height: 32px;
+            width: 32px;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #FFF;
+        }
+
+        .arrow-icon:hover {
+            background-color: #ddd
+        }
+
+        .arrow-icon:active {
+            cursor: pointer;
+        }
+
+        .arrow-top {
+            background-position: -31px 0px;
+        }
+
+        .arrow-right {
+            background-position: -60px -30px;
+        }
+
+        .arrow-bottom {
+            background-position: -31px -60px;
+        }
+
+        .arrow-left {
+            background-position: 0 -30px;
+        }
+
+        .arrow-top-left {
+            background-position: 0 0;
+        }
+
+        .arrow-top-right {
+            background-position: -60px 0px
+        }
+
+        .arrow-bottom-left {
+            background-position: 0 -60px;
+        }
+
+        .arrow-bottom-right {
+            background-position: -60px -60px;
+        }
+
+        .arrow-center {
+            background-position: -30px -30px;
+        }
+    }
+
+    .control-zoom-box {
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        align-self: center;
+
+        .arrow-icon {
+            background-image: url(../img//fangxiangicon/yuntai.png);
+            height: 32px;
+            width: 42px;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #FFF;
+        }
+
+        .arrow-icon:hover {
+            background-color: #ddd
+        }
+
+        .arrow-icon:active {
+            cursor: pointer;
+        }
+
+        .arrow-zoom-out {
+            margin-right: 20px;
+            background-position: -90px 0;
+        }
+
+        .arrow-zoom-in {
+            background-position: -126px 0;
+        }
+    }
+
+
+}

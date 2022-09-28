@@ -1,0 +1,46 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  .content {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+  }
+  .toggleData {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    .btn {
+      border-right: 1px solid #f2f2f2;
+      padding: 8px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #005A5A;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: all 0.35s;
+      &:last-child {
+        border-right: 0;
+      }
+      &:hover {
+        opacity: 0.8;
+        background-color: #1AA094;
+      }
+    }
+    .btn.active {
+      opacity: 0.8;
+      background-color: #1AA094;
+    }
+  }
+  :global {
+    h3 {
+      padding: 24px 0 8px 0;
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+}

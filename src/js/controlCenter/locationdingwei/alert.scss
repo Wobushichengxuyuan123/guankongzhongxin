@@ -1,0 +1,55 @@
+.alterwrap{
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    bottom: 0;
+    width: 280px;
+    /*height: 100%;*/
+    overflow-y: auto;
+    .alarm {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        border: 1px solid #EEEEEE;
+        .contentbox{
+            width: 100%;
+            // background: rgba(240, 228, 228,0.5);
+            background: #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 15px;
+            /*max-height: 810px;*/
+            overflow: auto;
+            border: 1px solid #EEEEEE;
+            .closebtn {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                border-bottom: 1px solid #666;
+                padding-right: 10px;
+                .namexinxi{
+                    font-size: 15px;
+                }
+                .closeicon {
+                    width: 11px;
+                    height: 12px;
+                    background: url("../../controlCenter/container/img/close.png");
+                  }
+                .contenttext {
+                    margin-top: 15px;
+                    border-bottom: 1px solid #EEEEEE;
+                }
+                .texttitle .text {
+                    font-size: 12px;
+                    color: #666666;
+                    padding-right: 10px;
+                }
+              }
+           
+        }
+    }
+}

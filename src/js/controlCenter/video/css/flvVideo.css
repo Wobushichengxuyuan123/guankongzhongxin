@@ -1,0 +1,290 @@
+.videoBox {
+    width: 100%;
+    height: 100%;
+}
+
+.menuContiner {
+    display: none;
+    width: 200px;
+    position: absolute;
+    padding: 15px 0;
+    background: url(../img/contextmenuBg.png) no-repeat;
+    background-size: cover;
+    z-index: 9999;
+}
+
+.menuContiner > div {
+    width: 100%;
+    margin: 0 auto 10px;
+    color: #fff;
+    padding: 3px 12%;
+}
+
+.menuContiner > div:hover {
+    cursor: default;
+    background: #045856FF;
+}
+
+.border_top_line {
+    border-top: 1px solid #ccc;
+    transform: scaleY(0.5);
+}
+
+.border_right_line {
+    border-right: 1px solid #2DBFCCFF;
+    transform: scaleY(0.5);
+}
+
+.videoElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.addBorder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 1px;
+    bottom: 50px;
+    visibility: visible;
+    border: 1px solid #92DFDDFF;
+}
+
+/*.videoFlex {*/
+    /*position: absolute;*/
+    /*background: url(../img/videoFlex.png) no-repeat;*/
+    /*background-size: cover;*/
+    /*width: 45%;*/
+    /*right: 200px;*/
+    /*bottom: 60px;*/
+    /*padding: 10px;*/
+    /*display: none;*/
+/*}*/
+
+.topMenu {
+    color: #fff;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    background: url(../img/menuBg.png) no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+.bottomMenu {
+    color: #fff;
+    position: relative;
+    bottom: 5px;
+    left: 0;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    background: url(../img/menuBg.png) no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+.smallIcon {
+    width: 4%;
+    padding-top: 4%;
+}
+
+.cameraSmallIcon {
+    background: url(../img/cameraSmallIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.playVoiceSmallIcon {
+    background: url(../img/playVoiceSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.pauseVoiceSmallIcon {
+    background: url(../img/pauseVoiceSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.glassSmallIcon {
+    background: url(../img/glassSmall.png) no-repeat;
+    background-size: cover;
+}
+.glassSmallIconactive {
+    background: url(../img/glassSmallIconactive.png) no-repeat;
+    background-size: cover;
+}
+
+.codeSmallIcon {
+    background: url(../img/codeSmall.png) no-repeat;
+    background-size: cover;
+}
+.codeSmallactiveIcon {
+    background: url(../img/codeSmall_active.png) no-repeat;
+    background-size: cover;
+}
+
+.videoSmallIcon {
+    background: url(../img/videoSmall.png) no-repeat;
+    background-size: cover;
+}
+.videoSmallIconactive {
+    background: url(../img/videoSmall_active.png) no-repeat;
+    background-size: cover;
+}
+
+.backSmallIcon {
+    background: url(../img/backSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.micSmallIcon {
+    background: url(../img/micSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.changeSmallIcon {
+    background: url(../img/changeSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.EDSmallIcon {
+    background: url(../img/3Dsmall.png) no-repeat;
+    background-size: cover;
+}
+.EDSmallIconactive {
+    background: url(../img/3Dsmallactive.png) no-repeat;
+    background-size: cover;
+}
+
+.locationSmallIcon {
+    background: url(../img/locationSmall.png) no-repeat;
+    background-size: cover;
+}
+.locationSmallIconactive {
+    background: url(../img/locationSmallIconactive.png) no-repeat;
+    background-size: cover;
+}
+
+.imageSmallIcon {
+    background: url(../img/imageSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.warningSmallIcon {
+    background: url(../img/warningSmall.png) no-repeat;
+    background-size: cover;
+}
+
+.videoBackSmallIcon {
+    background: url(../img/videoBackSmall.png) no-repeat;
+    background-size: cover;
+}
+.videoBackSmallIconactive {
+    background: url(../img/videoBackSmallIconactive.png) no-repeat;
+    background-size: cover;
+}
+
+.cameraTitleIcon {
+    background: url(../img/cameraTitleIcon.png) no-repeat;
+    background-size: contain;
+}
+
+.closeBtnone {
+    background: url(../img/closeBtn.png) no-repeat;
+    background-size: cover;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.fullIcon {
+    background: url(../img/fullIcon.png) no-repeat;
+    background-size: cover;
+    min-height: 20px;
+    min-width: 20px;
+}
+.titleIcon {
+    width: 6%;
+    padding-top: 6%;
+}
+
+.videoChangScreen {
+    width: 15%;
+    text-align: center;
+    border: 1px solid #92DFDDFF;
+    margin: 0 1.5% 5px 0;
+}
+
+.videoChangScreen > img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* .videoContainer:hover > .bottomMenu {
+    display: flex;
+}
+
+.videoContainer:hover > .topMenu {
+    display: flex;
+}
+
+.videoContainer:hover > .videoElement {
+    height: calc(100% - 100px);
+} */
+.videoContainer > .bottomMenu {
+    display: flex;
+    margin-top:-50px;
+    z-index:5;
+}
+
+.videoContainer > .topMenu {
+    display: flex;
+    margin-bottom:-50px;
+    z-index:5;
+}
+
+.addBorder:hover {
+    border: 1px solid green;
+}
+
+.videoContainer {
+    width: 100%;
+    height: 100%;
+    background-color: #032726FF;
+    position: relative;
+}
+.videoContainerone {
+    width: 100%;
+    height: 100%;
+    background-color: #032726FF;
+    position: relative;
+}
+.maliu{
+    margin-top:0 !important;
+    position: absolute;
+    bottom:50px !important;
+    line-height: normal;
+    
+    width: 120px;
+    padding:0;
+    background-color: rgba(0,0,0,.2);
+}
+.maliu_flex{
+display: flex;
+flex-direction: column;
+}
+.maliu_left{
+    display: flex;
+    flex-direction: row;
+}
+.maliu_left div{
+    font-size: 10px;
+    color: #fff;
+}

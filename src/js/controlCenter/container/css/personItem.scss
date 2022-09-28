@@ -1,0 +1,76 @@
+.personItem {
+  line-height: 25px;
+  overflow: hidden;
+  padding: 9px 5px 9px 26px;
+  border-bottom: 1px solid #d9d9d9;
+  .personIcon {
+    display: none;
+    float: left;
+    margin-left: -20px;
+    padding-top: 2px;
+    img {
+      width: 13px;
+      height: 13px;
+      background-repeat: no-repeat;
+      background-position-y: center;
+    }
+  }
+  .personNo {
+    float: left;
+    margin-right: 10px;
+    margin-left: -20px;
+  }
+  .personName {
+    .personDw {
+      color: #999999;
+      padding-left: 25px;
+    }
+  }
+  .time {
+    color: #999999;
+    padding-right: 5px;
+  }
+  .personOperation {
+    display: none;
+    div {
+      float: left;
+      background-repeat: no-repeat;
+      padding-left: 20px;
+      background-position-y: center;
+      cursor: pointer;
+    }
+    div:not(:first-child) {
+      margin-left: 20px;
+    }
+    .hujiao {
+      background-image: url(../img/hujiao.png);
+    }
+    .guiji {
+      background-image: url(../img/guiji.png);
+    }
+    .dingwei {
+      background-image: url(../img/dingwei.png);
+    }
+    .xiangqing {
+      background-image: url(../img/xiangqing.png);
+    }
+  }
+}
+
+.personItem:hover {
+  background-color: #f7f7f7;
+  .personOperation {
+    display: block;
+  }
+}
+
+.searchInfo {
+  .personItem {
+    .personIcon {
+      display: block;
+    }
+    .personNo {
+      margin-left: 0;
+    }
+  }
+}

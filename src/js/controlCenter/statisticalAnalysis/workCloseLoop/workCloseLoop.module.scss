@@ -1,0 +1,115 @@
+@import "../../../commons/gScss/mixin.scss";
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  :global {
+    .ant-spin-nested-loading {
+      width: 100%;
+      height: 100%;
+      .ant-spin-container {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .content {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+  }
+  .btn {
+    border-right: 1px solid #f2f2f2;
+    padding: 8px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #005a5a;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.35s;
+    &:last-child {
+      border-right: 0;
+    }
+    &:hover {
+      opacity: 0.8;
+      background-color: #1aa094;
+    }
+  }
+  .btn.active {
+    opacity: 0.8;
+    background-color: #1aa094;
+  }
+  .export_box {
+    padding: 0 8px;
+    text-align: right;
+    .supportExportBtn {
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.35s;
+      &:hover {
+        color: #1aa094;
+        box-shadow: 0 0 8px #cacaca;
+      }
+    }
+  }
+  .dataControl {
+    padding: 8px;
+    overflow: hidden;
+    .time {
+      float: right;
+    }
+    .toggleData {
+      display: flex;
+      float: left;
+    }
+  }
+  
+  .toggleSourceData {
+    display: flex;
+    float: left;
+    // justify-content: center;
+    // padding: 8px 0;
+  }
+  :global {
+    h3 {
+      padding: 24px 0 8px 0;
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+
+  // table大列表
+  :global {
+    .table_data01 {
+      @include tableBase;
+    }
+    .breadcrumb_box {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      min-height: 36px;
+      border-bottom: 1px solid #e8e8e8;
+      .backIcon {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        height: 100%;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.35s;
+        &:hover {
+          color: #000000;
+        }
+      }
+      .r {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}

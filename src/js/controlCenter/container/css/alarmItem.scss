@@ -1,0 +1,131 @@
+.alarmItem{
+    min-height:80px;
+    border-bottom:1px solid #E8E8E8;
+    padding:15px;
+    padding-right:0px;
+    line-height: 30px;
+    .alarmNo{
+        float: left;
+        margin-left: -9px;
+        margin-right: 10PX;
+    }
+    .alarmTitle{
+        font-size: 14px;
+        overflow: hidden;
+        .alarmText{
+           max-width: 250px;
+           text-overflow: ellipsis;
+           overflow: hidden;
+           white-space: nowrap;
+           float:left;
+           padding-right:5px;
+        }
+    }
+    .alarmItemOperation {
+        overflow: hidden;
+        display:block;
+        >div{
+            line-height: 20px;
+            padding: 2px 4px 2px 15px;
+            float:left;
+            margin-right: 20px;
+            cursor: pointer;
+            background-repeat:no-repeat ;
+            background-position-y: center;
+        }
+        >div.ldfaList{
+            width:100%;
+            .ldfaItem{
+                .zxBtn{
+                    display:none;
+                }
+            }
+            .ldfaItem:hover{
+                .zxBtn{
+                    display:block;
+                    float:right;
+                    margin-right:20px;
+                    background-color: #108EE9;
+                    padding:0 5px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        >div.ljclDiv{
+             width:100%;
+             line-height: 50px;
+             textarea.ant-input{
+                 width:200px;
+                 margin-left:10px;
+             }
+          .oper{
+              float:right;
+              margin-right:20px;
+                 >div{
+                     line-height: 20px;
+                     float:left;
+                     margin:10px;
+                 }
+             }
+        }
+        .liandong{
+            background-image: url(../img/liandong.png);
+        }
+        .yuan{
+            background-image: url(../img/yuan.png);
+        }
+        .ljcl{
+            background-image: url(../img/ljcl.png);
+        }
+        .bcl{
+            background-image: url(../img/bcl.png);
+        }
+    }
+    .alarmTime{
+        color: #999999;
+    }
+    .alarm1{
+        width: 13px;
+        height: 13px;
+        float: left;
+        margin-left:5px;
+        margin-right: 5px;
+    }
+    .alarmFire{
+        width: 13px;
+        height: 13px;
+        float: left;
+        margin-left:5px;
+        margin-right: 5px;
+    }
+}
+.alarmItem:hover{
+    background-color: #F7F7F7;
+    .alarmItemOperation {
+        display:block;
+    }
+}
+
+.searchInfo {
+    .alarmItem{
+        padding:10px 0px 10px 15px;
+        line-height: 25px;
+        .alarmNo{
+            margin-left: 10px;
+        }
+        .alarmIcon{
+            float:left;
+            background-image: url(../img/quyu-11.png);
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: bottom;
+            width: 13px;
+            height: 13px;
+            margin-left: -10px;
+            margin-top: 5px;
+        }
+        .alarmTitle .alarmText{
+            max-width: 180px;
+        }
+    }
+}

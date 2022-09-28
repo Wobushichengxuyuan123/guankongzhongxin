@@ -1,0 +1,162 @@
+.point_info{
+    width: 322px;
+    .point_title {
+        line-height: 33px;
+        text-align: center;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .point_add {
+        position: absolute;
+        right: 30px;
+        cursor: pointer;
+        top: 5px;
+        font-size: 14px;
+        color: rgb(82, 37, 228);
+    }
+     // 搜索
+     .point_search {
+        width: 300px;
+        height: calc(100vh - 170px);
+        margin-left: 10px;
+        border: 1px solid #e8e8e8;
+
+        .point_Item {
+            margin-left: 10px;
+            margin-top: 10px;
+            overflow: auto;
+            cursor: pointer;
+
+            .mh-ico img {
+                width: 13px;
+                height: 13px;
+                margin-right: 10px;
+                line-height: 30px;
+            }
+        }
+
+    }
+    
+    .point_input {
+        margin: 10px 0 0 10px;
+        width: 300px;
+        height: 36px;
+    }
+    .point_table {
+        width: 94%;
+        border: 1px solid #e8e8e8;
+        margin-left: 3%;
+        overflow: scroll;
+        .point_table_title {
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+
+        }
+        .point_table_List {
+            height: calc(100vh - 220px);
+            overflow-y: auto;
+
+            .point_table_page_wrap {
+                width: 320px;
+                position: absolute;
+                margin: 0 auto;
+                bottom: 10px;
+            }
+
+            .point_table_List_div {
+                border-bottom: 1px solid #e8e8e8;
+                padding: 7px 17px;
+                font-size: 12px;
+
+                .point_table_information {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    .point_table_inforight {
+                        margin-left: 10px;
+                        color: #000
+                    }
+                }
+                .point_table_liebiao {
+                    .point_table_details {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-right: 10px;
+                        cursor: pointer;
+
+                        .point_table_xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon03.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+                    .track {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-right: 10px;
+                        cursor: pointer;
+
+                        .xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon01.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+                    .call {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        cursor: pointer;
+
+                        .xiangqing {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 5px;
+                            background-image: url(../container/img/ry_icon04.png);
+                            background-size: 18px 18px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+
+
+.add_modal01Long {
+    width: 320px !important;
+    position: fixed;
+    right: 0;
+
+    .ant-modal-body {
+        height: 300px !important;
+    }
+
+    .ant-modal-wrap {
+        position: absolute !important;
+    }
+}
+
+.addDepartment {
+    height: 400px;
+    width: 260px;
+    padding-left: 10px;
+}
+
+// 此写法很另类，暂时没想到其他的
+._rootDiv>div>div>div {
+    width: fit-content !important;
+}

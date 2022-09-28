@@ -1,0 +1,74 @@
+
+.videoFlex {
+    position: absolute;
+    background: url(../img/videoFlex.png) no-repeat;
+    background-size: cover;
+    width: 45%;
+    right: 200px;
+    bottom: 60px;
+    padding: 10px;
+    display: none;
+}
+
+.mainBtn {
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+    height: 47px;
+    line-height: 47px;
+    padding: 0 10px;
+    background: url(../img/mainBtn.png) no-repeat;
+    background-size: cover;
+}
+
+.mainBtnSize {
+    height: 25px;
+    width: 25px;
+}
+
+.showCameraBtn {
+    background: url(../img/showBtn.png) no-repeat;
+    background-size: cover;
+}
+
+.downArrowIcon {
+    background: url(../img/downArrow.png) no-repeat;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+}
+
+.closeIcon {
+    background: url(../img/closeIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.splitIcon {
+    background: url(../img/splitIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.autoIcon {
+    background: url(../img/autoIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.fullIcon {
+    background: url(../img/fullIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.settingIcon {
+    background: url(../img/settingIcon.png) no-repeat;
+    background-size: cover;
+}
+
+.settingPanel {
+    background: url(../img/settingPanel.png) no-repeat;
+    background-size: cover;
+    height: 75%;
+    width: 80%;
+    position: relative;
+    transform: translateY(-115%);
+    left: 10%;
+}

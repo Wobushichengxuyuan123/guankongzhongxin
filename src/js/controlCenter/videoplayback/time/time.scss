@@ -1,0 +1,62 @@
+#timeP {
+    position: fixed;
+    bottom: 48px;
+    left: calc(20% + 50px);
+    right: 0px;
+    border: 1px solid #000;
+    height: 45px;
+    background: #ccc;
+    overflow: hidden;
+    .info {
+        background: rgba($color: #000000, $alpha: 0.7);
+        height: 20%;
+        position: absolute;
+        cursor: pointer;
+    }
+    .infotop {
+        border-top: 1px solid rgba($color: #fff, $alpha: 0.8);
+        margin-top: 9px;
+    }
+
+    .timeBox {
+        position: absolute;
+        height: 38px;
+        bottom: -2px;
+        font-size: 12px;
+        width: 11px;
+        transform: translateX(-50%);
+        text-align: center;
+        color: rgba($color: #fff, $alpha: 0.8);
+
+
+    }
+
+    .timeBoxone {
+        display: none;
+    }
+
+    .zhiz {
+        width: 55px;
+        border: 1px solid #333;
+        position: absolute;
+        font-size: 9px;
+        padding: 0 2px;
+        margin-top: 15px;
+        transform: translateX(-50%);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .zhiz::after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: 20px;
+        left: 50%;
+        width: 2px;
+        height: 25px;
+        margin-left: -3px;
+        overflow: hidden;
+        background: red;
+    }
+}

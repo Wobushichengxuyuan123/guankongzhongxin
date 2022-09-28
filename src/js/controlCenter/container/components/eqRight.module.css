@@ -1,0 +1,38 @@
+.eqRight {
+  position: fixed;
+  box-sizing: border-box;
+  right: 0;
+  bottom: 0;
+  width: 322px;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  border: 1px solid #f2f2f2;
+  background-color: #ffffff;
+  /* background-color: pink; */
+}
+.content {
+  padding: 8px;
+}
+.p_title {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 33px;
+  border-bottom: 1px solid #E8E8E8;
+}
+.con_item {
+  margin-top: 8px;
+}
+.con_item .con_img {
+  width: 150px;
+  height: 150px;
+}
+.closeIcon {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  z-index: 3;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333333;
+}

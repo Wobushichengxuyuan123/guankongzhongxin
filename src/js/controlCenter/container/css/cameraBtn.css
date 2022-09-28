@@ -1,0 +1,29 @@
+.r_flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.c_flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.jc_c {
+    justify-content: center;
+}
+
+.jc_sb {
+    justify-content: space-between;
+}
+
+.ai_c {
+    align-items: center;
+}
+
+.text_c {
+    text-align: center;
+}
+
+.margin_auto {
+    margin: 0 auto;
+}

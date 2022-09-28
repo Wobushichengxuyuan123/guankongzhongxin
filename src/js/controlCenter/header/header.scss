@@ -1,0 +1,236 @@
+@import '../../../css/init.scss';
+
+.header {
+    height: 64px;
+    background-color: $systemColor;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    background-image: url(./img/top-bj.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+
+    .logo {
+        height: 64px;
+        // position: absolute;
+        padding-left: 205px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-weight: 500;
+        color: #FFFFFF;
+        background: url('./img/logo.png') 28px center no-repeat;
+
+        .s1 {
+            font-size: 18px;
+            line-height: 26px;
+        }
+
+        .s2 {
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    .borderImg {
+        // width: 12%;
+        background: url('./img/border.png') center no-repeat;
+        background-size: 100% auto;
+        padding: 0 50px 0 50px;
+    }
+
+    .header-menu {
+        margin-left: 26px;
+        display: flex;
+
+        .header-div {
+            display: flex;
+            flex-direction: column;
+            height: 64px;
+            min-width: 88px;
+            padding: 6px 18px 0;
+            float: left;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: 6px;
+            text-align: center;
+            cursor: pointer;
+
+            .header-img {
+                display: flex;
+                align-items: center;
+                height: 30px;
+
+                .h-img {
+                    width: 30px;
+                    display: block;
+                    align-items: center;
+                }
+            }
+        }
+
+        .header-div:hover,
+        .header-div.active {
+            background-color: $headerMenuActive;
+        }
+
+        // 首页
+        .home {
+            background-image: url(./img/index.png);
+        }
+
+        // 视频监控
+        .video {
+            background-image: url(./img/monitor.png);
+        }
+
+        // 洞室门禁
+        .Access {
+            background-image: url(./img/entrance.png);
+        }
+
+        .position {
+            background-image: url(./img/position.png);
+        }
+
+        .radio {
+            background-image: url(./img/radio.png);
+        }
+
+        .geological {
+            background-image: url(./img/geological.png);
+        }
+
+        .protection {
+            background-image: url(./img/protection.png);
+        }
+
+        .controls {
+            background-image: url(./img/controls.png);
+        }
+
+        .helmet {
+            background-image: url(./img/helmet.png);
+        }
+
+        .menjin {
+            background-image: url(./img/menjin.png);
+        }
+
+        .dispatch {
+            background-image: url(./img/zhinengdiaodu.png);
+        }
+
+        .location {
+            background-image: url(./img/zhinengdingwei.png);
+        }
+
+        .patrols {
+            background-image: url(./img/patrol.png);
+        }
+
+        .operationControl {
+            background-image: url(./img/operationControl.png);
+        }
+
+        .inspection {
+            background-image: url(./img/inspection.png);
+        }
+
+        .defenses {
+            background-image: url(./img/defense.png);
+        }
+    }
+
+    .header-right {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #FFFFFF;
+    }
+
+    .header-right a {
+        color: #FFFFFF;
+    }
+
+    .header-right>div:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+
+    .header-right>div:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+
+    .header-right>div {
+        float: left;
+        margin: 5px 1px;
+        padding-top: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        background-repeat: no-repeat;
+        background-position: center 6px;
+        // background-position-y: 6px;
+        min-width: 67px;
+        height: 54px;
+        // background-color: $headerMenuActive;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .lock {
+        background-image: url(./img/lock.png);
+        background-position: center 10px;
+    }
+
+    .down {
+        background-image: url(./img/down.png);
+        position: relative;
+    }
+
+    .down span {
+        color: #fff;
+        text-decoration: none;
+        height: 52px;
+        width: 67px;
+        left: 0;
+        top: 0;
+    }
+
+    .system {
+        background-image: url(./img/system.png);
+    }
+
+    .user {
+        background-image: url(./img/user.png);
+    }
+}
+
+.popupUser {
+    >div {
+        background-repeat: no-repeat;
+        padding-left: 20px;
+        line-height: 25px;
+        background-position-y: 5px;
+        cursor: pointer;
+    }
+
+    .editPwd {
+        background-image: url(./img/editPwd.png);
+    }
+
+    .cancelLogin {
+        background-image: url(./img/cancelLogin.png);
+    }
+
+    .exit {
+        background-image: url(./img/exit.png);
+    }
+}
+
+.header-img {
+    display: flex;
+    flex-direction: column;
+}

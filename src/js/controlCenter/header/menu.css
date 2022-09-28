@@ -1,0 +1,159 @@
+.wrapleft{
+  position: absolute;
+  }
+  .menu_left {
+      width: 100px;
+      background-color: #fff;
+      position: absolute;
+      top: 64px;
+      bottom: 0;
+      height: calc(96vh);
+    }
+    
+    .menu_left .ant-menu-inline, .ant-menu-vertical {
+      border: none;
+      background: #fff
+    }
+    
+    .menu_left .ant-menu {
+      background-color: #fff;
+      color: #f5faf9;
+    }
+    
+    .menu_left .ant-menu a {
+      text-decoration: none;
+    }
+    
+    .menu_left .ant-menu a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .menu_left .ant-menu-item {
+      color: #f5faf9
+    }
+    
+    .menu_left .ant-menu-item-active {
+      color: #f5faf9
+    }
+    
+    .menu_left .ant-menu-item-selected, .menu_left .ant-menu-item-selected a {
+      color: #f5faf9;
+    }
+    
+    .menu_left .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background-color: #2aa49c;
+    }
+    
+    .menu_left .ant-menu-inline .ant-menu-item:after, .menu_left .ant-menu-vertical .ant-menu-item:after {
+      border: none;
+      color: #f5faf9
+    }
+    
+    .menu_left .ant-menu-item:active, .menu_left .ant-menu-submenu-title:hover {
+      background-color: #057d7a;
+    }
+    
+    .menu_left .ant-menu-item:active, .menu_left .ant-menu-submenu-title:active {
+      background-color: #057d7a;
+    }
+    
+    .menu_left .ant-menu-item:hover, .menu_left .ant-menu-item-active, .menu_left .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .menu_left .ant-menu-submenu-active, .menu_left .ant-menu-submenu-title:hover {
+      color: #fff;
+    }
+    
+    .menu_left .ant-menu-inline .ant-menu-item, .menu_left .ant-menu-vertical .ant-menu-item {
+      margin-left: 0;
+      left: 0;
+      line-height: 50px;
+      height: 50px;
+      font-size: 14px;
+      padding-left: 38px;
+      background: #fff
+    }
+    
+    .menu_left .ant-menu-vertical .ant-menu-item, .ant-menu-inline .ant-menu-item, .menu_left .ant-menu-vertical .ant-menu-submenu-title, .menu_left .ant-menu-inline .ant-menu-submenu-title {
+      font-size: 14px !important;
+      height: 35px;
+      line-height: 35px;
+      border-bottom: 1px solid red;
+    }
+    
+    .menu_left .ant-menu-submenu-selected {
+      color: #fff
+    }
+    
+    .menu_left .ant-menu-submenu-open, .menu_left .ant-menu-submenu-active {
+      background-color: #2aa49c;
+    }
+    
+    .menu_left .ant-menu-submenu-open a, .menu_left .ant-menu-submenu-active a {
+      color: #f5faf9;
+    }
+    
+    .menu_left .ant-menu-submenu-open .ant-menu-submenu-title {
+      color: #f5faf9;
+      text-align: left;
+      padding-left: 35px
+    }
+    
+    .menu_left .ant-menu-submenu-title {
+      color: #fff;
+      text-align: left;
+  
+      background: #2CABA2;
+      background: #2aa49c;
+      /* background: url(./img/menu_ico02.png) 9px 9px no-repeat #2caba2; */
+      padding-left: 35px
+    }
+    
+    .menu_left .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-active:hover {
+      background-color: #1b9b9a;
+    }
+    
+    .menu_left .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-active:hover a {
+      color: #fff;
+    }
+    
+    .menu_left .ant-menu-submenu {
+      border-bottom: 1px solid #4ecdc4;
+    }
+    .leftdiv{
+      display: flex;
+      flex-direction: column;
+      /* height: 63px !important; */
+    }
+    .leftBottom{
+      height: 30px;
+      text-align: center;
+    }
+    .ant-menu-item{
+      width: 58px;
+      height: 63px !important;
+      line-height: 63px;
+      margin-bottom: 0;
+      padding: 0 !important;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: center 18px;
+      cursor: pointer;
+      margin: 0 !important;
+      text-align: center;
+    }
+    sup {
+      margin-left: 40px;
+      margin-top: 15px;
+      width:20px;
+      height:14px;
+      line-height: 14px;
+      padding:0px;
+  }
+  
+  .ant-badge-count{
+    height: 14px;
+    padding: 0;
+  }

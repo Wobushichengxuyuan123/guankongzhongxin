@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.leftMenu {
+  width: 216px;
+  height: 100%;
+  background-color: #f2f2f2;
+}
+.menu_item {
+  font-size: 14px;
+  padding: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  transition: all 0.35s;
+  cursor: pointer;
+  &:hover {
+    color: rgb(0, 166, 166);
+    background-color: #ffffff;
+  }
+}
+.menu_item.active {
+  color: rgb(0, 166, 166);
+  background-color: #ffffff;
+}
+.content {
+  width: calc(100% - 216px);
+  height: 100%;
+}
+
+// 成为智能巡检子菜单之后做出的改变
+.root {
+  position: fixed;
+  width: calc(100% - 60px);
+  background-color: #ffffff;
+}

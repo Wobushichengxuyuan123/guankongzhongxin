@@ -1,0 +1,85 @@
+@mixin tableBase {
+  .ant-table-header {
+    background-color: transparent;
+  }
+  .ant-table-thead > tr > th {
+    padding: 8px !important;
+  }
+  .ant-table-fixed-header {
+    .ant-table-scroll .ant-table-header {
+      margin-bottom: 0 !important;
+      overflow-x: hidden !important;
+    }
+  }
+  .ant-table-thead > tr {
+    height: initial !important;
+  }
+  .ant-pagination-item-active a {
+    color: #ffffff;
+  }
+  .ant-table-pagination {
+    padding-right: 30px !important;
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: #1aa094 !important;
+    text-align: center !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    border-color: #e8e8e8 !important;
+  }
+
+  .ant-table-tbody > tr > td {
+    text-align: center !important;
+    border-color: #e8e8e8 !important;
+    font-size: 12px !important;
+    color: #333 !important;
+    word-break: break-all !important;
+  }
+
+  .ant-pagination-item-active:focus,
+  .ant-pagination-item-active:hover {
+    background-color: #5fb878 !important;
+    color: #fff !important;
+  }
+
+  .ant-pagination-prev:focus .ant-pagination-item-link,
+  .ant-pagination-next:focus .ant-pagination-item-link,
+  .ant-pagination-prev:hover .ant-pagination-item-link,
+  .ant-pagination-next:hover .ant-pagination-item-link {
+    border-color: #5fb878 !important;
+    color: #5fb878 !important;
+  }
+
+  .ant-pagination-item:focus,
+  .ant-pagination-item:hover {
+    border-color: #5fb878 !important;
+  }
+
+  .ant-pagination-item:focus a,
+  .ant-pagination-item:hover a {
+    color: #5fb878 !important;
+  }
+
+  .ant-pagination-item-active {
+    background-color: #5fb878 !important;
+    color: #fff !important;
+    border-color: #5fb878 !important;
+  }
+
+  .ant-pagination-item-active:focus a,
+  .ant-pagination-item-active:hover a {
+    color: #fff !important;
+  }
+
+  .ant-table-thead > tr.ant-table-row-hover > td,
+  .ant-table-tbody > tr.ant-table-row-hover > td,
+  .ant-table-thead > tr:hover > td,
+  .ant-table-tbody > tr:hover > td {
+    background: #f7f7f7 !important;
+  }
+  .ant-table-tbody > tr:nth-of-type(2n) {
+    background-color: #f2fcfc;
+  }
+}

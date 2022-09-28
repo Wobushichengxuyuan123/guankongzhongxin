@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>违章识别预警视频回放</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .video-wrap {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: #000;
+    }
+    #videoItem{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="video-wrap">
+  <video id="videoItem" class='video-item' autoplay="autoplay" controls="controls" loop='loop'>
+    <source src=''/>
+  </video>
+</div>
+<script src="jquery.js"></script>
+<script>
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+  }
+
+  var url = getQueryString('video')
+  console.log(url)
+  $('#videoItem').attr("src", url)
+
+</script>
+</body>
+</html>

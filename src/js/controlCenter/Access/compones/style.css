@@ -1,0 +1,143 @@
+.overall {
+  height: 500px;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 7px;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #939392;
+}
+::-webkit-scrollbar-track {
+  display: none;
+  /* // -webkit-box-shadow: 0; */
+  border-radius: 0;
+  background: #f0f2f5;
+}
+.ant-table{
+    background: none;
+    border:none;
+}
+/* .ant-table-thead>tr>th {
+  background-color: rgba(40, 108, 224, 0.33);
+  height: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #37B6FF;
+  text-align: center;
+} */
+.ant-table-thead>tr{
+  height: 50px !important;
+}
+
+.ant-table-thead>tr>th {
+  border-bottom: none;
+  height: 40px !important;
+
+}
+
+.ant-table-tbody>tr>td {
+  border-bottom: none;
+  text-align: center;
+}
+
+.ant-table-thead>tr>th .ant-table-header-column {
+  margin-left: 10px;
+}
+:not(.init_table_scroll)>.ant-table-wrapper .ant-table-body {
+
+  overflow-y: auto;
+  max-height: 400px !important;
+}
+
+.ant-table-header {
+  background: none;
+}
+
+.ant-table-fixed-header>.ant-table-content>.ant-table-scroll>.ant-table-body {
+  background: none;
+}
+
+.ant-table-header .ant-table-hide-scrollbar {
+  overflow: auto;
+}
+.ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
+.ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
+.ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
+.ant-table-tbody>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td {
+  background: none;
+}
+
+
+.ant-table-tbody>tr>td {
+  padding: 0px !important;
+  border-bottom: 1px solid #000;
+}
+
+.ant-table-thead>tr>th {
+  height: 20px !important;
+  font-size: 16px !important;
+  font-weight: 400;
+ 
+}
+
+.ant-table-placeholder {
+  padding: 0px !important;
+  background: none !important;
+  border-top: none !important;
+  border-bottom: none
+}
+
+.ant-empty-normal {
+  color: #FFFFFF;
+}
+
+.ant-table {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-variant: tabular-nums;
+  /* line-height: 1.5715; */
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: relative;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 2px;
+}
+.ant-table-thead>tr>th .beijing{
+    background: #fff !important;
+}
+
+.ant-table-container table>thead>tr:first-child th:last-child {
+  display: none;
+  border-top-right-radius: 2px;
+  
+}
+.table {
+  width: 100%;
+  height: 100%;
+}
+.oddNumber {
+  background: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  height: 32px;
+  padding: 0px !important;
+}
+.evenNumbers {
+  background: rgba(212, 191, 164, 0.53);
+  font-size: 12px;
+  /* // font-family: PingFang SC; */
+  font-weight: 400;
+  color: #000;
+  height: 32px;
+
+}

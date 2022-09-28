@@ -1,0 +1,51 @@
+.videoPopup{
+    width:280px;
+    height:220px;
+    .title{
+        height:37px;
+        font-size: 16px;
+        .videoName{
+            padding:0 15px;
+            color: #666666;
+            font-size: 12px;
+        }
+        a{
+            font-size: 14px;
+            text-decoration: underline;
+        }
+        .cbtn{
+            float:right;
+        }
+    }
+    .videoWin{
+        height:138px;
+        background-color: #CCCCCC;
+        margin: 0 -16px;
+    }
+    .operation{
+        div{
+                float:left;
+                width:45px;
+                background-repeat: no-repeat;
+                padding-left:20px;
+                background-position-y:center ;
+                cursor: pointer;
+                line-height: 50px;
+            }
+            div:not(:first-child){
+                    margin-left: 33px;
+            }
+            .huifang{
+                    background-image: url(../img/huifang.png);
+            }
+            .jieping{
+                    background-image: url(../img/jieping.png);
+            }
+            .luxiang{
+                    background-image: url(../img/luxiang.png);
+            }
+            .quanping{
+                    background-image: url(../img/quanping.png);
+            }
+    }
+}

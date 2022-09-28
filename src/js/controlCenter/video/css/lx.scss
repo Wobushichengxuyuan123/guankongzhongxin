@@ -1,0 +1,38 @@
+.lunxuntable {
+    .ant-modal-header {
+        padding: 12px 18px;
+    }
+    .search_ipt01{
+        width: 280px;
+    }
+
+    .ant-modal-body {
+        height: 200px !important;
+        overflow-y: auto;
+        padding:  10px 20px !important;
+    }
+
+    .ant-form-item {
+        margin-bottom: -10px;
+    }
+
+    .ant-table-thead {
+        background-color: aquamarine !important;
+    }
+
+    .ant-table-thead>tr>th {
+        padding: 4px 4px !important;
+        color: #000 !important;
+        background-color: #fff !important;
+    }
+    .ant-table-thead>tr {
+        height: 41px !important;
+    }
+    .ant-table-tbody > tr > td {
+        border-bottom: none;
+        border-right:none
+    }
+    .has-error .ant-form-explain{
+        width: 200px;
+    }
+}
