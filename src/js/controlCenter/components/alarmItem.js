@@ -1,10 +1,10 @@
-import './css/alarmItem.scss'
-import './css/alter.css'
-import AlarmAlter from './alarmAlter'
-import { Popconfirm, message, Input, Tooltip } from 'antd';
-import { connect } from "react-redux";
-import { actionCreators } from './store'
 import React from 'react';
+import { message, Input, Tooltip } from 'antd';
+import { connect } from "react-redux";
+import AlarmAlter from './alarmAlter'
+import { actionCreators } from './store'
+import './css/alarmItem.scss'
+// import './css/alter.css'
 
 /* eslint-disable */
 class Main extends React.Component {

@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React from 'react';
-import { Carousel, Input, Form, message, Icon, Modal } from 'antd';
+import { Carousel, Input, message } from 'antd';
 import { actionCreators } from './store'
 import { connect } from "react-redux";
 import VideoPlayer from '../videoplayback/VideoPlayer';
-import Style from './alarmAlter.module.scss';
+import Style from './css/alarmAlter.module.scss';
 import 'video.js/dist/video-js.min.css';
 // import './css/alter.css'
 const { TextArea } = Input;
@@ -26,7 +26,6 @@ class AlarmAlter extends React.Component {
             actionList: [],
         }
     }
-
     componentDidMount() {
         this.getAlterData(this.props.alterId)
         if (!this.props.isAoTuAlter) {
@@ -53,7 +52,7 @@ class AlarmAlter extends React.Component {
                         Y: data.y_coordinate,
                         Z: data.z_coordinate,
                         alarmLevelIcon: data.alarmLevelIcon
-                    }      
+                    }
                     if (window.PushData) {
                         window.PushData("PoliceCall" + "@" + JSON.stringify(param));
                     } else {
@@ -132,7 +131,7 @@ class AlarmAlter extends React.Component {
         })
         window.controlVideoCon && window.controlVideoCon(data)
     }
-    
+
     ddldHander(e) {
         e.stopPropagation();
         fetch(window.SYSTEM_CONFIG_BASICS + "/smccMulActPlanning/portal/planList?alarmId=" + this.state.alterData.Id)
@@ -646,7 +645,7 @@ class AlarmAlter extends React.Component {
                                             onClick={this.ddldHander.bind(this)}>多点联动</span>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                             :

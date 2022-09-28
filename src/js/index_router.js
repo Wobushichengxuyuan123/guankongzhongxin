@@ -12,6 +12,7 @@ import Alert from './alert/alert';
 import Home from './controlCenter/container/index.js'
 import Project from "./controlCenter/project/index"; // 项目
 import Point from './controlCenter/point/index' // 点位
+import SearchInfo from './controlCenter/search/index';
 
 
 import PlayAudio from '@/js/controlCenter/container/components/playAudio';
@@ -25,7 +26,7 @@ import Jijing from "./controlCenter/container/jijingGuard1";
 import JinDu from "./controlCenter/container/JinDuGuard1";
 import HuanShuibao from "./controlCenter/container/HuanshuibaoGuard1";
 import Config from "./controlCenter/container/config";
-import SearchInfo from "./controlCenter/container/searchInfo";
+// import SearchInfo from "./controlCenter/container/searchInfo";
 import AreaInfo from "./controlCenter/container/areaInfo";
 import Equipment from "./controlCenter/container/components/equipment";
 //人员定位

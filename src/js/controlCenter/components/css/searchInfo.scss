@@ -1,0 +1,149 @@
+@import '../../../../css/init.scss';
+.searchInfo{
+    .searchDiv{
+        margin-top:20px !important;
+        .searchInput{
+            border-radius: 0px !important;
+            width: 224px !important;
+            outline: none;
+        }
+        .ant-input-group-addon{
+            background-color: #FFFFFF;
+            font-size:14px;
+            color: #bababa;
+            border-radius: 0;
+            i{
+                cursor: pointer;
+            }
+            .jg{
+                -moz-user-select: none; 
+                -o-user-select:none; 
+                -khtml-user-select:none; 
+                -webkit-user-select:none; 
+                -ms-user-select:none; 
+                user-select:none;
+                color: #EEE;
+            }
+        }
+    }
+    .mhss{
+        margin:-20px 20px 20px 20px;
+        padding:10px;
+        border:1px solid #d9d9d9;
+        border-top: hidden;
+        overflow: auto;
+        .mhItem{
+            width:100%;
+            line-height: 30px;
+            cursor: pointer;
+            .name{
+                width: 230px;
+                text-overflow:ellipsis;
+                white-space : nowrap ;
+                overflow: hidden;
+            }
+        }
+        div{
+            float:left;
+            background-repeat: no-repeat;
+            background-position-y: center;
+        }
+        .mh-person{
+            background-image: url(../img/mh-person.png);
+            width:18px;
+            height:30px;
+        }
+        .mh-video{
+            background-image: url(../img/mh-video.png);
+            width:18px;
+            height:30px;
+        }
+        .mh-area{
+            background-image: url(../img/mh-area.png);
+            width:18px;
+            height:30px;
+        }
+        .mh-ico img{
+            width:13px;
+            height:13px;
+            margin-right:10px;
+            line-height: 30px;
+        }
+    }
+    .searchResult{
+        margin:0 20px 20px 20px;
+        border:1px solid #d9d9d9;
+        border-bottom: none;
+    }
+    .searchPrompt{
+        margin:-5px 20px 0 20px;
+        .history{
+            line-height: 22px;
+            overflow: hidden;
+            >div{
+                float: left;
+                padding:0 10px;
+                color: $systemColor;
+                cursor: pointer;
+            }
+            >div:first-child{
+                padding-left: 0;
+            }
+        }
+        .tabs{
+            border:1px solid #d9d9d9;
+            .tabs-title{
+                overflow: hidden;
+                >div{
+                    width:50%;
+                    float: left;
+                    text-align: center;
+                    background-color: #f7f7f7;
+                    height: 25px;
+                    line-height: 25px;
+                    border-bottom: 1px solid #d9d9d9;
+                    cursor: pointer;
+                    i{
+                        color: #888;
+                    }
+                }
+                >div:first-child{
+                    border-right: 1px solid #d9d9d9;
+                }
+                >div.active{
+                    background: #fff;
+                    border-bottom: 0;
+                }
+            }
+            .tabs-content{
+                padding:10px;
+                overflow: auto;
+                .item{
+                    overflow: hidden;
+                    line-height: 22px;
+                    .level1{
+                        font-size: 13px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        width:100%;
+                        float:left;
+                    }
+                    .level1.nobold{
+                        font-weight:normal;
+                        line-height: 25px;
+                    }
+                    .level1:hover{
+                        color: $systemColor;
+                    }
+                    .level2{
+                        padding-left:10px;
+                        cursor: pointer;
+                    }
+                    .level2:hover{
+                        color: $systemColor;
+                    }
+                }
+            }
+        }
+    }
+}

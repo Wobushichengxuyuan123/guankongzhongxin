@@ -1,6 +1,6 @@
-import './css/entranceItem.scss';
-import { message } from 'antd';
 import React from 'react';
+import { message } from 'antd';
+import './css/entranceItem.scss';
 
 /* eslint-disable */
 class Main extends React.Component {
