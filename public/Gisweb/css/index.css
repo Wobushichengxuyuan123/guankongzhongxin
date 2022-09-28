@@ -1,0 +1,153 @@
+#cesiumContainer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+/* .cesium-viewer-infoBoxContainer{
+    display: none !important;
+  } */
+.Mark_1 {
+  display: none;
+  position: absolute;
+  width: 170px;
+  padding: 3px;
+  margin-bottom: 20px;
+  border: 1px solid yellow;
+  border-radius: 3px 3px;
+  background-color: rgba(0, 0, 255, 0.5);
+  z-index: 1;
+}
+.Mark_1 > div {
+  float: left;
+  width: 100%;
+  overflow: hidden; /*内容超出后隐藏*/
+  text-overflow: ellipsis; /* 超出内容显示为省略号 */
+  white-space: nowrap; /* 文本不进行换行 */
+}
+.Mark_1 > div:nth-child(0) {
+  width: 90% !important;
+}
+.Mark_1 > strong {
+  float: right;
+  color: #ffffff;
+  font-size: 12px;
+}
+.Mark_1 div span {
+  font-size: 12px;
+  color: #ffffff;
+  transform: scale(0.8);
+}
+.Mark_1 > i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 3px 3px 3px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  font-style: inherit;
+}
+.Mark_1 > i:hover {
+  background: blueviolet;
+  cursor: pointer;
+}
+.CameraOpen,
+.MenjinKQ,
+.MenjinGB,
+.MenjinCK,
+.MenjinCG,
+.DaozhaKQ,
+.DaozhaGB,
+.DaozhaCK {
+  float: right;
+  padding: 3px;
+}
+.CameraOpen:hover,
+.MenjinKQ:hover,
+.MenjinGB:hover,
+.MenjinCK:hover,
+.MenjinCG:hover,
+.DaozhaKQ:hover,
+.DaozhaGB:hover,
+.DaozhaCK:hover
+ {
+  background: blueviolet;
+  cursor: pointer;
+}
+/* 三维测量 */
+#Layerui {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.measureUID1 {
+  position: absolute;
+  width: 126px;
+  right: 10px;
+  background-color: rgb(124 124 190 / 50%);
+  border-radius: 3px;
+  border: 1px solid #ffffffb3;
+}
+.mea1_0 {
+  top: 100px;
+}
+.mea2_0 {
+  top: 175px;
+}
+.measureUID1 strong,
+.measureUID1 span {
+  font-size: 12px;
+  color: #ffffff;
+  font-style: initial !important;
+}
+.measureUID1 .measureUID1_1 {
+  padding: 3px;
+  background: #153183b0;
+  border-bottom: 1px solid #ffffffb3;
+}
+.measureUID1 .measureUID1_1 > i {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+.measureUID1 .measureUID1_1 > i > img {
+  margin-top: -5px;
+}
+
+.measureUID1 .measureUID1_1 > i:hover {
+  background: blueviolet;
+}
+.measureUID1 .measureUID1_2 {
+  margin-top: 5px;
+  background: blue;
+}
+.measureUID1 .measureUID1_2 > p {
+  float: left;
+  margin: 0;
+}
+.measureUID1 .measureUID1_2 > p > span {
+  /* display: inline-block; */
+  float: left;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.measureOnclick {
+  background: #175437;
+  border: 1px solid #ffffffb3 !important;
+}
+.mea2_my {
+  background: #1f2f6a;
+  border: 1px solid #ffffffb3 !important;
+}

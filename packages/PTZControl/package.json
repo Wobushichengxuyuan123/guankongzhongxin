@@ -1,0 +1,24 @@
+{
+  "name": "ptz-control",
+  "version": "1.0.0",
+  "author": "雨歇微凉 <1413074908@126.com>",
+  "browser": "lib/index.js",
+  "description": "云台控制",
+  "keywords": [
+    "toolkit",
+    "rollup",
+    "typescript"
+  ],
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:xueyufei/xxxx.git"
+  }
+}

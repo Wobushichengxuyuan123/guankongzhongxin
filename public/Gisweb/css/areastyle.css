@@ -1,0 +1,128 @@
+body {
+  background: transparent;
+}
+* {
+  color: #ffffff;
+}
+div,
+ul,
+ul li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ul,
+ul li {
+  list-style: none;
+}
+#cesiumContainer {
+  position: absolute;
+  top:0;
+  width: 100%;  
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* z-index: 1; */
+}
+#yixianCon {
+  position: absolute;
+  top: 100px;
+  right: 5%;
+  width: 256px;
+  /* height: 300px; */
+  background-color: rgba(8, 70, 28, 0.5);
+  border: 1px solid rgb(0 193 63);
+  border-radius: 5px;
+}
+#yixianCon .yixianCon_List {
+  padding: 10px;
+  border-bottom: 1px solid rgb(0 193 63);
+  background: rgba(15, 112, 47, 0.4);
+}
+#yixianCon .yixianCon_List2 {
+  /* padding: 0 10px; */
+  /* border-bottom: 1px solid rgb(0 193 63); */
+}
+#yixianCon .yixianCon_Btn {
+  float: left;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 10px 10px 10px;
+  background: rgba(15, 112, 47, 0.7);
+  border-radius: 5px;
+  border: 1px solid rgb(0 193 63);
+}
+#yixianCon .yixianCon_Btn:hover {
+  background: rgb(43, 170, 85);
+}
+.yixianCon_LC {
+  padding: 10px 0 0 0;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid rgb(0 193 63);
+}
+.yixianCon_LC2 {
+  padding: 0 10px;
+  float: left;
+  width: 92%;
+}
+.yixianCon_sett_color {
+  float: left;
+}
+.yixianCon_sett_color > p {
+  float: left;
+}
+.yixianCon_sett_colorF {
+  width: 25px;
+  height: 25px;
+  background: red;
+  border-radius: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.yixianCon_sett_opacity {
+  float: left;
+}
+.yixianCon_sett_opacity > p {
+  float: left;
+}
+.yixianCon_sett_opacity > p {
+  float: left;
+}
+.yixianCon_sett_opacity > strong {
+  float: left;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 12px;
+  height: 25px;
+  width: 45px;
+  background: rgba(15, 112, 47, 0.7);
+  border-radius: 5px;
+  border: 1px solid rgb(0 193 63);
+}
+
+.yixianCon_sett_opacity > strong span {
+  display: block;
+  font-size: 16px;
+}
+.yixianCon_sett_opacity_ul {
+  display: none;
+  position: absolute;
+  right: 17px;
+  margin-top: 39px;
+  text-align: center;
+  background: rgba(15, 112, 47, 0.7);
+}
+.yixianCon_sett_opacity_ul > li {
+  list-style: none;
+  padding: 3px 5px;
+  width: 33px;
+  border-radius: 0 0 5px 5px;
+}
+.yixianCon_sett_opacity_ul > li:hover {
+  background: rgba(113, 230, 152, 0.8);
+  cursor: pointer;
+}

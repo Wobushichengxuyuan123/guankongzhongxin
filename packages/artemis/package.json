@@ -1,0 +1,17 @@
+{
+  "name": "artemis",
+  "version": "1.0.0",
+  "private": true,
+  "browser": "lib/index.js",
+  "keywords": [
+    "toolkit",
+    "rollup",
+    "typescript"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ]
+}

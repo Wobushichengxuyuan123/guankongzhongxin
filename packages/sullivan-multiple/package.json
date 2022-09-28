@@ -1,0 +1,22 @@
+{
+  "name": "sullivan-multiple",
+  "version": "1.0.0",
+  "author": "雨歇微凉 <1413074908@126.com>",
+  "browser": "lib/index.js",
+  "description": "视频播放器",
+  "keywords": [ "toolkit", "rollup", "typescript" ],
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "PeerDependencies": {
+    "sullivan-core": "^1.0.0"
+  },
+  "dependencies": {
+    "sullivan-core": "^1.0.0"
+  }
+}
