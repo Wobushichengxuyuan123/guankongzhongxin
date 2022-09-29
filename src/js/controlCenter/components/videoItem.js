@@ -1,6 +1,6 @@
 /* eslint-disable */
-import './css/videoItem.scss';
 import React from 'react';
+// import './css/videoItem.scss';
 
 
 class Main extends React.Component {
@@ -32,17 +32,6 @@ class Main extends React.Component {
         }
         window.WinContainer.addWinInfo(winInfo);
     }
-
-    // dwHander() {
-    //     // console.log("触发三维更改视角,事件名称 ShebeiToGis  传递参数：{id:*};", 'id:', this.props.data.equipment_id)
-    //     // window.PushData && window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.equipment_id }));
-    //     if(window.PushData){
-    //         window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.equipment_id }));
-    //       }else{
-    //         window.GisMap.ShebeiToGis({id: this.props.data.equipment_id})
-    //       }
-    // }
-
     render() {
         return (<div className="videoItem" >
             {this.props.data.resource_class_icon ? <div className="videoIcon"><img src={this.props.data.resource_class_icon} /></div> : null}

@@ -47,13 +47,6 @@ window.ISXUNJIAN = true;  //云台控制 是否正在执行任务中
 window.LOGINPATH = "http://192.168.1.112:8099";//登录服务页面(本地)
 window.SYSTEM_WEBSOCKET = 'ws://192.168.1.112:19301';//websocket(发版)用于alert弹窗用
 
-// 100
-// window.LOGINPATH = "https://192.168.1.100:8099";//登
-// window.SYSTEM_WEBSOCKET = 'ws://192.168.1.100:19301';//websocket(发版)用于alert弹窗用
-// window.FILE_PATH = 'http://8.142.19.151:6003/upload'; // 文件地址
-// window.PATROL_CARD_TYPE_CODE = 'S3110'; // 基础服务巡查卡类型code 
-// window.PATROL = ['油位表', '温度表', '旋钮开关', '压板开关', '电压表', '电流表', '压力表', '指示灯']; // 智能巡检渲染的点位设备类型
-// window.INSPECTION = ['门禁'];// 在线巡查渲染的点位设备类型
 
 /**
  * 机器人包含的方向

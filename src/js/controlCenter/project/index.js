@@ -1,13 +1,14 @@
 
 import React from "react";
 import { Icon, Input, Pagination } from "antd";
+import History from "../components/history";
 import './index.scss'
 
 class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      historyList: [], // 历史搜索数据
+    
       areaList: [],
       searchList: [],
       resultList: [],
@@ -18,35 +19,13 @@ class Project extends React.Component {
       pageNo: 1,
       pageSize: 10,
       totalCount: 0,
-      loginName: sessionStorage.getItem("loginName")
+      loginName: sessionStorage.getItem("loginName"),
+      searchPath: 'xiangmu'
     };
   }
   componentDidMount() {
-    this.getHistory();
+    this.history.getHistory();
     this.getAreaSearchDetails();
-  }
-  // 历史记录搜索
-  getHistory() {
-    fetch("/nelda-smcc/pubUserSearchHistory/list", {
-      method: "post",
-      body: JSON.stringify({
-        loginName: this.state.loginName,
-        searchPath: "xiangmu",
-      }),
-    })
-      .then((r) => r.json())
-      .then((b) => {
-        let data = b.data
-        data.map((item, index) => {
-          if (item.searchValue == '') {
-            delete data[index]
-          }
-        })
-        let list = data.slice(0, 5);
-        this.setState({
-          historyList: list ? list : [],
-        });
-      });
   }
   getAreaSearchDetails(name) {
     var params = {
@@ -123,7 +102,7 @@ class Project extends React.Component {
     })
       .then((r) => r.json())
       .then((b) => {
-        this.getHistory();
+        this.history.getHistory();
       });
   }
   clickMhItemHander(name) {
@@ -166,22 +145,6 @@ class Project extends React.Component {
   }
   render() {
     const { isSearch, isShow } = this.state
-    // 历史记录
-    let history = (
-      <div className="project_history">
-        <div className="project_history_title">历史搜索:</div>
-        <div className="project_history_list">
-          {this.state.historyList ? this.state.historyList.map((item, i) => {
-            return (
-              <div className="project_history_list_div" key={"historyDiv" + i}
-                onClick={this.clickMhItemHanderS.bind(this, item.searchValue, item.id)} >
-                {item.searchValue}
-              </div>
-            )
-          }) : null}
-        </div>
-      </div>
-    )
     let resultItems = this.state.resultList.length > 0 ? this.state.resultList.map((item, i) => {
       item.index = (this.state.pageNo - 1) * this.state.pageSize + 1 + i;
       return (
@@ -241,7 +204,10 @@ class Project extends React.Component {
           />
         </div>
         {isSearch ? <div>
-          {history}
+          <History
+            searchPath={this.state.searchPath}
+            onRef={ref => this.history = ref}
+            onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
           <div className="project_table">
             <div className="project_table_title"> 项目</div>
             <div className="project_table_List" >

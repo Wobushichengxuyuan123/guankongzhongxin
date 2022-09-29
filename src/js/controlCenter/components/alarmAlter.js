@@ -28,14 +28,7 @@ class AlarmAlter extends React.Component {
     }
     componentDidMount() {
         this.getAlterData(this.props.alterId)
-        if (!this.props.isAoTuAlter) {
-            if (this.props.info == 1) {
-                // window.MapContainer.changeWidth(document.getElementById("unityPlayer").childNodes[0].width - 330);
-            }
-        }
     }
-
-
     getAlterData(id) {
         if (id != 0 && !id) {
             return true
@@ -58,7 +51,6 @@ class AlarmAlter extends React.Component {
                     } else {
                         window.GisMap.PoliceCall((param));
                     }
-
                 } else {
                     message.error(b.msg)
                 }
@@ -112,7 +104,7 @@ class AlarmAlter extends React.Component {
         message.error('暂无视频!')
     }
 
-    hfBtn(SourceEquipmentId, HValue, e) {
+    hfBtn(e) {
         e.stopPropagation();
         const { isplayvideo, alterData } = this.state;
         if (alterData.Video) {
@@ -131,7 +123,6 @@ class AlarmAlter extends React.Component {
         })
         window.controlVideoCon && window.controlVideoCon(data)
     }
-
     ddldHander(e) {
         e.stopPropagation();
         fetch(window.SYSTEM_CONFIG_BASICS + "/smccMulActPlanning/portal/planList?alarmId=" + this.state.alterData.Id)
@@ -153,13 +144,10 @@ class AlarmAlter extends React.Component {
                     message.error("未设置对应的多点联动方案！", 3);
                 }
             })
-        // this.liebiao()
     }
-
     showFaItem(list) {
         this.setState({ isFadz: true });
     }
-
     hideFaItem(e) {
         e.stopPropagation();
         this.setState({ isFadz: true });
@@ -185,28 +173,21 @@ class AlarmAlter extends React.Component {
             imgUrl: url
         })
     }
-
     closeImg() {
         this.setState({
             isImgWrap: false,
         })
     }
-
     handerDoor(type, id) {
         const data = {
             doorUuid: id,
             command: type
         }
         fetch(window.SYSTEM_NELDA_OUTAPI + "/event/doControl?doorIndexCodes=" + id + "&controlType=" + type)
-            // fetch(SYSTEM_NELDA_OUTAPI + "/entranceguard/synControl?doorUuid", {
-            //   method: 'POST',
-            //   body: JSON.stringify(data)
-            // })
             .then(r => r.json())
             .then(b => {
                 if (b.msg == "success") {
                     message.success("操作成功！")
-
                 } else {
                     message.error("操作失败！")
                 }
@@ -214,12 +195,7 @@ class AlarmAlter extends React.Component {
     }
 
     chedaoDoor(command, sourceEquipmentId) {
-        const data = { sourceEquipmentId, command }
         fetch(window.SYSTEM_NELDA_OUTAPI + "/event/deviceControl?roadwaySyscode=" + sourceEquipmentId + "&command=" + command)
-            // fetch(SYSTEM_NELDA_OUTAPI + "/entranceguard/controlBarrierByRoadwayUuid", {
-            //   method: 'POST',
-            //   body: JSON.stringify(data)
-            // })
             .then(r => r.json())
             .then(b => {
                 if (b.msg == "success") {
@@ -240,10 +216,6 @@ class AlarmAlter extends React.Component {
             voiceUrl: voiceUrl,
         }
         fetch(`${window.SYSTEM_NELDA_OUTAPI}/broadcast/broadcast?prePlanningActionId=${id}&command=${type}&numbers=${equipmentNumber}&equipmentActionId=${equipmentActionId}&cycleTimes=${cycleTimes}&voiceUrl=${voiceUrl}`)
-            // fetch(`${SYSTEM_NELDA_OUTAPI}/broadcast/broadcast`, {
-            //   method: "POST",
-            //   body: JSON.stringify(data)
-            // })
             .then(r => r.json())
             .then(b => {
                 if (b.code == 0) {
@@ -254,7 +226,7 @@ class AlarmAlter extends React.Component {
             })
     }
 
-    huJiaoHander(id, equipmentNumber, equipmentActionId, type, cycleTimes, voiceUrl) {
+    huJiaoHander( equipmentNumber, ) {
         fetch(`${window.SYSTEM_NELDA_OUTAPI}/public/broadcast/xCall?number=${equipmentNumber}`, {
             method: "GET",
         })
@@ -268,7 +240,7 @@ class AlarmAlter extends React.Component {
             })
     }
 
-    hanHuaHander(id, equipmentNumber, equipmentActionId, type, cycleTimes, voiceUrl) {
+    hanHuaHander(id, equipmentNumber) {
         const data = {
             locationAreaId: id,
             numbers: equipmentNumber
@@ -287,7 +259,7 @@ class AlarmAlter extends React.Component {
             })
     }
 
-    guangBoFangYinHander(id, equipmentNumber, equipmentActionId, type, cycleTimes, voiceUrl) {
+    guangBoFangYinHander(id, equipmentNumber, equipmentActionId, cycleTimes, voiceUrl) {
         const data = {
             locationAreaId: id,
             numbers: equipmentNumber,
@@ -427,13 +399,6 @@ class AlarmAlter extends React.Component {
     }
     render() {
         let format = "yyyy/MM/dd hh:mm:ss";
-        const settings = {
-            // dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        };
         const { alterData } = this.state
         let Pic = ''
         if (alterData.Pic) {

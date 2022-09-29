@@ -1,10 +1,12 @@
-.point_info{
+.point_info {
     width: 322px;
+
     .point_title {
         line-height: 33px;
         text-align: center;
         border-bottom: 1px solid #e8e8e8;
     }
+
     .point_add {
         position: absolute;
         right: 30px;
@@ -13,8 +15,9 @@
         font-size: 14px;
         color: rgb(82, 37, 228);
     }
-     // 搜索
-     .point_search {
+
+    // 搜索
+    .point_search {
         width: 300px;
         height: calc(100vh - 170px);
         margin-left: 10px;
@@ -35,22 +38,25 @@
         }
 
     }
-    
+
     .point_input {
         margin: 10px 0 0 10px;
         width: 300px;
         height: 36px;
     }
+
     .point_table {
         width: 94%;
         border: 1px solid #e8e8e8;
         margin-left: 3%;
         overflow: scroll;
+
         .point_table_title {
             text-align: center;
             border-bottom: 1px solid #e8e8e8;
 
         }
+
         .point_table_List {
             height: calc(100vh - 220px);
             overflow-y: auto;
@@ -71,11 +77,13 @@
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 10px;
+
                     .point_table_inforight {
                         margin-left: 10px;
                         color: #000
                     }
                 }
+
                 .point_table_liebiao {
                     .point_table_details {
                         display: flex;
@@ -132,39 +140,34 @@
             }
         }
     }
-    .point_search_list{
+
+    .point_search_list {
         margin-left: 10px;
         margin-top: 10px;
     }
+
     ._rootDiv>div>div>div {
         width: fit-content !important;
+
         .add_modal01Long {
             width: 320px !important;
             position: fixed;
             right: 0;
-            .ant-modal-header{
+
+            .ant-modal-header {
                 height: 48px;
             }
-        
+
             .ant-modal-body {
                 height: 500px !important;
             }
-        
+
             .ant-modal-wrap {
                 position: absolute !important;
             }
         }
-        
     }
 }
 
 
-
-
-.addDepartment {
-    height: 400px;
-    width: 260px;
-    padding-left: 10px;
-}
-
-// // 此写法很另类，暂时没想到其他的
+// // // 此写法很另类，暂时没想到其他的

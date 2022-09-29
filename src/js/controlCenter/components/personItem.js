@@ -1,6 +1,6 @@
-import './css/personItem.scss'
-import {message, Modal, Input} from 'antd';
 import React from 'react';
+import {message, Modal, Input} from 'antd';
+// import './css/personItem.scss'
 
 /* eslint-disable */
 class Main extends React.Component {
@@ -11,9 +11,6 @@ class Main extends React.Component {
 
   dwHander(e) {
     e.stopPropagation();
-    // GetCorrelationInfo(this.props.data.person_id + "_2");
-    console.log("触发三维更改视角,事件名称 ShebeiToGis  传递参数：{id:*};",'id:',this.props.data.person_id)
-    // window.PushData&&window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.person_id }));
     if(window.PushData){
       window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.person_id  }));
     }else{
@@ -36,7 +33,6 @@ class Main extends React.Component {
 
   gjHander(e) {
     e.stopPropagation();
-    // GetTrackPlaybackData(this.props.data.person_id + "_" + this.props.data.person_name)
   }
 
   xqHander(e) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { message } from 'antd';
-import './css/entranceItem.scss';
+// import './css/entranceItem.scss';
 
 /* eslint-disable */
 class Main extends React.Component {
@@ -39,7 +39,6 @@ class Main extends React.Component {
         break;
     }
   }
-
   handerDoor(type, e) {
     e.stopPropagation();
     fetch(window.SYSTEM_NELDA_OUTAPI + "/event/doControl?doorIndexCodes=" + this.props.data.srcEquipmentId + "&controlType=" + type)
@@ -56,35 +55,28 @@ class Main extends React.Component {
         }
       })
   }
-
-  // dwHander() {
-  //   // GetCorrelationInfo(this.props.data.equipment_id + "_1");
-  //   console.log("触发三维更改视角,事件名称 ShebeiToGis  传递参数：{id:*};", 'id:', this.props.data.equipment_id)
-  //   // window.PushData && window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.equipment_id }));
-  //   if(window.PushData){
-  //     window.PushData("ShebeiToGis" + "@" + JSON.stringify({ id: this.props.data.equipment_id }));
-  //   }else{
-  //     window.GisMap.ShebeiToGis({id: this.props.data.equipment_id})
-  //   }
-  // }
-
   render() {
-    return (<div className="entranceItem" >
-      {this.props.data.resource_class_icon ?
-        <div className="videoIcon"><img alt='videoIcon' src={this.props.data.resource_class_icon} /></div> : null}
-      <div className="videoNo">{this.props.data.index}.</div>
-      <div className="videoName">{this.props.data.equipment_name} <span
-        className={"videoWz sxt" + this.props.data.status}>{this.state.doorStatus}</span></div>
-      <div className="operation">
-        <div className="kaimen" onClick={this.handerDoor.bind(this, 2)}>开门</div>
-        <div className="guanmen" onClick={this.handerDoor.bind(this, 1)}>关门</div>
-        <div className="changkai" onClick={this.handerDoor.bind(this, 0)}>常开</div>
-        <div className="changguan" onClick={this.handerDoor.bind(this, 3)}>常关</div>
-      </div>
-    </div>);
+    return (
+      <div className="entranceItem" >
+        {this.props.data.resource_class_icon ?
+          <div className="videoIcon">
+            <img alt='videoIcon' src={this.props.data.resource_class_icon} />
+          </div> : null}
+        <div className="videoNo">{this.props.data.index}.</div>
+        <div className="videoName">{this.props.data.equipment_name}
+          <span className={"videoWz sxt" + this.props.data.status}>
+            {this.state.doorStatus}
+          </span>
+        </div>
+        <div className="operation">
+          <div className="kaimen" onClick={this.handerDoor.bind(this, 2)}>开门</div>
+          <div className="guanmen" onClick={this.handerDoor.bind(this, 1)}>关门</div>
+          <div className="changkai" onClick={this.handerDoor.bind(this, 0)}>常开</div>
+          <div className="changguan" onClick={this.handerDoor.bind(this, 3)}>常关</div>
+        </div>
+      </div>);
   }
 }
-
 export default Main;
 
 /* eslint-enable */

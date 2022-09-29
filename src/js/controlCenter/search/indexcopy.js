@@ -3,12 +3,13 @@ import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Input, Icon } from 'antd';
 import AlarmItem from '../components/alarmItem';
-import PersonItem from '../components/personItem';
-import VideoItem from '../components/videoItem';
-import EntranceItem from '../components/entranceItem';
-import StationItem from '../components/stationItem';
-import RadioItem from '../components/radioItem';
-import LaneItem from '../components/laneItem';
+import History from '../components/history';
+// import PersonItem from '../components/personItem';
+// import VideoItem from '../components/videoItem';
+// import EntranceItem from '../components/entranceItem';
+// import StationItem from '../components/stationItem';
+// import RadioItem from '../components/radioItem';
+// import LaneItem from '../components/laneItem';
 import './index.scss';
 class Main extends React.Component {
   constructor(props) {
@@ -25,15 +26,35 @@ class Main extends React.Component {
       type: "",
       searchPrompt: true,
       searchResult: false,
-      orgList: []
+      orgList: [],
+      loginName: sessionStorage.getItem("loginName"),
+      searchPath: 'resourceSearch'
     };
   }
 
   componentDidMount() {
-    this.getHistory();
-    this.getAreaSearchDetails();
-    this.getOrgData();
+    this.history.getHistory();
+
+    // this.getAreaSearchDetails();
+    // this.getOrgData();
   }
+
+  getHistory() {
+    fetch("/nelda-smcc/pubUserSearchHistory/list", {
+      method: "post",
+      body: JSON.stringify({
+        loginName: this.state.loginName,
+        searchPath: 'resourceSearch',
+      })
+    })
+      .then(r => r.json())
+      .then(b => {
+        let list = b.data.slice(0, 5)
+        this.setState({ historyList: list });
+      })
+
+  }
+
 
   tabHander(type) {
     this.setState({ tabSelected: type });
@@ -112,23 +133,7 @@ class Main extends React.Component {
       })
   }
 
-  getHistory() {
-    let loginName = window.sessionStorage.getItem("loginName")
-    fetch("/nelda-smcc/pubUserSearchHistory/list", {
-      method: "post",
-      body: JSON.stringify({
-        loginName: loginName,
-        searchPath: 'resourceSearch',
-      })
-    })
-      .then(r => r.json())
-      .then(b => {
-        let list = b.data.slice(0, 5)
-        this.setState({ historyList: list });
-      })
-
-  }
-
+ 
   getOrgData() {
     let projectId = window.sessionStorage.getItem("projectId")
     fetch(window.BASICS_SYSTEM + "/pubSearch/orgSearch?projectId=" + projectId)
@@ -279,7 +284,10 @@ class Main extends React.Component {
         </div>
         {this.state.searchPrompt ?
           <div>
-            {history}
+           <History
+            searchPath={this.state.searchPath}
+            onRef={ref => this.history = ref}
+            onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
             <div className="tabs" style={{ display: "block" }}>
               <div className="tabs-title">
                 <div className={this.state.tabSelected == "area" ? "active" : ""}
@@ -295,11 +303,11 @@ class Main extends React.Component {
                     {resultfun()}
                   </div>
                 </div>
-                :  <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
-                <div className="item">
-                  {orgItems}
-                </div>
-              </div>}
+                : <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
+                  <div className="item">
+                    {orgItems}
+                  </div>
+                </div>}
             </div>
           </div>
           : null}

@@ -33,41 +33,7 @@
                 line-height: 30px;
             }
         }
-
     }
-
-    .project_history {
-        display: flex;
-        flex-direction: row;
-        margin-left: 10px;
-
-        .project_history_title {
-            width: 20%;
-            min-width: 60px;
-            line-height: 32px;
-        }
-
-        .project_history_list {
-            max-height: 70px;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            line-height: 22px;
-            overflow-x: scroll;
-
-            overflow: hidden;
-
-            .project_history_list_div {
-                margin: 5px 5px 5px;
-                padding: 0 5px 0 5px;
-                color: #057d7a;
-                border: 1px solid #e8e8e8;
-                border-radius: 12px;
-                cursor: pointer;
-            }
-        }
-    }
-
     .project_table {
         width: 94%;
         border: 1px solid #e8e8e8;

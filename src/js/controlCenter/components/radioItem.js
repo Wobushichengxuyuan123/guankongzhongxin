@@ -1,7 +1,8 @@
 /* eslint-disable */
-import './css/videoItem.scss';
-import { message, Modal, Button, Table } from "antd";
 import React from 'react';
+import { message, Modal, Button, Table } from "antd";
+// import './css/videoItem.scss';
+
 
 
 // var that = null;

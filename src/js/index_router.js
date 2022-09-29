@@ -12,7 +12,7 @@ import Alert from './alert/alert';
 import Home from './controlCenter/container/index.js'
 import Project from "./controlCenter/project/index"; // 项目
 import Point from './controlCenter/point/index' // 点位
-import SearchInfo from './controlCenter/search/index';
+import SearchInfo from './controlCenter/search/indexcopy';
 
 
 import PlayAudio from '@/js/controlCenter/container/components/playAudio';

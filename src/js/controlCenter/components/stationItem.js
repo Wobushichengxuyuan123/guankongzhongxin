@@ -1,5 +1,6 @@
-import './css/videoItem.scss';
 import React from 'react';
+// import './css/videoItem.scss';
+
 
 /* eslint-disable */
 class Main extends React.Component {
