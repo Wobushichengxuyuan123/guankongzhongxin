@@ -1,0 +1,32 @@
+.area_Info {
+    width: 322px;
+
+    .area_title {
+        line-height: 33px;
+        text-align: center;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .area_input {
+        margin: 10px 0 0 10px;
+        width: 300px;
+        height: 36px;
+    }
+
+    .area_table {
+        width: 94%;
+        border: 1px solid #e8e8e8;
+        margin-left: 3%;
+        overflow: scroll;
+        .area_table_title {
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .areat_table_List {
+            height: calc(100vh - 250px);
+            overflow-y: auto;
+           
+        }
+
+    }
+}

@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Icon, Input, Pagination } from "antd";
+import { Input, Pagination } from "antd";
+import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import History from "../components/history";
 import './index.scss'
 
@@ -8,7 +9,7 @@ class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+
       areaList: [],
       searchList: [],
       resultList: [],
@@ -20,11 +21,11 @@ class Project extends React.Component {
       pageSize: 10,
       totalCount: 0,
       loginName: sessionStorage.getItem("loginName"),
-      searchPath: 'xiangmu'
+
     };
   }
   componentDidMount() {
-    this.history.getHistory();
+    this.history.getHistory('xiangmu', this.state.loginName);
     this.getAreaSearchDetails();
   }
   getAreaSearchDetails(name) {
@@ -102,7 +103,7 @@ class Project extends React.Component {
     })
       .then((r) => r.json())
       .then((b) => {
-        this.history.getHistory();
+        this.history.getHistory('xiangmu', this.state.loginName);
       });
   }
   clickMhItemHander(name) {
@@ -186,9 +187,9 @@ class Project extends React.Component {
     });
     let searchInputButtons = (
       <div>
-        <Icon type="close-circle-o" onClick={this.clearSearchInput.bind(this)} />
+        <CloseCircleOutlined onClick={this.clearSearchInput.bind(this)} />
         <span className="jg">︱</span>
-        <Icon type="search" onClick={this.searchFun.bind(this, this.state.name)} />
+        <SearchOutlined onClick={this.searchFun.bind(this, this.state.name)} />
       </div>
     );
     return (
@@ -204,10 +205,7 @@ class Project extends React.Component {
           />
         </div>
         {isSearch ? <div>
-          <History
-            searchPath={this.state.searchPath}
-            onRef={ref => this.history = ref}
-            onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
+          <History onRef={ref => this.history = ref} onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
           <div className="project_table">
             <div className="project_table_title"> 项目</div>
             <div className="project_table_List" >

@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React, { Component, useEffect, useRef } from 'react'
+import Icon from '@ant-design/icons';
 import ReactDOM from 'react-dom'
-import { Collapse, Radio, Tree, Icon, message } from 'antd';
+import { Collapse, Radio, Tree, message } from 'antd';
 import SullivanVideoMultiple from 'sullivan-multiple';
 import './css/contain.css'
 import './css/cameraList.css'

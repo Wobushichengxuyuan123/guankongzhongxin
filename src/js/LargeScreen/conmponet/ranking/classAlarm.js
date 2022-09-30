@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import moment from 'moment';
-import { Icon, Input, DatePicker, Collapse, message, Pagination, Spin } from 'antd';
+import { Input, DatePicker, Collapse, message, Pagination, Spin } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 
 import { Scrollbars } from 'react-custom-scrollbars';

@@ -47,7 +47,6 @@ window.ISXUNJIAN = true;  //云台控制 是否正在执行任务中
 window.LOGINPATH = "http://192.168.1.112:8099";//登录服务页面(本地)
 window.SYSTEM_WEBSOCKET = 'ws://192.168.1.112:19301';//websocket(发版)用于alert弹窗用
 
-
 /**
  * 机器人包含的方向
 

@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { Input, Icon } from 'antd';
+import { Input } from 'antd';
+import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import AlarmItem from '../components/alarmItem';
 import PersonItem from '../components/personItem';
 import VideoItem from '../components/videoItem';
@@ -259,10 +260,11 @@ class Main extends React.Component {
       </div>
     )
     let searchInputButtons = <div>
-      <Icon type="close-circle-o" onClick={this.clearSearchInput.bind(this)} />
+      <CloseCircleOutlined onClick={this.clearSearchInput.bind(this)} />
       <span className="jg">︱</span>
-      <Icon type="search" onClick={this.searchFun.bind(this, this.state.name)} />
+      <SearchOutlined onClick={this.searchFun.bind(this, this.state.name)} />
     </div>
+
     return (
       <div className="search_Info">
         <div className="search_title">资源搜索</div>
@@ -295,11 +297,11 @@ class Main extends React.Component {
                     {resultfun()}
                   </div>
                 </div>
-                :  <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
-                <div className="item">
-                  {orgItems}
-                </div>
-              </div>}
+                : <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
+                  <div className="item">
+                    {orgItems}
+                  </div>
+                </div>}
             </div>
           </div>
           : null}

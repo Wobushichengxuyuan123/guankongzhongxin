@@ -40,4 +40,4 @@ class AddYt extends React.Component {
     }
 }
 
-export default AddYt = Form.create()(AddYt);
+export default AddYt = (AddYt);

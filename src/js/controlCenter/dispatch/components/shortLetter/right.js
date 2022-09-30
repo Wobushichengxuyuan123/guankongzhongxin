@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ContItem from './contItem';
+import Icon from '@ant-design/icons';
 import GetCmtWsClientHelper from "@/js/utils/cmtWsClientHelper.js";
-import { Icon, Input, Button} from 'antd';
+import {  Input, Button} from 'antd';
 const { TextArea } = Input;
 
 export default class right extends Component {

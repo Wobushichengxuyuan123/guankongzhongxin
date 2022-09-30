@@ -1,5 +1,6 @@
 import React from 'react';
-import { DatePicker, Tree, Icon, message, Modal, Table } from 'antd';
+import { DatePicker, Tree,  message, Modal, Table } from 'antd';
+import Icon from '@ant-design/icons';
 import moment from 'moment';
 import Time from './time/time';
 import './videoplay.scss';

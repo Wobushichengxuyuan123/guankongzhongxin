@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {Icon, Input, DatePicker, Collapse, Pagination, Spin} from 'antd';
+import { Input, DatePicker, Collapse, Pagination, Spin} from 'antd';
 import {connect} from "react-redux";
 import {actionCreators} from '../container/store'
 import locale from 'antd/lib/date-picker/locale/zh_CN';

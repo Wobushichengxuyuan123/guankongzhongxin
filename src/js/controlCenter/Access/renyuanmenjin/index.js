@@ -1,6 +1,6 @@
 // 人员门禁
 import React from 'react';
-import { Icon, Input, Collapse, Spin, message } from 'antd';
+import {  Input, Collapse, Spin, message } from 'antd';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Keyboard, Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/core';
 // import Tables from '../compones/table'

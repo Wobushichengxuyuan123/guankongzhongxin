@@ -536,7 +536,7 @@ const mapStateToProps = (state) => {
     info: state.alter.info
   }
 };
-const AlertForm = Form.create()(Alert);
+const AlertForm = (Alert);
 export default connect(mapStateToProps)(AlertForm);
 // export default AlertForm;
 

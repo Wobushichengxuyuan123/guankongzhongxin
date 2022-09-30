@@ -6,7 +6,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0",
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
     "@svgr/webpack": "5.4.0",
@@ -16,7 +15,7 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "animate.css": "^4.1.1",
-    "antd": "^3.7.0",
+    "antd": "^4.23.3",
     "artemis": "^1.0.0",
     "axios": "^0.25.0",
     "babel-eslint": "^10.1.0",
@@ -198,6 +197,7 @@
     ]
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "lerna": "^4.0.0",

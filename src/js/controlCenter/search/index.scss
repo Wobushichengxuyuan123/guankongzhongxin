@@ -13,41 +13,9 @@
         width: 300px;
         height: 36px;
     }
-
-    .search_history {
-        display: flex;
-        flex-direction: row;
-        margin-left: 10px;
-
-        .search_history_title {
-            width: 20%;
-            min-width: 70px;
-            line-height: 32px;
-        }
-
-        .search_history_list {
-            max-height: 70px;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            line-height: 22px;
-            overflow-x: scroll;
-            overflow: hidden;
-
-            .search_history_list_div {
-                margin: 5px 5px 5px;
-                padding: 0 5px 0 5px;
-                color: #057d7a;
-                border: 1px solid #e8e8e8;
-                border-radius: 12px;
-                cursor: pointer;
-            }
-        }
-    }
-
-    .tabs {
+    .search_tabs {
         border: 1px solid #d9d9d9;
-
+        // height: calc(100vh - 270px);
         .tabs-title {
             overflow: hidden;
 
@@ -76,9 +44,10 @@
             }
         }
 
-        .tabs-content {
+        .search_tabs_content {
             padding: 10px;
             overflow: auto;
+            height: calc(100vh - 250px);
 
             .item {
                 overflow: hidden;

@@ -1,4 +1,5 @@
-import { Icon, Input, Pagination } from 'antd';
+import {  Input, Pagination } from 'antd';
+import Icon from '@ant-design/icons';
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 class Main extends React.Component {

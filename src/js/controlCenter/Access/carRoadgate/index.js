@@ -1,6 +1,6 @@
 // 车辆道闸
 import '../../container/css/entranceGuard.scss';
-import { Input, Collapse, Spin, Icon, message } from 'antd';
+import { Input, Collapse, Spin, message } from 'antd';
 import EntranceGuardItem from '../../container/entranceGuardItem';
 import { Scrollbars } from 'react-custom-scrollbars';
 import React from 'react';

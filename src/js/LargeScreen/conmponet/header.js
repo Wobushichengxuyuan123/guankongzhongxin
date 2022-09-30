@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { Icon } from 'antd';
+
 import Swiperone from './swiper'
 import SwiperonePicture from './swiperPicture'
 import Fxgk from '../echarts/fengxianguankong'
@@ -237,7 +237,6 @@ class AlarmAlter extends React.Component {
                         <div style={{ height: '33.3%', border: '1px solid #5CA0B7' }} onClick={this.open.bind(this)}><img style={{ width: '100%', height: '100%' }} src={introduceImg} /></div>
                         <div style={{ height: '33.4%', border: '1px solid #5CA0B7' }}> <SwiperonePicture openImg={this} /> </div>
                         <div style={{ height: '33.3%', border: '1px solid #5CA0B7' }}> <Swiperone />  </div>
-
                         {/* 预警 */}
                         {isyujing ? <div className="menu-info" style={{ overflow: "hidden" }}>
                             <div className="cbtn" onClick={this.closeyujing.bind(this)}>

@@ -1,11 +1,13 @@
 import React from "react";
-import { Icon, Input, Pagination, Modal, Button, message, Popconfirm } from "antd";
-import AddPubPointPosition from "./Addindex";
+import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Input, Pagination, Modal, Button, message, Popconfirm } from "antd";
+import Addpoint from './Addindex'
 import { Scrollbars } from "react-custom-scrollbars";
 import "../container/css/areaInfo.scss";
 import "./index.scss";
 var that = null;
 class Point extends React.Component {
+  formRef = React.createRef();
   constructor(props) {
     super(props);
     this.state = {
@@ -146,72 +148,75 @@ class Point extends React.Component {
       zcoordinate: item.zCoordinate
     };
     this.setState({ title: "修改", isShow: true, viewId: id });
-    if (window.PushData) {
-      window.PushData("GisPointsEdit" + "@" + JSON.stringify(params));
-    } else {
-      window.GisMap.GisPointsEdit(params);
-    }
+    // if (window.PushData) {
+    //   window.PushData("GisPointsEdit" + "@" + JSON.stringify(params));
+    // } else {
+    //   window.GisMap.GisPointsEdit(params);
+    // }
   }
   handleOk() {
-    this.setState({ loading: true });
-    this.ref.addDepartment.validateFields((err, values) => {
-      if (!err) {
-        if (values.status) {
-          values.status = "1";
-        } else {
-          values.status = "0";
-        }
-        fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/insertData", {
-          method: "POST",
-          body: JSON.stringify(values),
-        })
-          .then((r) => r.json())
-          .then((b) => {
-            if (b.code == "0") {
-              message.success("保存成功！");
-              this.setState({ visible: false, loading: false });
-              this.getAreaSearchDetails();
-              this.handleCancel();
-            }
-            if (b.code == "-1") {
-              message.warning(b.msg);
-              this.setState({ loading: false });
-            }
-          });
+    this.refs.Addpoint.formRef.current.validateFields().then((values) => {
+      this.setState({ loading: true });
+      if (values.status) {
+        values.status = "1";
+      } else {
+        values.status = "0";
       }
-    });
+      fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/insertData", {
+        method: "POST",
+        body: JSON.stringify(values),
+      })
+        .then((r) => r.json())
+        .then((b) => {
+          if (b.code == "0") {
+            message.success("保存成功！");
+            this.setState({ visible: false, loading: false });
+            this.getAreaSearchDetails();
+            this.handleCancel();
+          }
+          if (b.code == "-1") {
+            message.warning(b.msg);
+            this.setState({ loading: false });
+          }
+        });
+
+    })
+      .catch(
+        this.setState({ loading: false })
+      )
+
   }
   doUpdate() {
-    this.setState({ loading: true });
-    this.refs.addDepartment.validateFields((err, values) => {
-      if (!err) {
-        if (values.status) {
-          values.status = "1";
-        } else {
-          values.status = "0";
-        }
-        values.id = this.state.viewId;
-        fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/updateData", {
-          method: "POST",
-          body: JSON.stringify(values),
-        })
-          .then((r) => r.json())
-          .then((b) => {
-            if (b.code == "0") {
-              message.success("保存成功！");
-              this.setState({ visible: false, loading: false });
-              this.getAreaSearchDetails();
-              this.handleCancel();
-            }
-            if (b.code == "-1") {
-              message.warning(b.msg);
-              this.setState({ loading: false });
-            }
-          });
+    this.refs.Addpoint.formRef.current.validateFields().then((values) => {
+      this.setState({ loading: true });
+      if (values.status) {
+        values.status = "1";
       } else {
-        this.setState({ loading: false });
+        values.status = "0";
       }
-    });
+      values.id = this.state.viewId;
+      fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/updateData", {
+        method: "POST",
+        body: JSON.stringify(values),
+      })
+        .then((r) => r.json())
+        .then((b) => {
+          if (b.code == "0") {
+            message.success("保存成功！");
+            this.setState({ visible: false, loading: false });
+            this.getAreaSearchDetails();
+            this.handleCancel();
+          }
+          if (b.code == "-1") {
+            message.warning(b.msg);
+            this.setState({ loading: false });
+          }
+        });
+    })
+      .catch(
+        this.setState({ loading: false })
+      )
+
   }
   handleCancel() {
     this.setState({ isShow: false, loading: false });
@@ -240,6 +245,7 @@ class Point extends React.Component {
         }
       });
   }
+
   render() {
     const { isSearch } = this.state;
     // 历史搜索
@@ -292,13 +298,11 @@ class Point extends React.Component {
         </div>
       );
     });
-    let searchInputButtons = (
-      <div>
-        <Icon type="close-circle-o" onClick={this.clearSearchInput.bind(this)} />
-        <span className="jg">︱</span>
-        <Icon type="search" onClick={this.searchFun.bind(this, this.state.name)} />
-      </div>
-    );
+    let searchInputButtons = <div>
+      <CloseCircleOutlined onClick={this.clearSearchInput.bind(this)} />
+      <span className="jg">︱</span>
+      <SearchOutlined onClick={this.searchFun.bind(this, this.state.name)} />
+    </div>
     return (
       <div className="point_info">
         <div className="point_title">点位列表</div>
@@ -316,7 +320,6 @@ class Point extends React.Component {
         <div className="point_list">
           {isSearch ?
             <div>
-
               <div className="point_table">
                 <div className="point_table_title">点位</div>
                 <div className="point_table_List" >
@@ -360,7 +363,7 @@ class Point extends React.Component {
               <Button key="btn1" className="ant-btn ant-btn-lg" onClick={this.handleCancel.bind(this)} >   取 消  </Button>,
             ]}
           >
-            {this.state.isShow ? <AddPubPointPosition ref="addDepartment" viewId={this.state.viewId} /> : null}
+            {this.state.isShow ? <Addpoint ref='Addpoint' viewId={this.state.viewId} /> : null}
           </Modal>
         </div>
       </div>

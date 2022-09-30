@@ -1,4 +1,5 @@
-import {Icon, Input, DatePicker, Collapse,  Pagination, Spin} from 'antd';
+import { Input, DatePicker, Collapse,  Pagination, Spin} from 'antd';
+import Icon from '@ant-design/icons';
 import {connect} from "react-redux";
 import {actionCreators} from '../store'
 import AlarmItem from '../alarmItem';

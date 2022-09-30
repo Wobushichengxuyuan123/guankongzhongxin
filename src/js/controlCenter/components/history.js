@@ -7,21 +7,16 @@ class History extends React.Component {
         super(props);
         this.state = {
             historyList: [],
-            loginName: sessionStorage.getItem("loginName"),
-            searchPath: this.props.searchPath
         };
     }
     componentDidMount() {
         this.props.onRef(this)
     }
     // 历史记录搜索
-    getHistory() {
+    getHistory(searchPath, loginName) {
         fetch("/nelda-smcc/pubUserSearchHistory/list", {
             method: "post",
-            body: JSON.stringify({
-                loginName: this.state.loginName,
-                searchPath: this.state.searchPath
-            }),
+            body: JSON.stringify({ loginName, searchPath }),
         })
             .then((r) => r.json())
             .then((b) => {
@@ -39,11 +34,13 @@ class History extends React.Component {
     }
     render() {
         const { historyList } = this.state
-        let history = (
-            <div className="history">
+      
+        return (
+            < >
+               <div className="history">
                 <div className="history_title">历史搜索:</div>
                 <div className="history_list">
-                    {historyList ? historyList.map((item, i) => {
+                    {historyList.map((item, i) => {
                         return (
                             <div className="history_list_div" key={"historyDiv" + i}
                                 onClick={this.props.onHistory.bind(this, item.searchValue, item.id)}
@@ -51,13 +48,9 @@ class History extends React.Component {
                                 {item.searchValue}
                             </div>
                         )
-                    }) : null}
+                    })}
                 </div>
             </div>
-        )
-        return (
-            < >
-                {history}
             </>
         );
     }

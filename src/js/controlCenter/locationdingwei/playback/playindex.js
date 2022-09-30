@@ -1,6 +1,7 @@
 //  历史回放
-import { DatePicker, Icon, Input } from 'antd';
+import { DatePicker, Input } from 'antd';
 import locale from 'antd/es/date-picker/locale/zh_CN';
+import Icon from '@ant-design/icons';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import React from 'react';

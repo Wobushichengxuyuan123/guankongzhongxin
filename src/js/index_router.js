@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { Provider } from "react-redux";
-import { Icon } from 'antd';
+import Icon from '@ant-design/icons';
 import { store, persistor } from '../store'
 import { PersistGate } from 'redux-persist/integration/react'
 import Header from './controlCenter/header/header.js';
@@ -12,10 +12,9 @@ import Alert from './alert/alert';
 import Home from './controlCenter/container/index.js'
 import Project from "./controlCenter/project/index"; // 项目
 import Point from './controlCenter/point/index' // 点位
-import SearchInfo from './controlCenter/search/indexcopy';
-
-
-import PlayAudio from '@/js/controlCenter/container/components/playAudio';
+import SearchInfo from './controlCenter/search/indexcopy'; // 搜索
+import AreaInfo from './controlCenter/area/index';
+// import PlayAudio from '@/js/controlCenter/container/components/playAudio';
 import AlarmInfo from './controlCenter/container/alarmInfo';
 import Person from "./controlCenter/container/person";
 import Video from "./controlCenter/container/video";
@@ -27,7 +26,7 @@ import JinDu from "./controlCenter/container/JinDuGuard1";
 import HuanShuibao from "./controlCenter/container/HuanshuibaoGuard1";
 import Config from "./controlCenter/container/config";
 // import SearchInfo from "./controlCenter/container/searchInfo";
-import AreaInfo from "./controlCenter/container/areaInfo";
+// import AreaInfo from "./controlCenter/container/areaInfo";
 import Equipment from "./controlCenter/container/components/equipment";
 //人员定位
 import Realtime from "./controlCenter/locationdingwei/realtime/realtime"
@@ -377,7 +376,7 @@ class IndexRouter extends React.Component {
               </div>
               <Home />
               <Alert />
-              <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} />
+              {/* <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} /> */}
             </>
           </Router>
         </PersistGate>

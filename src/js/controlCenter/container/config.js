@@ -1,5 +1,5 @@
 import './css/config.scss';
-import { Icon } from 'antd';
+
 import React from 'react';
 
 /* eslint-disable */

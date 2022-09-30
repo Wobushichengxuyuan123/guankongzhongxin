@@ -1,6 +1,7 @@
 import React from 'react';
+import Icon from '@ant-design/icons';
 import moment from 'moment';
-import { Icon, Input, DatePicker, Collapse, Pagination, Spin } from 'antd';
+import { Input, DatePicker, Collapse, Pagination, Spin } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import { Scrollbars } from 'react-custom-scrollbars';
 import AlarmItem from '../alarmItem';

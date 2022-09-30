@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import { Carousel, Input, Form, message, Icon } from 'antd';
 import { connect } from "react-redux";
 import { actionCreators } from './store'

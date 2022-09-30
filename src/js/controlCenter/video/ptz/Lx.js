@@ -184,5 +184,5 @@ class AddYt extends React.Component {
             </div>)
     }
 }
-export default AddYt = Form.create()(AddYt);
+export default AddYt = (AddYt);
 /* eslint-enable */

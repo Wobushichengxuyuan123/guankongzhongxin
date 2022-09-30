@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Input,Button, Icon, Col, Row } from 'antd';
-import { triggerType as triggerTypeSum } from '../../../trigger';
+import { Input,Button,  Col, Row } from 'antd';
+import Icon from '@ant-design/icons';
+
 // import './css/index.scss'
 class BackGrid extends Component{
   insertCurrentText2 = (parameter) => {

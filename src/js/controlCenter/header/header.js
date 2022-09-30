@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import { Menu, Dropdown, Icon, Popover, Form, Modal, Button, Input, message } from 'antd';
-import Md5 from './md5';
+import { Menu, Dropdown,  Popover, Form, Modal, Button, Input, message } from 'antd';
+import Icon from '@ant-design/icons';
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import './header.scss';
@@ -164,5 +164,5 @@ class Header extends React.Component {
     );
   }
 }
-export default withRouter(Header = Form.create()(Header));
+export default withRouter(Header);
 /* eslint-enable */

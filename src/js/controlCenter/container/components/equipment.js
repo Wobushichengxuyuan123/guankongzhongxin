@@ -1,5 +1,5 @@
 import '../css/person.scss';
-import { Button,Icon, Tabs, Input, Collapse, Spin, Tree } from 'antd';
+import { Button, Tabs, Input, Collapse, Spin, Tree } from 'antd';
 import { Scrollbars } from 'react-custom-scrollbars';
 import EqRight from './eqRight.js'
 import React from 'react';

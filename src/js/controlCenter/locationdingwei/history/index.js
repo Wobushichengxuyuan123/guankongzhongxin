@@ -1,7 +1,8 @@
 // 历史定位
 import '../location.scss'
 import '../alert.scss'
-import { Input, Icon, DatePicker, Pagination } from 'antd';
+import { Input,  DatePicker, Pagination } from 'antd';
+import Icon from '@ant-design/icons';
 import { Scrollbars } from 'react-custom-scrollbars';
 import locale from 'antd/es/date-picker/locale/zh_CN'
 import moment from 'moment';

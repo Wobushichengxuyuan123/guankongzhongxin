@@ -1,5 +1,6 @@
 // 历史定位
-import { DatePicker, Icon, Input, Pagination } from 'antd';
+import { DatePicker,  Input, Pagination } from 'antd';
+import Icon from '@ant-design/icons';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import moment from 'moment';
 import React from 'react';

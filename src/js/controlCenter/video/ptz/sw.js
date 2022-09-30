@@ -105,5 +105,5 @@ class Addsw extends React.Component {
     }
 }
 
-export default Addsw = Form.create()(Addsw);
+export default Addsw = (Addsw);
 /* eslint-enable */

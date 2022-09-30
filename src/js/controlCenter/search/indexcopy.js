@@ -1,15 +1,17 @@
 /* eslint-disable */
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { Input, Icon } from 'antd';
+import { SearchOutlined, CloseCircleOutlined, CaretUpFilled, CaretDownFilled } from '@ant-design/icons';
+
+import { Input } from 'antd';
 import AlarmItem from '../components/alarmItem';
 import History from '../components/history';
-// import PersonItem from '../components/personItem';
-// import VideoItem from '../components/videoItem';
-// import EntranceItem from '../components/entranceItem';
-// import StationItem from '../components/stationItem';
-// import RadioItem from '../components/radioItem';
-// import LaneItem from '../components/laneItem';
+import PersonItem from '../components/personItem';
+import VideoItem from '../components/videoItem';
+import EntranceItem from '../components/entranceItem';
+import StationItem from '../components/stationItem';
+import RadioItem from '../components/radioItem';
+import LaneItem from '../components/laneItem';
 import './index.scss';
 class Main extends React.Component {
   constructor(props) {
@@ -28,38 +30,40 @@ class Main extends React.Component {
       searchResult: false,
       orgList: [],
       loginName: sessionStorage.getItem("loginName"),
-      searchPath: 'resourceSearch'
     };
   }
 
   componentDidMount() {
-    this.history.getHistory();
-
-    // this.getAreaSearchDetails();
-    // this.getOrgData();
+    this.history.getHistory('resourceSearch', this.state.loginName);
+    this.getAreaSearchDetails();
+    this.getOrgData();
   }
-
-  getHistory() {
-    fetch("/nelda-smcc/pubUserSearchHistory/list", {
-      method: "post",
-      body: JSON.stringify({
-        loginName: this.state.loginName,
-        searchPath: 'resourceSearch',
-      })
-    })
+  getAreaSearchDetails(id, parentId) {
+    let param = "";
+    if (id) {
+      param += "&location_area_id=" + id + "&parent_id=" + parentId;
+    }
+    fetch(window.BASICS_SYSTEM + "/pubSearch/areaSearchDetails?projectId=" + sessionStorage.getItem("projectId") + param)
       .then(r => r.json())
       .then(b => {
-        let list = b.data.slice(0, 5)
-        this.setState({ historyList: list });
+        if (b.data) {
+          this.setState({ areaList: b.data });
+        }
       })
-
   }
-
+  getOrgData() {
+    fetch(window.BASICS_SYSTEM + "/pubSearch/orgSearch?projectId=" + sessionStorage.getItem("projectId"))
+      .then(r => r.json())
+      .then(b => {
+        if (b.data) {
+          this.setState({ orgList: b.data });
+        }
+      })
+  }
 
   tabHander(type) {
     this.setState({ tabSelected: type });
   }
-
   getSearch(name) {
     let projectId = window.sessionStorage.getItem("projectId")
     if (!name) {
@@ -118,32 +122,6 @@ class Main extends React.Component {
       })
   }
 
-  getAreaSearchDetails(id, parentId) {
-    let projectId = window.sessionStorage.getItem("projectId")
-    let param = "";
-    if (id) {
-      param += "&location_area_id=" + id + "&parent_id=" + parentId;
-    }
-    fetch(window.BASICS_SYSTEM + "/pubSearch/areaSearchDetails?projectId=" + projectId + param)
-      .then(r => r.json())
-      .then(b => {
-        if (b.data) {
-          this.setState({ areaList: b.data });
-        }
-      })
-  }
-
- 
-  getOrgData() {
-    let projectId = window.sessionStorage.getItem("projectId")
-    fetch(window.BASICS_SYSTEM + "/pubSearch/orgSearch?projectId=" + projectId)
-      .then(r => r.json())
-      .then(b => {
-        if (b.data) {
-          this.setState({ orgList: b.data });
-        }
-      })
-  }
   storage(e) {
     let loginName = window.sessionStorage.getItem("loginName")
     fetch("/nelda-smcc/pubUserSearchHistory/insert", {
@@ -156,18 +134,18 @@ class Main extends React.Component {
     })
       .then(r => r.json())
       .then(b => {
-        this.getHistory();
+        this.history.getHistory('resourceSearch', this.state.loginName);
       })
   }
+
   searchFun(e) {
     this.storage(e)
     this.getSearchDetails(this.state.name, this.state.type, this.state.id);
   }
-
   clearSearchInput() {
     this.setState({ name: "", isMh: false, type: "", id: "", searchPrompt: true, searchResult: false, resultList: [] })
+    this.history.getHistory('resourceSearch', this.state.loginName);
   }
-
   changeSearchInput(e) {
     let isMh = false;
     let searchPrompt = true;
@@ -188,7 +166,7 @@ class Main extends React.Component {
       searchResult
     });
     this.getSearch(e.target.value);
-    this.getHistory()
+    this.history.getHistory('resourceSearch', this.state.loginName);
   }
 
   clickMhItemHander(name, type, id) {
@@ -203,7 +181,6 @@ class Main extends React.Component {
     this.setState({ name: name, isMh: isMh, id: "", parentId: "", isShow: false });
     this.getSearch(name);
   }
-
   render() {
     let resultfun = (list = this.state.areaList, level = 1) => {
       return list.map(item => {
@@ -227,20 +204,20 @@ class Main extends React.Component {
     let resultItems = this.state.resultList.length > 0 ? this.state.resultList.map((item, i) => {
       item.index = (i + 1);
       if (item.type == 1) {
-        if (item.equipment_categories_code == "S5010") {//基站
-          return <StationItem data={item} key={"resultItems" + i} />
-        }
         if (item.equipment_categories_code == "S1010") {//摄像机
           return <VideoItem data={item} key={"resultItems" + i} />
-        }
-        if (item.equipment_categories_code == "S4010") {//广播
-          return <RadioItem data={item} key={"resultItems" + i} />
         }
         if (item.equipment_categories_code == "S2010") {//门禁
           return <EntranceItem data={item} key={"resultItems" + i} />
         }
         if (item.equipment_categories_code == "S3010") {//车道
           return <LaneItem data={item} key={"resultItems" + i} />
+        }
+        if (item.equipment_categories_code == "S4010") {//广播
+          return <RadioItem data={item} key={"resultItems" + i} />
+        }
+        if (item.equipment_categories_code == "S5010") {//基站
+          return <StationItem data={item} key={"resultItems" + i} />
         }
       } else if (item.type == 2) {
         return <AlarmItem parent={this} data={item} search={true} key={"resultItems" + i} />
@@ -253,21 +230,13 @@ class Main extends React.Component {
         onClick={this.clickMhItemHander.bind(this, item.organization_name, 5, item.organization_id)}
         className="level1 nobold">{item.organization_name}</div>;
     })
-    // 历史
-    let history = (
-      <div className='search_history'>
-        <div className='search_history_title'>历史搜索：</div>
-        <div className="search_history_list">{
-          this.state.historyList.map((item, i) => {
-            return <div className="search_history_list_div" onClick={this.clickMhItemHanderS.bind(this, item.searchValue, item.id)} key={"historyDiv" + i}>{item.searchValue}</div>;
-          })}</div>
-      </div>
-    )
+
     let searchInputButtons = <div>
-      <Icon type="close-circle-o" onClick={this.clearSearchInput.bind(this)} />
+      <CloseCircleOutlined onClick={this.clearSearchInput.bind(this)} />
       <span className="jg">︱</span>
-      <Icon type="search" onClick={this.searchFun.bind(this, this.state.name)} />
+      <SearchOutlined onClick={this.searchFun.bind(this, this.state.name)} />
     </div>
+
     return (
       <div className="search_Info">
         <div className="search_title">资源搜索</div>
@@ -284,33 +253,29 @@ class Main extends React.Component {
         </div>
         {this.state.searchPrompt ?
           <div>
-           <History
-            searchPath={this.state.searchPath}
-            onRef={ref => this.history = ref}
-            onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
-            <div className="tabs" style={{ display: "block" }}>
+            <History searchPath={this.state.searchPath} onRef={ref => this.history = ref} onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
+
+            <div className="search_tabs" style={{ display: "block" }}>
               <div className="tabs-title">
                 <div className={this.state.tabSelected == "area" ? "active" : ""}
-                  onClick={this.tabHander.bind(this, "area")}>区域 {this.state.tabSelected == "area" ?
-                    <Icon type="caret-up" /> : <Icon type="caret-down" />}</div>
+                  onClick={this.tabHander.bind(this, "area")}>区域 {this.state.tabSelected == "area" ? <CaretUpFilled /> : <CaretDownFilled />}</div>
                 <div className={this.state.tabSelected == "org" ? "active" : ""}
-                  onClick={this.tabHander.bind(this, "org")}>组织 {this.state.tabSelected == "org" ?
-                    <Icon type="caret-up" /> : <Icon type="caret-down" />}</div>
+                  onClick={this.tabHander.bind(this, "org")}>组织 {this.state.tabSelected == "org" ? <CaretUpFilled /> : <CaretDownFilled />}</div>
               </div>
               {this.state.tabSelected == "area" ?
-                <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
+                <div className="search_tabs_content">
                   <div className="item">
                     {resultfun()}
                   </div>
                 </div>
-                : <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>
+                : <div className="search_tabs_content" >
                   <div className="item">
                     {orgItems}
                   </div>
                 </div>}
             </div>
           </div>
-          : null}
+          : ''}
         {this.state.searchResult ?
           <div className="searchResult" style={{ display: "block" }}>
             <Scrollbars style={{ height: (window.document.documentElement.clientHeight - 170) }}>

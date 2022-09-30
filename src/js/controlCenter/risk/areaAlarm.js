@@ -1,4 +1,5 @@
-import { Collapse, DatePicker, Icon, Input, Pagination, Spin } from 'antd';
+import { Collapse, DatePicker,  Input, Pagination, Spin } from 'antd';
+import Icon from '@ant-design/icons';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
 import React from 'react';

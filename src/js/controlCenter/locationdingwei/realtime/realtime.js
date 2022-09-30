@@ -1,5 +1,5 @@
-
-import { Icon, Input, Pagination } from 'antd';
+import Icon from '@ant-design/icons';
+import {  Input, Pagination } from 'antd';
 import moment from 'moment';
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';

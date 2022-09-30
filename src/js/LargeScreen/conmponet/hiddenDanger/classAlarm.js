@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Icon, Input, DatePicker, Collapse, message, Pagination, Spin } from 'antd';
+import {  Input, DatePicker, Collapse, message, Pagination, Spin } from 'antd';
 import { connect } from "react-redux";
 import { actionCreators } from '../store'
 
