@@ -147,6 +147,7 @@ class Point extends React.Component {
       ycoordinate: item.yCoordinate,
       zcoordinate: item.zCoordinate
     };
+  
     this.setState({ title: "修改", isShow: true, viewId: id });
     // if (window.PushData) {
     //   window.PushData("GisPointsEdit" + "@" + JSON.stringify(params));
@@ -179,7 +180,6 @@ class Point extends React.Component {
             this.setState({ loading: false });
           }
         });
-
     })
       .catch(
         this.setState({ loading: false })

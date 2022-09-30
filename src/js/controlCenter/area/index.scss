@@ -18,15 +18,24 @@
         border: 1px solid #e8e8e8;
         margin-left: 3%;
         overflow: scroll;
+
         .area_table_title {
             text-align: center;
             border-bottom: 1px solid #e8e8e8;
         }
+
         .areat_table_List {
             height: calc(100vh - 250px);
             overflow-y: auto;
-           
+
         }
 
+    }
+
+    .areat_mhss {
+        margin: 5px 10px 10px;
+        padding: 10px;
+        border: 1px solid #d9d9d9;
+        overflow: auto;
     }
 }

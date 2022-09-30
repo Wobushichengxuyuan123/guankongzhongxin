@@ -24,6 +24,7 @@ class Addpoint extends React.Component {
         this.update()
     }
     componentWillReceiveProps(nextProps) {
+        this.formRef.current.resetFields()
         if (nextProps.viewId != this.props.viewId) {
             this.getDataById(nextProps.viewId);
         }
@@ -45,11 +46,12 @@ class Addpoint extends React.Component {
     update() {
         window.WebLonLatpoints = (data) => {
             let list = JSON.parse(data)
-            this.props.form.setFieldsValue({
+            this.formRef.current.setFieldsValue({
                 "xcoordinate": list.Lon,
                 "ycoordinate": list.Lat,
                 "zcoordinate": list.Hei
             });
+
         }
     }
     getDataById(id) {
@@ -86,13 +88,9 @@ class Addpoint extends React.Component {
                     <FormItem {...formItemLayout} label="点位名称" name='pointName' rules={[{ required: true, message: '请输入点位名称！' }, { max: 50, message: '长度超出限制' }]}>
                         <Input disabled={this.state.readonly} placeholder="点位名称" className="search_ipt01" />
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                        label="点位编码"
-                        name='pointCode'
+                    <FormItem {...formItemLayout} label="点位编码" name='pointCode'
                         rules={[
-                            { required: true, message: '请输入点位编码！' },
-                            { max: 30, message: '长度超出限制' },
+                            { required: true, message: '请输入点位编码！' }, { max: 30, message: '长度超出限制' },
                             { pattern: /^(?!_)(?!.*?_$)[a-zA-Z0-9_]+$/, message: '仅支持字母数字和特殊字符格式编码 不能以_开头或结尾' }
                         ]}>
                         <Input disabled={this.state.readonly} placeholder="点位编码" className="search_ipt01" />

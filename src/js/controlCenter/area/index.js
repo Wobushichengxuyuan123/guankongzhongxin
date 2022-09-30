@@ -147,7 +147,7 @@ class AreaInfo extends React.Component {
                             {this.state.resultList.length > 0 ? <Tree defaultExpandAll={true} showIcon>{this.renderTreeNodes(this.state.resultList)}</Tree> : ''}
                         </div>
                     </div>
-                </div> : <div className="mhss" >
+                </div> : <div className="areat_mhss" >
                     {mhItems}
                 </div>}
             </div>
