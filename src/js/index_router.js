@@ -15,7 +15,8 @@ import Point from './controlCenter/point/index' // 点位
 import SearchInfo from './controlCenter/search/indexcopy'; // 搜索
 import AreaInfo from './controlCenter/area/index';
 import PlayAudio from '@/js/controlCenter/container/components/playAudio';
-import AlarmInfo from './controlCenter/container/alarmInfo';
+// import AlarmInfo from './controlCenter/container/alarmInfo';
+import AlarmInfo from './controlCenter/alarm';
 import Person from "./controlCenter/container/person";
 import Video from "./controlCenter/container/video";
 import Broadcast from "./controlCenter/container/broadcast1";
@@ -65,6 +66,7 @@ class IndexRouter extends React.Component {
         SearchInfo: perms => <SearchInfo {...perms} />, // 搜索
         AreaInfo: perms => <AreaInfo {...perms} />, // 区域
         AlarmInfo: perms => <AlarmInfo {...perms} alarmCount={this.state.alarmCount} />, // 报警
+
         Equipment: perms => <Equipment {...perms} />,// 设备
         VideoMonitoring: perms => <VideoMonitoring {...perms} />,  // 视频调阅
         Videoplayback: perms => <Videoplayback {...perms} />,  // 录像回放

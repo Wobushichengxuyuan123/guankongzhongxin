@@ -1,12 +1,11 @@
-import { Input, DatePicker, Collapse,  Pagination, Spin} from 'antd';
-import {connect} from "react-redux";
-import {actionCreators} from './store'
-import Icon from '@ant-design/icons';
-import AlarmItem from './alarmItem';
-import {Scrollbars} from 'react-custom-scrollbars';
-import locale from 'antd/lib/date-picker/locale/zh_CN';
-import moment from 'moment';
+/* eslint-disable */
 import React from 'react';
+import { connect } from "react-redux";
+import { Scrollbars } from 'react-custom-scrollbars';
+import { Input, DatePicker, Collapse, Pagination, Spin } from 'antd';
+import locale from 'antd/lib/date-picker/locale/zh_CN';
+import AlarmItem from '../components/alarmItem'
+import {actionCreators} from '../components/store'
 
 const Search = Input.Search;
 const Panel = Collapse.Panel;
@@ -15,14 +14,14 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startValue: moment(new Date(new Date().getTime() - 3 * 1000 * 60 * 60 * 24), 'YYYY-MM-DD'),
-      endValue: moment(new Date(), 'YYYY-MM-DD'),
+      startValue: null,
+      endValue: null,
       endOpen: false,
       historySearch: false,
       alarmInfo: [],
       alarmInfoDetails: [],
       alarm_type: 1,
-      type: 1,
+      type: 2,
       name: "",
       current: 1,
       pageNo: 1,
@@ -34,14 +33,13 @@ class Main extends React.Component {
       resNum: 0
     }
   }
-
   componentDidMount() {
     this.getAlarmInfo(this.state.type, this.state.alarm_type);
   }
 
   getAlarmInfo(type, alarm_type, name, startValue, endValue) {
-    let projectId =window.sessionStorage.getItem("projectId")
-    // this.setState({alarmInfo: []})
+    let projectId = window.sessionStorage.getItem("projectId")
+    // this.setState({alarmInfo:[]})
     let param = "&type=" + type + "&alarm_type=" + alarm_type;
     if (alarm_type === 2) {
       param += "&name=" + name + "&start_time=" + (startValue ? startValue : "") + "&end_time=" + (endValue ? endValue : "");
@@ -50,7 +48,7 @@ class Main extends React.Component {
       .then(r => r.json())
       .then(b => {
         if (b.data) {
-          this.setState({alarmInfo: b.data});
+          this.setState({ alarmInfo: b.data });
           //this.getAlarmInfoDetails(type, alarm_type, b.data[0].id, this.state.pageNo, this.state.pageSize)
           this.getAlarmInfoDetails(type, alarm_type, this.state.pageId, this.state.pageNo, this.state.pageSize)
           this.getAlarmCount()
@@ -59,7 +57,7 @@ class Main extends React.Component {
   }
 
   getAlarmCount() {
-    let projectId =window.sessionStorage.getItem("projectId")
+    let projectId = window.sessionStorage.getItem("projectId")
     fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmCount?projectId=" + projectId)
       .then(r => r.json())
       .then(b => {
@@ -72,16 +70,16 @@ class Main extends React.Component {
   }
 
   getAlarmInfoDetails(type, alarm_type, id, pageNo, pageSize) {
-    if(this.state.pageId!==id){
-        pageNo=1
+    if (this.state.pageId !== id) {
+      pageNo = 1
     }
-    let projectId =window.sessionStorage.getItem("projectId")
-    this.setState({isLoding: true, resNum: this.state.resNum + 1})
+    let projectId = window.sessionStorage.getItem("projectId")
+    this.setState({ isLoding: true, resNum: this.state.resNum + 1 })
     let param = "&type=" + type + "&alarm_type=" + alarm_type + "&id=" + id + '&pageNo=' + pageNo + '&pageSize=' + pageSize;
     if (alarm_type === 2) {
       param += "&name=" + this.state.name + "&start_time=" + (this.state.startValue ? this.state.startValue : "") + "&end_time=" + (this.state.endValue ? this.state.endValue : "");
     }
-    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetails?projectId=" +projectId + param)
+    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetails?projectId=" + projectId + param)
       .then(r => r.json())
       .then(b => {
         if (b.data) {
@@ -91,12 +89,11 @@ class Main extends React.Component {
             totalCount: Number(b.data.totalCount),
             isLoding: false
           });
-
         } else {
           if (this.state.resNum < 3) {
             this.getAlarmInfoDetails(type, alarm_type, id, pageNo, pageSize)
           } else {
-            this.setState({resNum: 0})
+            this.setState({ resNum: 0 })
             // message.error('服务器异常!请稍后再试!')
           }
         }
@@ -135,36 +132,36 @@ class Main extends React.Component {
 
   handleStartOpenChange(open) {
     if (!open) {
-      this.setState({endOpen: true});
+      this.setState({ endOpen: true });
     }
   }
 
   handleEndOpenChange(open) {
-    this.setState({endOpen: open});
+    this.setState({ endOpen: open });
   }
 
   clickHistoryHander() {
-    this.setState({historySearch: true, alarm_type: 2, alarmInfo: [], alarmInfoDetails: []});
+    this.setState({ historySearch: true, alarm_type: 2, alarmInfo: [], alarmInfoDetails: [] });
   }
 
   clickXunhHander() {
-    this.setState({historySearch: false, alarm_type: 1, startValue: null, endValue: null});
+    this.setState({ historySearch: false, alarm_type: 1, startValue: null, endValue: null });
     this.getAlarmInfo(this.state.type, 1);
   }
 
-  changeCollapse(id) { 
+  changeCollapse(id) {
     this.setState({
       pageId: id
     })
     if (id) {
-      this.setState({isAlarmItem: true})
+      this.setState({ isAlarmItem: true })
       this.getAlarmInfoDetails(this.state.type, this.state.alarm_type, id, this.state.pageNo, this.state.pageSize)
       if (!this.props.isAoTuAlter && this.props.info !== 0) {
         // let width = Number(document.getElementById("unityPlayer").childNodes[0].width)
         // window.MapContainer.changeWidth(width - 330);
       }
     } else {
-      this.setState({isAlarmItem: false})
+      this.setState({ isAlarmItem: false })
       if (!this.props.isAoTuAlter && this.props.info !== 0) {
         this.props.changeInfo(0)
         // let width = Number(document.getElementById("unityPlayer").childNodes[0].width)
@@ -174,29 +171,29 @@ class Main extends React.Component {
   }
 
   changeSearch(e) {
-    let projectId =window.sessionStorage.getItem("projectId")
-    if ( e.trim()=="" ) {
+    let projectId = window.sessionStorage.getItem("projectId")
+    if (e.trim() == "") {
       var param = "&type=" + this.state.type + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
-    } else if(e.trim() != ""){
+    } else if (e.trim() != "") {
       var param = "&type=" + this.state.type + "&name=" + e + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
     }
-    this.setState({alarmInfo: [], alarmInfoDetails: []});
+    this.setState({ alarmInfo: [], alarmInfoDetails: [] });
     // let param = "?type=" + this.state.type + "&name=" + e + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
-    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetailsAndCount?projectId="+ projectId + param)
+    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetailsAndCount?projectId=" + projectId + param)
       .then(r => r.json())
       .then(b => {
         if (b.data) {
-          this.setState({alarmInfo: b.data});
+          this.setState({ alarmInfo: b.data });
         }
       })
   }
 
   emitEmpty() {
-    this.setState({name: ""});
+    this.setState({ name: "" });
     this.getAlarmInfo(this.state.type, this.state.alarm_type, "", this.state.startValue, this.state.endValue);
   }
 
-  pageOnChange = (page) => {
+  pageOnChange(page) {
     this.setState({
       pageNo: page
     })
@@ -204,16 +201,16 @@ class Main extends React.Component {
   }
 
   render() {
-    const {startValue, endValue, endOpen} = this.state;
+    const { startValue, endValue, endOpen } = this.state;
     let alarmItems = this.state.alarmInfoDetails.map((detail, j) => {
-      return (<AlarmItem key={"alarmItem-" + j} alterIndex={j} data={detail} parent={this} time={new Date().getTime()}/>);
+      return (<AlarmItem key={"alarmItem-" + j} parent={this} data={detail} time={new Date().getTime()} />);
     })
     let panels = this.state.alarmInfo.map((item, i) => {
       return <Panel header={item.name + " (" + item.count + ")"} key={item.id}>
-        {this.state.isLoding ? <div style={{textAlign: 'center', margin: '10px 0'}}><Spin tip="加载中..."/>
+        {this.state.isLoding ? <div style={{ textAlign: 'center', margin: '10px 0' }}><Spin tip="加载中..." />
         </div> : this.state.isAlarmItem ? alarmItems : null}
-        {this.state.alarmInfoDetails.length !== 0 && !this.state.isLoding ?
-          this.state.isAlarmItem ? <div className='page-wrap' style={{textAlign: 'center'}}>
+        {this.state.alarmInfoDetails.length != 0 && !this.state.isLoding ?
+          this.state.isAlarmItem ? <div className='page-wrap' style={{ textAlign: 'center' }}>
             <Pagination
               size="small"
               pageSize={this.state.pageSize}
@@ -221,12 +218,10 @@ class Main extends React.Component {
               onChange={this.pageOnChange.bind(this)}
               total={this.state.totalCount}
             />
-          </div>
-            : null
-          : null}
+          </div> : null : null}
       </Panel>
     })
-    const suffix = this.state.name ? <Icon type="close-circle" onClick={this.emitEmpty.bind(this)}/> : null;
+    const suffix = this.state.name ? <Icon type="close-circle" onClick={this.emitEmpty.bind(this)} /> : null;
     return (<div>
       <div className="alarmTag">
         <div className="xhbj" onClick={this.clickXunhHander.bind(this)}>当前报警</div>
@@ -235,27 +230,27 @@ class Main extends React.Component {
       <div className="alarmList">
         {this.state.historySearch ? <div className="historySearch searchDiv">
           <Search className="historySearchInput searchInput" suffix={suffix} onSearch={this.changeSearch.bind(this)}
-                  placeholder="报警信息"/>
+            placeholder="报警信息" />
           <div>
             <DatePicker
               className="dataPicker"
               disabledDate={this.disabledStartDate.bind(this)}
               showTime
               format="YYYY-MM-DD"
-              locale={locale}
               value={startValue}
+              locale={locale}
               placeholder="开始时间"
               onChange={this.onStartChange.bind(this)}
               onOpenChange={this.handleStartOpenChange.bind(this)}
             />
             <DatePicker
-              style={endOpen ? {marginLeft: "-100px"} : null}
+              style={endOpen ? { marginLeft: "-100px" } : null}
               className="dataPicker"
               disabledDate={this.disabledEndDate.bind(this)}
               showTime
               format="YYYY-MM-DD"
-              value={endValue}
               locale={locale}
+              value={endValue}
               placeholder="结束时间"
               onChange={this.onEndChange.bind(this)}
               open={endOpen}
@@ -263,7 +258,8 @@ class Main extends React.Component {
             />
           </div>
         </div> : null}
-        <div style={{height: (window.document.documentElement.clientHeight - 235) - (this.state.historySearch ? 144 : 0)}}>
+        <div
+          style={{ height: (window.document.documentElement.clientHeight - 235) - (this.state.historySearch ? 144 : 0) }}>
           <Scrollbars>
             {panels.length > 0 ?
               <Collapse accordion onChange={this.changeCollapse.bind(this)}>
@@ -271,7 +267,6 @@ class Main extends React.Component {
               </Collapse> : null}
           </Scrollbars>
         </div>
-
       </div>
     </div>);
   }
@@ -295,3 +290,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+/* eslint-enable */

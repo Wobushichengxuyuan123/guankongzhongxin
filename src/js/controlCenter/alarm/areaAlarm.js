@@ -1,8 +1,8 @@
 import { Input, DatePicker, Collapse,  Pagination, Spin} from 'antd';
 import {connect} from "react-redux";
-import {actionCreators} from './store'
+import {actionCreators} from '../components/store'
 import Icon from '@ant-design/icons';
-import AlarmItem from './alarmItem';
+import AlarmItem from '../components/alarmItem'
 import {Scrollbars} from 'react-custom-scrollbars';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
@@ -41,7 +41,6 @@ class Main extends React.Component {
 
   getAlarmInfo(type, alarm_type, name, startValue, endValue) {
     let projectId =window.sessionStorage.getItem("projectId")
-    // this.setState({alarmInfo: []})
     let param = "&type=" + type + "&alarm_type=" + alarm_type;
     if (alarm_type === 2) {
       param += "&name=" + name + "&start_time=" + (startValue ? startValue : "") + "&end_time=" + (endValue ? endValue : "");
@@ -220,6 +219,7 @@ class Main extends React.Component {
               current={this.state.pageNo}
               onChange={this.pageOnChange.bind(this)}
               total={this.state.totalCount}
+              showSizeChanger={false}
             />
           </div>
             : null

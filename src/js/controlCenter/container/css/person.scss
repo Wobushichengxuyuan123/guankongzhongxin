@@ -47,6 +47,21 @@
 .ant-tree-treenode-switcher-close, ant-tree-treenode-switcher-open {
     -webkit-user-drag: element;
 }
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap{
+    width: 100%;
+}
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-list{
+    width: 100%;
+}
+.ant-tabs-tab{
+    display: block;
+}
+.ant-tabs-tab-active{
+    color: #057d7a;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color: #057d7a;
+}
 .drag {
     -webkit-user-drag: element;
 }
