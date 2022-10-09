@@ -248,6 +248,12 @@ module.exports = function (proxy, allowedHost) {
                 changeOrigin: true,
                 secure: false
             },
+            '/iscvr/*': {
+                target: 'http://192.168.1.37:5005',
+                pathRewrite: { '^/iscvr': 'cvr' },
+                changeOrigin: true,
+                secure: false
+            },
         },
         before(app, server) {
             // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`

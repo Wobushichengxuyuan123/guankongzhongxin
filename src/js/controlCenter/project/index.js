@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Input, Pagination } from "antd";
 import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Input, Pagination } from "antd";
 import History from "../components/history";
 import './index.scss'
 
@@ -91,6 +91,7 @@ class Project extends React.Component {
       isShow: false,
     });
     this.getAreaSearchDetails();
+    this.history.getHistory('xiangmu', this.state.loginName);
   }
   storage(e) {
     fetch("/nelda-smcc/pubUserSearchHistory/insert", {
@@ -213,11 +214,12 @@ class Project extends React.Component {
               {this.state.resultList.length != 0 ? (
                 <div className="project_table_page_wrap" style={{ textAlign: "center" }}>
                   <Pagination
-                    size="small" s
+                    size="small"
                     pageSize={this.state.pageSize}
                     current={this.state.pageNo}
                     onChange={this.pageOnChange.bind(this)}
-                    total={this.state.totalCount}
+                    total={this.state.totalCount}                 
+                    showSizeChanger={false}
                   />
                 </div>
               ) : null}

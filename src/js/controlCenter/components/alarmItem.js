@@ -7,7 +7,7 @@ import './css/alarmItem.scss'
 // import './css/alter.css'
 
 /* eslint-disable */
-class Main extends React.Component {
+class AlarmItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -418,5 +418,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(AlarmItem);
 /* eslint-enable */

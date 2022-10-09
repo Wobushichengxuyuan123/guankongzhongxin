@@ -9,6 +9,7 @@ window.SYSTEM_CONFIG_PPMS = '/ppms-portal-web';
 window.SYSTEM_NELDA_ALARM = '/nelda-alarm';
 window.ZHDD = '/nelda-yjfz';
 window.API = '/api'
+window.ISCVR = 'iscvr'
 // 判断运行环境
 const micpath = {
     '192.168.1.4': '19302',

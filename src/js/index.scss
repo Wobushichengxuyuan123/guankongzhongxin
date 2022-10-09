@@ -1,201 +1,260 @@
-@media screen and (min-width:2500px){
-	body{
-		.headerBox{
-			height:120px;
-			.header{
-				height:120px;
-				.header-menu div{
-					height: 120px;
-					font-size: 24px;
-					background-size:46px 46px;
-					background-position-y: 18px;
-					padding:79px 27px 0;
-				}
-			}
-		}
-		.patrol {
-			.menu-nav, .content{
-				height: calc(100vh - 120px);
-			}
-			
-		}
-		.container{
-			.ant-picker-datetime-panel{
-				display: flex;
-			}
-			.menu-container{
-				top:120px;
-				width: 100px;
-				& div,.guiji{
-					width: 100px;
-					height: 138px;
-					font-size: 20px;
-					background-size: 50px 50px;
-					background-position: center 27px !important;
-					padding-top:84px;
-					
-				}
-				sup{
-					font-size:20px;
-					width:30px;
-					height:24px;
-					line-height: 24px;
-				}
-			}
-			.menu{
-				.closeBtn,.openBtn{
-					width: 24px !important;
-					height: 64px !important;
-					font-size:20px;
-					padding-top:0 !important;
-					line-height: 64px;
-				}
-				.closeBtn{
-					margin-left:100px;
-				}
-				.menu-info{
-					width: 480px;
-					margin-left:100px;
-					.title{
-						font-size: 24px;
-						line-height: 60px;
-					}
-					.searchInfo .searchDiv .searchInput,.searchDiv .searchInput{
-						width:437px !important;
-						.ant-input{
-							height: 44px !important;
-						}
-					}
-					.searchInfo .searchPrompt .tabs .tabs-title > div{
-						font-size: 24px;
-						line-height: 60px;
-						height: 60px;
-					}
-					.searchInfo .searchPrompt .tabs .tabs-content .item{
-						.level1{
-							font-size: 22px;
-						}
-						.level2{
-							font-size: 20px;
-						}
-					} 
-					.searchResult{
-						font-size: 22px !important;
-					}
-					.ant-tabs-nav-wrap,.alarmTag{
-						font-size: 24px !important;
-					}
-					.videoItem,.alarmTitle,.searchPromptone,.time,.alter-title,.hist{
-						font-size: 24px !important;
-					}
-					.alarmTime,.alarmItemOperation{
-						font-size: 18px !important;
-					}
-					.alarmText{
-						max-width: 400px !important;
-					}
-					.ant-collapse-header{
-						height: 60px;
-						line-height: 60px;
-						padding-top:0 ;
-						padding-bottom:0;
-						font-size: 24px;
-					}
-					#demoP{
-						left:600px;
-					}
-					.shijian{
-						.ant-calendar-picker{
-							width: 340px;
-						}
-					}
-					.ant-calendar-picker-input.ant-input{
-						height: 44px !important;
-					}
-					.cbtn{
-						font-size: 30px;
-					}
-					.hist .liebiao{
-						display: flex;
-						justify-content: space-around;
-					}
-				} 
-					
-			} 
-			.alarm-alter-wrap{
-				top:120px;
-				width: 479px;
-				.alarmAlterBox{
-					width: 479px;
-				}
-				.content-text .text-title >*, .left>*,.right>*{
-					font-size: 22px !important;
-				}
-				.s{
-					font-size: 22px !important;
-				}
-			}				
-		} 
-		.alterwrap{
-			top:120px !important;
-			width: 479px;
-			.alarm{
-				width: 479px;
-			}
-			.namexinxi{
-				font-size: 24px !important;
-			}
-			.contenttext >div{
-				font-size: 22px;
-			}
-		}
-		.ldfaItem{
-			font-size: 22px;
-		}
-	}
-	.dispatchIframe{
-		margin-top:0 !important;
-		height:calc(100vh - 120px) !important;
-	}
-	
+@media screen and (min-width:2500px) {
+    body {
+        .headerBox {
+            height: 120px;
+
+            .header {
+                height: 120px;
+
+                .header-menu div {
+                    height: 120px;
+                    font-size: 24px;
+                    background-size: 46px 46px;
+                    background-position-y: 18px;
+                    padding: 79px 27px 0;
+                }
+            }
+        }
+
+        .patrol {
+
+            .menu-nav,
+            .content {
+                height: calc(100vh - 120px);
+            }
+
+        }
+
+        .container {
+            .ant-picker-datetime-panel {
+                display: flex;
+            }
+
+            .menu-container {
+                top: 120px;
+                width: 100px;
+
+                & div,
+                .guiji {
+                    width: 100px;
+                    height: 138px;
+                    font-size: 20px;
+                    background-size: 50px 50px;
+                    background-position: center 27px !important;
+                    padding-top: 84px;
+
+                }
+
+                sup {
+                    font-size: 20px;
+                    width: 30px;
+                    height: 24px;
+                    line-height: 24px;
+                }
+            }
+
+            .menu {
+
+                .closeBtn,
+                .openBtn {
+                    width: 24px !important;
+                    height: 64px !important;
+                    font-size: 20px;
+                    padding-top: 0 !important;
+                    line-height: 64px;
+                }
+
+                .closeBtn {
+                    margin-left: 100px;
+                }
+
+                .menu-info {
+                    width: 480px;
+                    margin-left: 100px;
+
+                    .title {
+                        font-size: 24px;
+                        line-height: 60px;
+                    }
+
+                    .searchInfo .searchDiv .searchInput,
+                    .searchDiv .searchInput {
+                        width: 437px !important;
+
+                        .ant-input {
+                            height: 44px !important;
+                        }
+                    }
+
+                    .searchInfo .searchPrompt .tabs .tabs-title>div {
+                        font-size: 24px;
+                        line-height: 60px;
+                        height: 60px;
+                    }
+
+                    .searchInfo .searchPrompt .tabs .tabs-content .item {
+                        .level1 {
+                            font-size: 22px;
+                        }
+
+                        .level2 {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .searchResult {
+                        font-size: 22px !important;
+                    }
+
+                    .ant-tabs-nav-wrap,
+                    .alarmTag {
+                        font-size: 24px !important;
+                    }
+
+                    .videoItem,
+                    .alarmTitle,
+                    .searchPromptone,
+                    .time,
+                    .alter-title,
+                    .hist {
+                        font-size: 24px !important;
+                    }
+
+                    .alarmTime,
+                    .alarmItemOperation {
+                        font-size: 18px !important;
+                    }
+
+                    .alarmText {
+                        max-width: 400px !important;
+                    }
+
+                    .ant-collapse-header {
+                        height: 60px;
+                        line-height: 60px;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        font-size: 24px;
+                    }
+
+                    #demoP {
+                        left: 600px;
+                    }
+
+                    .shijian {
+                        .ant-calendar-picker {
+                            width: 340px;
+                        }
+                    }
+
+                    .ant-calendar-picker-input.ant-input {
+                        height: 44px !important;
+                    }
+
+                    .cbtn {
+                        font-size: 30px;
+                    }
+
+                    .hist .liebiao {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                }
+
+            }
+
+            .alarm-alter-wrap {
+                top: 120px;
+                width: 479px;
+
+                .alarmAlterBox {
+                    width: 479px;
+                }
+
+                .content-text .text-title>*,
+                .left>*,
+                .right>* {
+                    font-size: 22px !important;
+                }
+
+                .s {
+                    font-size: 22px !important;
+                }
+            }
+        }
+
+        .alterwrap {
+            top: 120px !important;
+            width: 479px;
+
+            .alarm {
+                width: 479px;
+            }
+
+            .namexinxi {
+                font-size: 24px !important;
+            }
+
+            .contenttext>div {
+                font-size: 22px;
+            }
+        }
+
+        .ldfaItem {
+            font-size: 22px;
+        }
+    }
+
+    .dispatchIframe {
+        margin-top: 0 !important;
+        height: calc(100vh - 120px) !important;
+    }
+
 }
-body{
-	font-family: "微软雅黑";
+
+body {
+    font-family: "微软雅黑";
 }
-.ant-collapse-content-active{height: auto!important;}
-.root{
-	position: absolute;
-	left:0;
-	right:0;
-	top:0;
-	bottom:0;
-	z-index:5;
-	background: #efeeea;
+
+.ant-collapse-content-active {
+    height: auto !important;
 }
-.headerBox{
-	height:64px;
+
+.root {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    background: #efeeea;
 }
+
+.headerBox {
+    height: 64px;
+}
+
 .wrapContent {
-	position: relative;
-	padding-bottom: 105px;
-  }
-  
-  .wrap_left {
-	width: 60px;
-	position: absolute;
+    position: relative;
+    padding-bottom: 105px;
+}
+
+.wrap_left {
+    width: 60px;
+    position: absolute;
     background-color: #fff;
     border: 1px solid #e8e8e8;
     position: fixed;
     z-index: 1001;
     top: 64px;
     bottom: 0;
-  }
-  
-  .wrap_right {
-	padding: 18px;
-	margin-left: 88px;
-	margin-top: 10px;
-	background: #fff;
-	min-height: 300px;
-	overflow: hidden;
-  }
+}
+
+.wrap_right {
+    padding: 18px;
+    margin-left: 88px;
+    margin-top: 10px;
+    background: #fff;
+    min-height: 300px;
+    overflow: hidden;
+}

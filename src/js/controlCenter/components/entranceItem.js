@@ -3,7 +3,7 @@ import { message } from 'antd';
 // import './css/entranceItem.scss';
 
 /* eslint-disable */
-class Main extends React.Component {
+class EntranceItem extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = { doorStatus: "" }
@@ -77,6 +77,6 @@ class Main extends React.Component {
       </div>);
   }
 }
-export default Main;
+export default EntranceItem;
 
 /* eslint-enable */

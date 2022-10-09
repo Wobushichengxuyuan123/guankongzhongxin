@@ -2,7 +2,6 @@ import React from "react";
 import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Input, Pagination, Modal, Button, message, Popconfirm } from "antd";
 import Addpoint from './Addindex'
-import { Scrollbars } from "react-custom-scrollbars";
 import "../container/css/areaInfo.scss";
 import "./index.scss";
 var that = null;
@@ -147,7 +146,7 @@ class Point extends React.Component {
       ycoordinate: item.yCoordinate,
       zcoordinate: item.zCoordinate
     };
-  
+
     this.setState({ title: "修改", isShow: true, viewId: id });
     // if (window.PushData) {
     //   window.PushData("GisPointsEdit" + "@" + JSON.stringify(params));
@@ -158,11 +157,8 @@ class Point extends React.Component {
   handleOk() {
     this.refs.Addpoint.formRef.current.validateFields().then((values) => {
       this.setState({ loading: true });
-      if (values.status) {
-        values.status = "1";
-      } else {
-        values.status = "0";
-      }
+      values.status = values.status == true ? '1' : "0"
+
       fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/insertData", {
         method: "POST",
         body: JSON.stringify(values),
@@ -189,12 +185,9 @@ class Point extends React.Component {
   doUpdate() {
     this.refs.Addpoint.formRef.current.validateFields().then((values) => {
       this.setState({ loading: true });
-      if (values.status) {
-        values.status = "1";
-      } else {
-        values.status = "0";
-      }
+      values.status = values.status == true ? '1' : "0"
       values.id = this.state.viewId;
+
       fetch(window.SYSTEM_CONFIG_BASICS + "/pubPointPosition/updateData", {
         method: "POST",
         body: JSON.stringify(values),
@@ -327,11 +320,12 @@ class Point extends React.Component {
                   {this.state.resultList.length != 0 ? (
                     <div className="point_table_page_wrap" style={{ textAlign: "center" }}>
                       <Pagination
-                        size="small" s
+                        size="small"
                         pageSize={this.state.pageSize}
                         current={this.state.pageNo}
                         onChange={this.pageOnChange.bind(this)}
                         total={this.state.totalCount}
+                        showSizeChanger={false}
                       />
                     </div>
                   ) : null}

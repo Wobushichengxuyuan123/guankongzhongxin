@@ -11,20 +11,25 @@ class Addpoint extends React.Component {
         this.state = {
             readonly: false,
             quyuList: [],
-            locationAreaId_Name: ''
+            locationAreaId_Name: '',
+            projectName: sessionStorage.getItem('projectName')
         };
         that = this;
 
     }
     componentDidMount() {
+
         if (this.props.viewId) {
             this.getDataById(this.props.viewId);
+        } else {
+            this.formRef.current.resetFields()
         }
+
         this.quyu()
         this.update()
     }
     componentWillReceiveProps(nextProps) {
-        this.formRef.current.resetFields()
+
         if (nextProps.viewId != this.props.viewId) {
             this.getDataById(nextProps.viewId);
         }
@@ -67,11 +72,7 @@ class Addpoint extends React.Component {
                 }
             })
     }
-    onFinish() {
-        console.log(1);
-    }
     render() {
-
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -84,7 +85,7 @@ class Addpoint extends React.Component {
         };
         return (
             <div className="addDepartment">
-                <Form onFinish={this.onFinish} ref={this.formRef}  >
+                <Form ref={this.formRef}  >
                     <FormItem {...formItemLayout} label="点位名称" name='pointName' rules={[{ required: true, message: '请输入点位名称！' }, { max: 50, message: '长度超出限制' }]}>
                         <Input disabled={this.state.readonly} placeholder="点位名称" className="search_ipt01" />
                     </FormItem>
@@ -95,7 +96,7 @@ class Addpoint extends React.Component {
                         ]}>
                         <Input disabled={this.state.readonly} placeholder="点位编码" className="search_ipt01" />
                     </FormItem>
-                    <FormItem {...formItemLayout} label="所属项目" name='projectName' rules={[{ required: true, message: '请输入所属项目！' }]}>
+                    <FormItem {...formItemLayout} label="所属项目" name='projectName' initialValue={this.state.projectName} rules={[{ required: true, message: '请输入所属项目！' }]}>
                         <Input disabled={true} placeholder="请输入所属项目" className="search_ipt01" />
                     </FormItem>
                     <FormItem {...formItemLayout} label="所属项目" name='projectId' rules={[{ required: true, message: '请输入所属项目！' }]} style={{ display: 'none' }}>
@@ -104,7 +105,7 @@ class Addpoint extends React.Component {
                     <FormItem {...formItemLayout} label="所属区域" name='locationAreaId' initialValue={this.state.locationAreaId_Name} rules={[{ required: false, message: '请输入区域！' }]} >
                         <Select placeholder="请选择所属区域" disabled={this.state.readonly} className="search_ipt01">
                             {this.state.quyuList.map((item, index) => {
-                                return <option key={index} value={item.id}>{item.locationAreaName}</option>
+                                return <Select.Option key={index} value={item.id}>{item.locationAreaName}</Select.Option>
                             })}
                         </Select>
                     </FormItem>

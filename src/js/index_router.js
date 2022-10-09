@@ -14,7 +14,7 @@ import Project from "./controlCenter/project/index"; // 项目
 import Point from './controlCenter/point/index' // 点位
 import SearchInfo from './controlCenter/search/indexcopy'; // 搜索
 import AreaInfo from './controlCenter/area/index';
-// import PlayAudio from '@/js/controlCenter/container/components/playAudio';
+import PlayAudio from '@/js/controlCenter/container/components/playAudio';
 import AlarmInfo from './controlCenter/container/alarmInfo';
 import Person from "./controlCenter/container/person";
 import Video from "./controlCenter/container/video";
@@ -45,6 +45,8 @@ import Cartj from './controlCenter/Access/carRoadgate/index2'
 // 视频监控
 import VideoMonitoring from './controlCenter/video/index'
 import Videoplayback from './controlCenter/videoplayback/VideoPlayback'
+import CVR from './controlCenter/videoplayback/cvr';
+
 import Riskinfo from './controlCenter/risk/riskinfo'
 import Huaban from "./controlCenter/Access/huaban/index"
 import StatisticalAnalysis from './controlCenter/statisticalAnalysis/statisticalAnalysis'
@@ -87,6 +89,7 @@ class IndexRouter extends React.Component {
         Rytj: perms => <Rytj {...perms} />,
         Cartj: perms => <Cartj {...perms} />,
         StatisticalAnalysis: perms => <StatisticalAnalysis {...perms} />,
+        CVR: perms => <CVR {...perms} />,
       },
       openType: true,
       infoVisiable: false,
@@ -293,7 +296,7 @@ class IndexRouter extends React.Component {
         infoVisiable: false,
         infoXA: true
       })
-    } else if (pathurl == 'VideoMonitoring' || pathurl == 'Videoplayback') {
+    } else if (pathurl == 'VideoMonitoring' || pathurl == 'Videoplayback' || pathurl == 'CVR' ) {
       this.setState({
         infoVideo: true,
         infoVisiable: false

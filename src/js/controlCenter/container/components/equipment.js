@@ -1,6 +1,7 @@
 import '../css/person.scss';
 import { Button, Tabs, Input, Collapse, Spin, Tree } from 'antd';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import EqRight from './eqRight.js'
 import React from 'react';
 
@@ -128,10 +129,13 @@ class Equipment extends React.Component {
             type = "1"
         }
         let projectId = window.sessionStorage.getItem("projectId")
-        let searchV = this.SearchInputRef.current.state.value;
-        let fetchUrl = window.SYSTEM_CONFIG_BASICS + '/pubEquipment/getEquipmentInfoByStatusOrName'
-        let fetchBody = { projectId: projectId,equipmentName:searchV, type }
-        fetch(fetchUrl, {
+        // let searchV = this.SearchInputRef.current.state.value;
+ 
+        let fetchBody = { 
+            projectId: projectId,
+            // equipmentName:searchV,
+             type }
+        fetch(window.SYSTEM_CONFIG_BASICS + '/pubEquipment/getEquipmentInfoByStatusOrName', {
             method: "POST",
             body: JSON.stringify(fetchBody)
         }).then(r => r.json())
@@ -170,7 +174,7 @@ class Equipment extends React.Component {
             <div>
                 <div className="search base_search">
                     <Input ref={this.SearchInputRef} allowClear placeholder={`请输入关键字`} 
-                        prefix={<Icon type="search"/>} 
+                        // prefix={<Icon type="search"/>} 
                     />
                     <Button type="primary" onClick={this.searchHandle.bind(this)}>搜索</Button>
                 </div>
