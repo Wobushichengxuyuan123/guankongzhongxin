@@ -10,7 +10,7 @@ import {actionCreators} from '../components/store'
 const Search = Input.Search;
 const Panel = Collapse.Panel;
 
-class Main extends React.Component {
+class LevelAlarm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -289,6 +289,6 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(LevelAlarm);
 
 /* eslint-enable */

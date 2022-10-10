@@ -1,6 +1,7 @@
 import React from "react";
 import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Input, Pagination, Modal, Button, message, Popconfirm } from "antd";
+import { Scrollbars } from 'react-custom-scrollbars';
 import Addpoint from './Addindex'
 import "../container/css/areaInfo.scss";
 import "./index.scss";
@@ -316,7 +317,8 @@ class Point extends React.Component {
               <div className="point_table">
                 <div className="point_table_title">点位</div>
                 <div className="point_table_List" >
-                  {resultItems}
+                <Scrollbars> {resultItems}</Scrollbars>
+           
                   {this.state.resultList.length != 0 ? (
                     <div className="point_table_page_wrap" style={{ textAlign: "center" }}>
                       <Pagination
@@ -336,7 +338,6 @@ class Point extends React.Component {
               {mhItems}
             </div>}
         </div>
-        {/* <AddPubPointPosition ref="addDepartment" viewId={1} /> */}
 
         <div id="rootDiv" className="_rootDiv">
           <Modal

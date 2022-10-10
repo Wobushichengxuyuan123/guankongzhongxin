@@ -1,5 +1,6 @@
 import React from 'react';
 import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Input, Tree } from 'antd';
 import History from '../components/history';
 import './index.scss';
@@ -143,8 +144,11 @@ class AreaInfo extends React.Component {
                     <History onRef={ref => this.history = ref} onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
                     <div className="area_table">
                         <div className='area_table_title'>区域</div>
+
                         <div className="areat_table_List" >
-                            {this.state.resultList.length > 0 ? <Tree defaultExpandAll={true} showIcon>{this.renderTreeNodes(this.state.resultList)}</Tree> : ''}
+                            <Scrollbars>
+                                {this.state.resultList.length > 0 ? <Tree defaultExpandAll={true} showIcon>{this.renderTreeNodes(this.state.resultList)}</Tree> : ''}
+                            </Scrollbars>
                         </div>
                     </div>
                 </div> : <div className="areat_mhss" >

@@ -4,7 +4,6 @@ import AreaAlarm from './areaAlarm';
 import LevelAlarm from './levelAlarm';
 import ClassAlarm from './classAlarm';
 import './index.scss'
-const TabPane = Tabs.TabPane;
 class AlarmInfo extends React.Component {
     constructor(props) {
         super(props);

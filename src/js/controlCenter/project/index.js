@@ -1,6 +1,6 @@
-
 import React from "react";
 import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Input, Pagination } from "antd";
 import History from "../components/history";
 import './index.scss'
@@ -150,6 +150,7 @@ class Project extends React.Component {
     let resultItems = this.state.resultList.length > 0 ? this.state.resultList.map((item, i) => {
       item.index = (this.state.pageNo - 1) * this.state.pageSize + 1 + i;
       return (
+  
         <div
           className="project_table_List_div"
           key={item.id}
@@ -210,7 +211,8 @@ class Project extends React.Component {
           <div className="project_table">
             <div className="project_table_title"> 项目</div>
             <div className="project_table_List" >
-              {resultItems}
+            <Scrollbars> {resultItems}</Scrollbars>
+             
               {this.state.resultList.length != 0 ? (
                 <div className="project_table_page_wrap" style={{ textAlign: "center" }}>
                   <Pagination

@@ -11,7 +11,7 @@ import React from 'react';
 const Search = Input.Search;
 const Panel = Collapse.Panel;
 
-class Main extends React.Component {
+class AreaAlarm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +50,6 @@ class Main extends React.Component {
       .then(b => {
         if (b.data) {
           this.setState({alarmInfo: b.data});
-          //this.getAlarmInfoDetails(type, alarm_type, b.data[0].id, this.state.pageNo, this.state.pageSize)
           this.getAlarmInfoDetails(type, alarm_type, this.state.pageId, this.state.pageNo, this.state.pageSize)
           this.getAlarmCount()
         }
@@ -96,7 +95,6 @@ class Main extends React.Component {
             this.getAlarmInfoDetails(type, alarm_type, id, pageNo, pageSize)
           } else {
             this.setState({resNum: 0})
-            // message.error('服务器异常!请稍后再试!')
           }
         }
       })
@@ -158,16 +156,11 @@ class Main extends React.Component {
     if (id) {
       this.setState({isAlarmItem: true})
       this.getAlarmInfoDetails(this.state.type, this.state.alarm_type, id, this.state.pageNo, this.state.pageSize)
-      if (!this.props.isAoTuAlter && this.props.info !== 0) {
-        // let width = Number(document.getElementById("unityPlayer").childNodes[0].width)
-        // window.MapContainer.changeWidth(width - 330);
-      }
+     
     } else {
       this.setState({isAlarmItem: false})
       if (!this.props.isAoTuAlter && this.props.info !== 0) {
         this.props.changeInfo(0)
-        // let width = Number(document.getElementById("unityPlayer").childNodes[0].width)
-        // window.MapContainer.changeWidth(width + 330);
       }
     }
   }
@@ -180,7 +173,6 @@ class Main extends React.Component {
       var param = "&type=" + this.state.type + "&name=" + e + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
     }
     this.setState({alarmInfo: [], alarmInfoDetails: []});
-    // let param = "?type=" + this.state.type + "&name=" + e + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
     fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetailsAndCount?projectId="+ projectId + param)
       .then(r => r.json())
       .then(b => {
@@ -239,7 +231,7 @@ class Main extends React.Component {
           <div>
             <DatePicker
               className="dataPicker"
-              disabledDate={this.disabledStartDate.bind(this)}
+              disabledDate={this.disabledStartDate.bind(this)} 
               showTime
               format="YYYY-MM-DD"
               locale={locale}
@@ -294,4 +286,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(AreaAlarm);
