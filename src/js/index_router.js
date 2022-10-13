@@ -36,7 +36,7 @@ import Playindex from "./controlCenter/locationdingwei/playback/playindex";
 import Historicalreplay from "./controlCenter/locationdingwei/Historyplay/index";
 
 // 智能调度
-import Zhihuidiaodu from "./controlCenter/dispatch/index"
+// import Zhihuidiaodu from "./controlCenter/dispatch/index"
 // 洞室门禁
 import Rymj from "./controlCenter/Access/renyuanmenjin/index"
 import Cardaozha from "./controlCenter/Access/carRoadgate/index"
@@ -47,10 +47,11 @@ import Cartj from './controlCenter/Access/carRoadgate/index2'
 import VideoMonitoring from './controlCenter/video/index'
 import Videoplayback from './controlCenter/videoplayback/VideoPlayback'
 import CVR from './controlCenter/videoplayback/cvr';
-
 import Riskinfo from './controlCenter/risk/riskinfo'
 import Huaban from "./controlCenter/Access/huaban/index"
 import StatisticalAnalysis from './controlCenter/statisticalAnalysis/statisticalAnalysis'
+
+import {Dispatch as Zhihuidiaodu} from "nelda-bj-dispatch"; 
 import './index.scss';
 class IndexRouter extends React.Component {
   constructor(props) {

@@ -4,7 +4,8 @@ import moment from 'moment';
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { connect } from "react-redux";
-import AlarmItem from '../container/alarmItem';
+import AlarmItem from '../components/alarmItem'
+
 import { actionCreators } from '../container/store';
 
 const Search = Input.Search;
@@ -40,7 +41,6 @@ class Main extends React.Component {
 
   getAlarmInfo(type, alarm_type, name, startValue, endValue) {
     let projectId =window.sessionStorage.getItem("projectId")
-    // this.setState({alarmInfo: []})
     let param = "&type=" + type + "&alarm_type=" + alarm_type;
     if (alarm_type === 2) {
       param += "&name=" + name + "&start_time=" + (startValue ? startValue : "") + "&end_time=" + (endValue ? endValue : "");
@@ -50,7 +50,6 @@ class Main extends React.Component {
       .then(b => {
         if (b.data) {
           this.setState({alarmInfo: b.data});
-          //this.getAlarmInfoDetails(type, alarm_type, b.data[0].id, this.state.pageNo, this.state.pageSize)
           this.getAlarmInfoDetails(type, alarm_type, this.state.pageId, this.state.pageNo, this.state.pageSize)
           this.getAlarmCount()
         }

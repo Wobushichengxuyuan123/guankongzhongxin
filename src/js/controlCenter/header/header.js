@@ -4,6 +4,7 @@ import { Menu, Dropdown,  Popover, Form, Modal, Button, Input, message } from 'a
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { withRouter } from 'react-router-dom'
+import { redux_utils } from 'nelda-bj-dispatch';
 import './header.scss';
 const FormItem = Form.Item;
 var that = null;
@@ -48,11 +49,57 @@ class Header extends React.Component {
             loginName: b.data.loginName,
             projectName: b.data.projectName
           });
+          this.getPersonBaseInfoByUserId(b.data.userId)
           // this.getUser(b.data.loginName);
         }
       })
 
   }
+    // *获取人员在账号列表中绑定的数据
+    getAccount = (personId) => {
+      let url = window.SYSTEM_CONFIG_China + '/pubCommunicationAccount/getDdtInfoByPersonId?personId=' + personId;
+      fetch(url).then(r => r.json()).then(res => {
+        if (res.code === "0" && res.data) {
+          let info = res.data[0] || {}
+          let IscRelationMemberInfo = { sip: info.communicationAccount, personName: info.communicationAccountTypeName, userType: 0 };
+          window.sessionStorage.setItem('IscRelationMemberInfo', JSON.stringify(IscRelationMemberInfo));
+          redux_utils.setIscRelationMemberInfo(IscRelationMemberInfo);
+        }
+      })
+    }
+    // *获取人员所绑定的设备
+    equipmentOfPersonnel = (data, res) => {
+      let url = window.SYSTEM_CONFIG_BASICS + "/public/pubPersonEquipment/pageQuery";
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }).then(r => r.json())
+        .then(res2 => {
+          if (res2.code == '0' && res2.data && res2.data.list && res2.data.list.length != 0) {
+            let IscRelationMemberInfo = { personId: res2.data.list[0].equipmentId, personName: res.data.personName };
+            window.sessionStorage.setItem('IscRelationMemberInfo', JSON.stringify(IscRelationMemberInfo));
+          }
+        })
+    }
+    // 通过用户获取，所关联人员信息
+    getPersonBaseInfoByUserId = (userId) => {
+      let url = window.SYSTEM_CONFIG_APPLICATIONAPI + "/systemUser/getDataById";
+      let params = `?id=${userId}`;
+      fetch(url + params).then(r => r.json())
+        .then(res => {
+          if (res.code == '0' && Object.keys(res.data).length !== 0) {
+            // let requestData = {
+            //   pageNo: 1,
+            //   pageSize: 1000,
+            //   personId: res.data.personId || ""
+            // };
+            // this.equipmentOfPersonnel(requestData, res)
+            this.getAccount((res.data.personId || ""))
+          }
+        }).catch(err => {
+          console.error(err, 'getPersonIdByUserId');
+        })
+    }
   //刷新后，当前路由对应导航高亮
   getNowLocation() {
     let path = this.props.location.pathname

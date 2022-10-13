@@ -1,7 +1,7 @@
 import '../css/person.scss';
 import { Button, Tabs, Input, Collapse, Spin, Tree } from 'antd';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { SearchOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import EqRight from './eqRight.js'
 import React from 'react';
 
@@ -10,22 +10,18 @@ import TabItem from './common/box';
 const TabPane = Tabs.TabPane;
 const Panel = Collapse.Panel;
 const TreeNode = Tree.TreeNode;
-
 /* eslint-disable */
-
 class Equipment extends React.Component {
     constructor(props) {
         super(props);
         this.SearchInputRef = React.createRef()
         this.state = {
             collapseKey: '',
-            rightBoxData:  null,
+            rightBoxData: null,
             openRightBox: false,
             personCount: 0,
-            areaList: [//列表数据
-            ],
-            videoList: [//子集数据
-            ],
+            areaList: [],//列表数据
+            videoList: [],//子集数据
             isLoding: true,
             tabKey: 1,
             treeData: []
@@ -58,12 +54,12 @@ class Equipment extends React.Component {
                 if (this.state.tabKey == "2") {
                     _id = item.equipmentCategoriesId
                 }
-                if ( _id == id) {
+                if (_id == id) {
                     if (item.equipmentList && item.equipmentList.length > 0) {
                         item.equipmentList.map(n => {
                             n.equipment_name = n.equipmentName
                             if (!n.typeName) {
-                                n.typeName = n.equipmentCategoriesName||n.equipmentCategoriesId_Name
+                                n.typeName = n.equipmentCategoriesName || n.equipmentCategoriesId_Name
                             }
                         })
                         this.setState({ videoList: item.equipmentList, isLoding: false });
@@ -77,11 +73,11 @@ class Equipment extends React.Component {
 
     //Tab chang
     tabChange(key) {
-        this.toggleRightBox(false,null)
+        this.toggleRightBox(false, null)
         this.setState({
             tabKey: key,
             areaList: []
-        },() => {
+        }, () => {
             this.searchHandle()
         })
     }
@@ -117,7 +113,7 @@ class Equipment extends React.Component {
             } key={item.id} />;
         });
     }
-    toggleRightBox(flag,data) {
+    toggleRightBox(flag, data) {
         this.setState({
             rightBoxData: data,
             openRightBox: flag
@@ -130,23 +126,24 @@ class Equipment extends React.Component {
         }
         let projectId = window.sessionStorage.getItem("projectId")
         // let searchV = this.SearchInputRef.current.state.value;
- 
-        let fetchBody = { 
+
+        let fetchBody = {
             projectId: projectId,
             // equipmentName:searchV,
-             type }
+            type
+        }
         fetch(window.SYSTEM_CONFIG_BASICS + '/pubEquipment/getEquipmentInfoByStatusOrName', {
             method: "POST",
             body: JSON.stringify(fetchBody)
         }).then(r => r.json())
-        .then(res => {
-            this.setCollapseKey('')
-            if (res.msg === "success") {
-                this.setState({ areaList: res.data });
-            }
-        }).catch(err => {
-            console.log(err,'err');
-        })
+            .then(res => {
+                this.setCollapseKey('')
+                if (res.msg === "success") {
+                    this.setState({ areaList: res.data });
+                }
+            }).catch(err => {
+                console.log(err, 'err');
+            })
     }
     render() {
         let { tabKey } = this.state
@@ -173,22 +170,22 @@ class Equipment extends React.Component {
             <div className="title">设备信息</div>
             <div>
                 <div className="search base_search">
-                    <Input ref={this.SearchInputRef} allowClear placeholder={`请输入关键字`} 
-                        // prefix={<Icon type="search"/>} 
+                    <Input ref={this.SearchInputRef} allowClear placeholder={`请输入关键字`}
+                        prefix={<SearchOutlined />}
                     />
                     <Button type="primary" onClick={this.searchHandle.bind(this)}>搜索</Button>
                 </div>
                 <Tabs defaultActiveKey="1" onChange={this.tabChange.bind(this)}>
                     <TabPane tab="区域" key="1">
                         <div style={{ height: (window.document.documentElement.clientHeight - 200) }}>
-                        <Scrollbars>
+                            <Scrollbars>
                                 {panels ?
                                     <Collapse activeKey={this.state.collapseKey} accordion onChange={this.changeCollapse.bind(this)}>
                                         {panels}
                                     </Collapse>
                                     : null}
                             </Scrollbars>
-                            
+
                         </div>
                     </TabPane>
                     <TabPane tab="类别" key="2">
@@ -206,10 +203,10 @@ class Equipment extends React.Component {
             </div>
             {
                 this.state.openRightBox
-                    ?   <div className='right_box'>
-                            <EqRight parent={this} data={this.state.rightBoxData}></EqRight>
-                        </div>
-                    :   null
+                    ? <div className='right_box'>
+                        <EqRight parent={this} data={this.state.rightBoxData}></EqRight>
+                    </div>
+                    : null
             }
         </div>);
     }

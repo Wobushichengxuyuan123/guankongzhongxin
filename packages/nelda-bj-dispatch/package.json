@@ -1,0 +1,10 @@
+{
+	"name": "nelda-bj-dispatch",
+	"version": "1.0.01",
+	"main": "./lib/index.js",
+	"types": "./lib/index.d.ts",
+	"private": true,
+	"peerDependencies": {
+		"artemis": ">=1.0.0"
+	}
+}

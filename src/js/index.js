@@ -8,9 +8,11 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import 'moment/locale/zh-cn';
 import { registerMicroApps, start, initGlobalState } from 'qiankun';
 import { ConfigProvider } from 'antd';
+import { fnChangeDispatchTheme } from 'nelda-bj-dispatch';
 const Promise = require('promise-polyfill');
 const setAsap = require('setasap');
 Promise._immediateFn = setAsap;
+fnChangeDispatchTheme(5,125,122);
 if (!window.Promise) {
   window.Promise = Promise;
 }

@@ -226,7 +226,7 @@ class AlarmAlter extends React.Component {
             })
     }
 
-    huJiaoHander( equipmentNumber, ) {
+    huJiaoHander(equipmentNumber,) {
         fetch(`${window.SYSTEM_NELDA_OUTAPI}/public/broadcast/xCall?number=${equipmentNumber}`, {
             method: "GET",
         })

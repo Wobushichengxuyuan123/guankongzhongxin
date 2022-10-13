@@ -1,5 +1,6 @@
 import React from 'react';
-import { DatePicker, Tree,  message, Modal, Table } from 'antd';
+import { DatePicker, Tree, message, Modal, Table } from 'antd';
+
 import Icon from '@ant-design/icons';
 import moment from 'moment';
 import Time from './time/time';
@@ -149,7 +150,7 @@ export default class Main extends React.Component {
             console.log(szDeviceIdentify + " 已登录过！");
         }
     }
-  
+
     isplay(value) {
         this.setState({
             isanniu: true
@@ -167,7 +168,7 @@ export default class Main extends React.Component {
     }
     // 开始回放
     startPlayback(value) {
-        console.log(value,1);
+        console.log(value, 1);
         let szStartTime = moment(value.stateTime).format('YYYY-MM-DD HH:mm:ss')
         let szEndTime = moment(value.endTime).format('YYYY-MM-DD HH:mm:ss')
         if (!this.state.iChannelID) {
@@ -257,7 +258,7 @@ export default class Main extends React.Component {
             });
         }
     }
-  
+
     // 开启电子放大
     clickEnableEZoom() {
         let oWndInfo = WebVideoCtrl.I_GetWindowStatus(this.state.iWndIndex)
@@ -406,7 +407,7 @@ export default class Main extends React.Component {
     timeGo(value) {
         that.isplay(value)
         this.setState({
-            value:value
+            value: value
         })
     }
     stopAll() {
@@ -527,11 +528,11 @@ export default class Main extends React.Component {
     kuaijin() {
         let value = this.state.value
         let startTime = value.stateTime + (1000 * 15)
-        if(value){
-            value.stateTime= startTime 
+        if (value) {
+            value.stateTime = startTime
         }
         this.setState({
-            value:value
+            value: value
         })
         that.isplay(value)
         // this.child.iskuaijin(value)
@@ -541,11 +542,11 @@ export default class Main extends React.Component {
     kuaitui() {
         let value = this.state.value
         let startTime = value.stateTime - (1000 * 15)
-        if(value){
-            value.stateTime= startTime 
+        if (value) {
+            value.stateTime = startTime
         }
         this.setState({
-            value:value
+            value: value
         })
         that.isplay(value)
     }
