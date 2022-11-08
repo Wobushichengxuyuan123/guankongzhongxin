@@ -1,8 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import * as Cesium from "cesium";
+import TOKEN from "./utils/Token";
 import { Provider } from "react-redux";
-import Icon from '@ant-design/icons';
+import { CloseOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { store, persistor } from '../store'
 import { PersistGate } from 'redux-persist/integration/react'
 import Header from './controlCenter/header/header.js';
@@ -51,8 +53,9 @@ import Riskinfo from './controlCenter/risk/riskinfo'
 import Huaban from "./controlCenter/Access/huaban/index"
 import StatisticalAnalysis from './controlCenter/statisticalAnalysis/statisticalAnalysis'
 
-import {Dispatch as Zhihuidiaodu} from "nelda-bj-dispatch"; 
+// import {Dispatch as Zhihuidiaodu} from "nelda-bj-dispatch"; 
 import './index.scss';
+let viewer = null;
 class IndexRouter extends React.Component {
   constructor(props) {
     super(props);
@@ -101,18 +104,21 @@ class IndexRouter extends React.Component {
       isShow: true,
       infoXA: false,
     };
+  
+   
   }
   componentWillMount() {
-    window.Gisinit.TimelineContainer()
+    Cesium.Ion.defaultAccessToken = TOKEN;
+   
     if (window.location.href.includes('centerSecond')) this.setState({ centerSecond: true }, () => { })
   }
   componentDidMount() {
+ 
     this.getmenu()
     this.getPersonPosition()
     this.xiangmu()
     this.threeInteractionHander()
     this.jwt()
-    this.getAlarmCount()
   }
   getmenu() {
     fetch(window.SYSTEM_CONFIG_APPLICATIONAPI + "/systemUser/userFuncRights", {
@@ -126,6 +132,7 @@ class IndexRouter extends React.Component {
           menuData1: b.data[0].children
         })
       })
+      viewer =new Cesium.Viewer("root");
   }
 
   getAlarmCount() {
@@ -299,7 +306,7 @@ class IndexRouter extends React.Component {
         infoVisiable: false,
         infoXA: true
       })
-    } else if (pathurl == 'VideoMonitoring' || pathurl == 'Videoplayback' || pathurl == 'CVR' ) {
+    } else if (pathurl == 'VideoMonitoring' || pathurl == 'Videoplayback' || pathurl == 'CVR') {
       this.setState({
         infoVideo: true,
         infoVisiable: false
@@ -330,7 +337,7 @@ class IndexRouter extends React.Component {
     };
     const old = () => {
       const { openType, infoXA } = this.state
-      return <Provider store={store}>
+      return <Provider store={store}  id="cesiumContainer">
         <PersistGate loading={null} persistor={persistor}>
           <Router>
             <>
@@ -339,28 +346,34 @@ class IndexRouter extends React.Component {
                   data={this.state.menuData}
                   change={this.menuChange.bind(this)} />
               </div>
-              <div className='home'>
+              <div className='home' >
                 <div className='container' >
-                  <div className='menu' ref="mapContainer" parent={this}>
+                <div></div>
+                  <div className='menu' ref="mapContainer" parent={this} >
                     <div key="menu-container" className='menu-container' style={{ display: this.state.isShow == true ? 'block' : 'none' }}>
                       <Leftname data={this.state.menuData1} parent={this} alarmCount={this.state.alarmCount} />
                     </div>
+                  
                     <div className={openType ? 'closeBtn' : 'openBtn'} onClick={openType ? this.closeHander.bind(this) : this.openHander.bind(this)}>
-                      <Icon type={openType ? 'left' : 'right'} />
+                      {openType ? <LeftOutlined /> : <RightOutlined />}
                     </div>
+
                     <div key="menu-info" className="menu-xian" style={{
                       height: window.document.documentElement.clientHeight - 64,
                       overflow: "hidden"
                     }}>
-                      <div id="app"></div>
+                      <div id="app">
+                     
+                      </div>
                     </div>
                     {openType ? <div>
-                      {this.state.infoVisiable ? <div key="menu-info" className={"menu-info" + (this.state.selectMenu == "指挥调度" ? " x-zhdd-menu-info yixian" : "")} style={{
+                      {this.state.infoVisiable ? <div key="menu-info"  className={"menu-info" + (this.state.selectMenu == "指挥调度" ? " x-zhdd-menu-info yixian" : "")} style={{
                         height: window.document.documentElement.clientHeight - 64,
                         overflow: "hidden"
                       }}>
                         <div className="cbtn" onClick={this.infoCanelHander.bind(this)}>
-                          <Icon type="close" />
+
+                          <CloseOutlined />
                         </div>
                         {routes()}
                       </div> : null}
@@ -371,18 +384,14 @@ class IndexRouter extends React.Component {
                         {routes()}
                       </div> : null}
                       {this.state.configVisiable ? <Config parent={this} /> : null}
-                      {/* <div key="closeBtn" className="closeBtn" onClick={this.closeHander.bind(this)}><Icon type="left" /></div> */}
+
                     </div>
                       : null}
-                    {/* {!openType ?
-                      <div className="openBtn" onClick={this.openHander.bind(this)}><Icon type="right" /></div>
-                      : null} */}
                   </div>
                 </div>
               </div>
               <Home />
               <Alert />
-              {/* <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} /> */}
             </>
           </Router>
         </PersistGate>
@@ -397,7 +406,7 @@ class IndexRouter extends React.Component {
               <Redirect from='/*' to='/centerSecond?type=1'></Redirect>
             </Switch>
             {/* 音频播放弹窗 */}
-            <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} />
+            {/* <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} /> */}
           </Router>
         </PersistGate>
       </Provider>

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import reducer from "./reducer";
 import storage from 'redux-persist/lib/storage'
 import {persistStore, persistReducer} from 'redux-persist'
-import { fnInitStore } from "nelda-bj-dispatch";
+// import { fnInitStore } from "nelda-bj-dispatch";
 
 const persistConfig = {
     key: 'root',
@@ -16,5 +16,5 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(persistedReducer, composeEnhancers(
     applyMiddleware(thunk),
 ));
-fnInitStore(store);
+// fnInitStore(store);
 export const persistor = persistStore(store)
