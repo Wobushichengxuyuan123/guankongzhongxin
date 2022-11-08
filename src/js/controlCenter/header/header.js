@@ -63,7 +63,7 @@ class Header extends React.Component {
           let info = res.data[0] || {}
           let IscRelationMemberInfo = { sip: info.communicationAccount, personName: info.communicationAccountTypeName, userType: 0 };
           window.sessionStorage.setItem('IscRelationMemberInfo', JSON.stringify(IscRelationMemberInfo));
-          redux_utils.setIscRelationMemberInfo(IscRelationMemberInfo);
+          // redux_utils.setIscRelationMemberInfo(IscRelationMemberInfo);
         }
       })
     }

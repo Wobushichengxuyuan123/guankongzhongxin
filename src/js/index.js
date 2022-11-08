@@ -18,7 +18,7 @@ if (!window.Promise) {
 }
 render(
   <ConfigProvider locale={zh_CN}>
-    <IndexRouter  />
+    <IndexRouter />
   </ConfigProvider>,
   document.getElementById("root")
 );

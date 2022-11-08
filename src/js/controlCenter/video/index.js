@@ -139,12 +139,8 @@ export default class PTZControlPage extends Component {
         };
         const btn = () => {
             return <Radio.Group defaultValue="a" size="small">
-                <Radio.Button value="a" onChange={(e) => {
-                    this.checkRadio(e);
-                }}>云台</Radio.Button>
-                {/* <Radio.Button value="b" onChange={(e) => {
-              this.checkRadio(e);
-          }}>视频参数</Radio.Button> */}
+                <Radio.Button value="a" onChange={(e) => { this.checkRadio(e); }}>云台</Radio.Button>
+                {/* <Radio.Button value="b" onChange={(e) => { this.checkRadio(e)  }}>视频参数</Radio.Button> */}
             </Radio.Group>
         };
         const onPlayerListener = {

@@ -1,8 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
-import * as Cesium from "cesium";
-import TOKEN from "./utils/Token";
 import { Provider } from "react-redux";
 import { CloseOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { store, persistor } from '../store'
@@ -104,16 +102,15 @@ class IndexRouter extends React.Component {
       isShow: true,
       infoXA: false,
     };
-  
-   
+
+
   }
   componentWillMount() {
-    Cesium.Ion.defaultAccessToken = TOKEN;
-   
+    if (window.Gisinit) { window.Gisinit.TimelineContainer() }
     if (window.location.href.includes('centerSecond')) this.setState({ centerSecond: true }, () => { })
   }
   componentDidMount() {
- 
+
     this.getmenu()
     this.getPersonPosition()
     this.xiangmu()
@@ -132,7 +129,7 @@ class IndexRouter extends React.Component {
           menuData1: b.data[0].children
         })
       })
-      viewer =new Cesium.Viewer("root");
+
   }
 
   getAlarmCount() {
@@ -337,7 +334,7 @@ class IndexRouter extends React.Component {
     };
     const old = () => {
       const { openType, infoXA } = this.state
-      return <Provider store={store}  id="cesiumContainer">
+      return <Provider store={store} id="cesiumContainer">
         <PersistGate loading={null} persistor={persistor}>
           <Router>
             <>
@@ -348,12 +345,12 @@ class IndexRouter extends React.Component {
               </div>
               <div className='home' >
                 <div className='container' >
-                <div></div>
+                  <div></div>
                   <div className='menu' ref="mapContainer" parent={this} >
                     <div key="menu-container" className='menu-container' style={{ display: this.state.isShow == true ? 'block' : 'none' }}>
                       <Leftname data={this.state.menuData1} parent={this} alarmCount={this.state.alarmCount} />
                     </div>
-                  
+
                     <div className={openType ? 'closeBtn' : 'openBtn'} onClick={openType ? this.closeHander.bind(this) : this.openHander.bind(this)}>
                       {openType ? <LeftOutlined /> : <RightOutlined />}
                     </div>
@@ -363,11 +360,11 @@ class IndexRouter extends React.Component {
                       overflow: "hidden"
                     }}>
                       <div id="app">
-                     
+
                       </div>
                     </div>
                     {openType ? <div>
-                      {this.state.infoVisiable ? <div key="menu-info"  className={"menu-info" + (this.state.selectMenu == "指挥调度" ? " x-zhdd-menu-info yixian" : "")} style={{
+                      {this.state.infoVisiable ? <div key="menu-info" className={"menu-info" + (this.state.selectMenu == "指挥调度" ? " x-zhdd-menu-info yixian" : "")} style={{
                         height: window.document.documentElement.clientHeight - 64,
                         overflow: "hidden"
                       }}>

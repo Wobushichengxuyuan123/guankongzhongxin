@@ -34,7 +34,6 @@ class AddYt extends React.Component {
                             <Input placeholder="预置位名称" className="search_ipt01" />
                         )}
                     </FormItem>
-
                 </Form>
             </div>)
     }

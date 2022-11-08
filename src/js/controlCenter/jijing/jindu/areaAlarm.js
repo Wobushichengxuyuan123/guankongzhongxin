@@ -1,11 +1,12 @@
-/* eslint-disable */
-import {Icon, Input, DatePicker, Collapse, Pagination, Spin} from 'antd';
-import {connect} from "react-redux";
-import {actionCreators} from '../container/store'
+import { Collapse, DatePicker, Icon, Input, Pagination, Spin } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
-import AlarmItem from '../container/alarmItem';
-import {Scrollbars} from 'react-custom-scrollbars';
+import moment from 'moment';
 import React from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
+import { connect } from "react-redux";
+import AlarmItem from '../../components/alarmItem'
+
+import { actionCreators } from '../../container/store';
 
 const Search = Input.Search;
 const Panel = Collapse.Panel;
@@ -14,14 +15,14 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startValue: null,
-      endValue: null,
+      startValue: moment(new Date(new Date().getTime() - 3 * 1000 * 60 * 60 * 24), 'YYYY-MM-DD'),
+      endValue: moment(new Date(), 'YYYY-MM-DD'),
       endOpen: false,
       historySearch: false,
       alarmInfo: [],
       alarmInfoDetails: [],
       alarm_type: 1,
-      type: 2,
+      type: 1,
       name: "",
       current: 1,
       pageNo: 1,
@@ -38,9 +39,8 @@ class Main extends React.Component {
     this.getAlarmInfo(this.state.type, this.state.alarm_type);
   }
 
-  getAlarmInfo(type, alarm_type, name, startValue, endValue) { 
+  getAlarmInfo(type, alarm_type, name, startValue, endValue) {
     let projectId =window.sessionStorage.getItem("projectId")
-    // this.setState({alarmInfo:[]})
     let param = "&type=" + type + "&alarm_type=" + alarm_type;
     if (alarm_type === 2) {
       param += "&name=" + name + "&start_time=" + (startValue ? startValue : "") + "&end_time=" + (endValue ? endValue : "");
@@ -50,14 +50,13 @@ class Main extends React.Component {
       .then(b => {
         if (b.data) {
           this.setState({alarmInfo: b.data});
-          //this.getAlarmInfoDetails(type, alarm_type, b.data[0].id, this.state.pageNo, this.state.pageSize)
           this.getAlarmInfoDetails(type, alarm_type, this.state.pageId, this.state.pageNo, this.state.pageSize)
           this.getAlarmCount()
         }
       })
   }
 
-  getAlarmCount() { 
+  getAlarmCount() {
     let projectId =window.sessionStorage.getItem("projectId")
     fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmCount?projectId=" + projectId +'&alarmType=J')
       .then(r => r.json())
@@ -80,7 +79,7 @@ class Main extends React.Component {
     if (alarm_type === 2) {
       param += "&name=" + this.state.name + "&start_time=" + (this.state.startValue ? this.state.startValue : "") + "&end_time=" + (this.state.endValue ? this.state.endValue : "");
     }
-    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetails?projectId=" + projectId + param +'&alarmType=J')
+    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetails?projectId=" +projectId + param +'&alarmType=J' )
       .then(r => r.json())
       .then(b => {
         if (b.data) {
@@ -90,6 +89,7 @@ class Main extends React.Component {
             totalCount: Number(b.data.totalCount),
             isLoding: false
           });
+
         } else {
           if (this.state.resNum < 3) {
             this.getAlarmInfoDetails(type, alarm_type, id, pageNo, pageSize)
@@ -180,7 +180,7 @@ class Main extends React.Component {
     }
     this.setState({alarmInfo: [], alarmInfoDetails: []});
     // let param = "?type=" + this.state.type + "&name=" + e + "&start_time=" + this.state.startValue + "&end_time=" + this.state.endValue;
-    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetailsAndCount?projectId=" + projectId + param +'&alarmType=J')
+    fetch(window.BASICS_SYSTEM + "/pubAlarmSearch/alarmInfoDetailsAndCount?projectId="+ projectId + param +'&alarmType=J')
       .then(r => r.json())
       .then(b => {
         if (b.data) {
@@ -204,13 +204,13 @@ class Main extends React.Component {
   render() {
     const {startValue, endValue, endOpen} = this.state;
     let alarmItems = this.state.alarmInfoDetails.map((detail, j) => {
-      return (<AlarmItem key={"alarmItem-" + j} parent={this} data={detail}/>);
+      return (<AlarmItem key={"alarmItem-" + j} alterIndex={j} data={detail} parent={this}/>);
     })
     let panels = this.state.alarmInfo.map((item, i) => {
       return <Panel header={item.name + " (" + item.count + ")"} key={item.id}>
         {this.state.isLoding ? <div style={{textAlign: 'center', margin: '10px 0'}}><Spin tip="加载中..."/>
         </div> : this.state.isAlarmItem ? alarmItems : null}
-        {this.state.alarmInfoDetails.length != 0 && !this.state.isLoding ?
+        {this.state.alarmInfoDetails.length !== 0 && !this.state.isLoding ?
           this.state.isAlarmItem ? <div className='page-wrap' style={{textAlign: 'center'}}>
             <Pagination
               size="small"
@@ -219,7 +219,9 @@ class Main extends React.Component {
               onChange={this.pageOnChange.bind(this)}
               total={this.state.totalCount}
             />
-          </div> : null : null}
+          </div>
+            : null
+          : null}
       </Panel>
     })
     const suffix = this.state.name ? <Icon type="close-circle" onClick={this.emitEmpty.bind(this)}/> : null;
@@ -259,8 +261,7 @@ class Main extends React.Component {
             />
           </div>
         </div> : null}
-        <div
-          style={{height: (window.document.documentElement.clientHeight - 235) - (this.state.historySearch ? 144 : 0)}}>
+        <div style={{height: (window.document.documentElement.clientHeight - 235) - (this.state.historySearch ? 144 : 0)}}>
           <Scrollbars>
             {panels.length > 0 ?
               <Collapse accordion onChange={this.changeCollapse.bind(this)}>
@@ -268,6 +269,7 @@ class Main extends React.Component {
               </Collapse> : null}
           </Scrollbars>
         </div>
+
       </div>
     </div>);
   }
@@ -291,5 +293,3 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
-
-/* eslint-enable */
