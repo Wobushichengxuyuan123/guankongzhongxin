@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from "react-redux";
 import { CloseOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { store, persistor } from '../store'
@@ -10,12 +10,10 @@ import Leftname from './controlCenter/header/leftmenu'
 import centerSecond from './LargeScreen/js/index'
 import Alert from './alert/alert';
 import Home from './controlCenter/container/index.js'
-import Project from "./controlCenter/project/index"; // 项目
-import Point from './controlCenter/point/index' // 点位
-import SearchInfo from './controlCenter/search/indexcopy'; // 搜索
+import Project from "./controlCenter/project/index";
+import Point from './controlCenter/point/index'
+import SearchInfo from './controlCenter/search/indexcopy';
 import AreaInfo from './controlCenter/area/index';
-import PlayAudio from '@/js/controlCenter/container/components/playAudio';
-// import AlarmInfo from './controlCenter/container/alarmInfo';
 import AlarmInfo from './controlCenter/alarm';
 import Person from "./controlCenter/container/person";
 import Video from "./controlCenter/container/video";
@@ -26,24 +24,16 @@ import Jijing from "./controlCenter/container/jijingGuard1";
 import JinDu from "./controlCenter/container/JinDuGuard1";
 import HuanShuibao from "./controlCenter/container/HuanshuibaoGuard1";
 import Config from "./controlCenter/container/config";
-// import SearchInfo from "./controlCenter/container/searchInfo";
-// import AreaInfo from "./controlCenter/container/areaInfo";
 import Equipment from "./controlCenter/container/components/equipment";
-//人员定位
 import Realtime from "./controlCenter/locationdingwei/realtime/realtime"
 import History from './controlCenter/locationdingwei/history/index'
 import Playindex from "./controlCenter/locationdingwei/playback/playindex";
 import Historicalreplay from "./controlCenter/locationdingwei/Historyplay/index";
-
-// 智能调度
-// import Zhihuidiaodu from "./controlCenter/dispatch/index"
-// 洞室门禁
 import Rymj from "./controlCenter/Access/renyuanmenjin/index"
 import Cardaozha from "./controlCenter/Access/carRoadgate/index"
 import Carcesu from "./controlCenter/Access/carmeasurement/index"
 import Rytj from './controlCenter/Access/renyuanmenjin/index2'
 import Cartj from './controlCenter/Access/carRoadgate/index2'
-// 视频监控
 import VideoMonitoring from './controlCenter/video/index'
 import Videoplayback from './controlCenter/videoplayback/VideoPlayback'
 import CVR from './controlCenter/videoplayback/cvr';
@@ -51,9 +41,9 @@ import Riskinfo from './controlCenter/risk/riskinfo'
 import Huaban from "./controlCenter/Access/huaban/index"
 import StatisticalAnalysis from './controlCenter/statisticalAnalysis/statisticalAnalysis'
 
-// import {Dispatch as Zhihuidiaodu} from "nelda-bj-dispatch"; 
+import Root from '../routers/router';
+import BaseLayout from '../layout';
 import './index.scss';
-let viewer = null;
 class IndexRouter extends React.Component {
   constructor(props) {
     super(props);
@@ -350,11 +340,9 @@ class IndexRouter extends React.Component {
                     <div key="menu-container" className='menu-container' style={{ display: this.state.isShow == true ? 'block' : 'none' }}>
                       <Leftname data={this.state.menuData1} parent={this} alarmCount={this.state.alarmCount} />
                     </div>
-
                     <div className={openType ? 'closeBtn' : 'openBtn'} onClick={openType ? this.closeHander.bind(this) : this.openHander.bind(this)}>
                       {openType ? <LeftOutlined /> : <RightOutlined />}
                     </div>
-
                     <div key="menu-info" className="menu-xian" style={{
                       height: window.document.documentElement.clientHeight - 64,
                       overflow: "hidden"
@@ -369,7 +357,6 @@ class IndexRouter extends React.Component {
                         overflow: "hidden"
                       }}>
                         <div className="cbtn" onClick={this.infoCanelHander.bind(this)}>
-
                           <CloseOutlined />
                         </div>
                         {routes()}
@@ -381,7 +368,6 @@ class IndexRouter extends React.Component {
                         {routes()}
                       </div> : null}
                       {this.state.configVisiable ? <Config parent={this} /> : null}
-
                     </div>
                       : null}
                   </div>
@@ -395,18 +381,9 @@ class IndexRouter extends React.Component {
       </Provider>
     }
     const newCenter = () => {
-      return <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Router>
-            <Switch>
-              <Route path="/centerSecond" component={centerSecond} />
-              <Redirect from='/*' to='/centerSecond?type=1'></Redirect>
-            </Switch>
-            {/* 音频播放弹窗 */}
-            {/* <PlayAudio data={this.state.playAudioInfo} playAudioHandler={this.playAudioHandler} /> */}
-          </Router>
-        </PersistGate>
-      </Provider>
+      return <BaseLayout>
+        <Root />
+      </BaseLayout>
     };
     return this.state.centerSecond == true ? newCenter() : old();
   }

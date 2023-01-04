@@ -9,7 +9,6 @@ class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       areaList: [],
       searchList: [],
       resultList: [],
@@ -143,14 +142,15 @@ class Project extends React.Component {
     window.projectName(projectName);
     sessionStorage.setItem("projectName", projectName);
     sessionStorage.setItem("projectId", item);
-    window.GisMap.AreaJump(item);
+    if( window.GisMap){
+      window.GisMap.AreaJump(item);
+    }
   }
   render() {
     const { isSearch, isShow } = this.state
     let resultItems = this.state.resultList.length > 0 ? this.state.resultList.map((item, i) => {
       item.index = (this.state.pageNo - 1) * this.state.pageSize + 1 + i;
       return (
-  
         <div
           className="project_table_List_div"
           key={item.id}
@@ -209,7 +209,7 @@ class Project extends React.Component {
         {isSearch ? <div>
           <History onRef={ref => this.history = ref} onHistory={(a, b) => { this.clickMhItemHanderS(a, b) }} />
           <div className="project_table">
-            <div className="project_table_title"> 项目</div>
+            <div className="project_table_title">项目</div>
             <div className="project_table_List" >
             <Scrollbars> {resultItems}</Scrollbars>
              
