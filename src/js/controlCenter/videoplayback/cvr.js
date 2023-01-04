@@ -43,7 +43,7 @@ export default class CVR extends React.Component {
         this.incave()
     }
     incave() {
-        if (Wfs&&Wfs.isSupported()) {
+        if (Wfs.isSupported()) {
             var video1 = document.getElementById("video");
             Wfs = new Wfs();
             Wfs.attachMedia(video1,'ch1','H264Raw', 'ws://192.168.1.112:5005/wstest/192.168.1.201_1',);

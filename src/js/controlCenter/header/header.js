@@ -49,11 +49,57 @@ class Header extends React.Component {
             loginName: b.data.loginName,
             projectName: b.data.projectName
           });
+          this.getPersonBaseInfoByUserId(b.data.userId)
+          // this.getUser(b.data.loginName);
         }
       })
 
   }
-
+    // *获取人员在账号列表中绑定的数据
+    getAccount = (personId) => {
+      let url = window.SYSTEM_CONFIG_China + '/pubCommunicationAccount/getDdtInfoByPersonId?personId=' + personId;
+      fetch(url).then(r => r.json()).then(res => {
+        if (res.code === "0" && res.data) {
+          let info = res.data[0] || {}
+          let IscRelationMemberInfo = { sip: info.communicationAccount, personName: info.communicationAccountTypeName, userType: 0 };
+          window.sessionStorage.setItem('IscRelationMemberInfo', JSON.stringify(IscRelationMemberInfo));
+          // redux_utils.setIscRelationMemberInfo(IscRelationMemberInfo);
+        }
+      })
+    }
+    // *获取人员所绑定的设备
+    equipmentOfPersonnel = (data, res) => {
+      let url = window.SYSTEM_CONFIG_BASICS + "/public/pubPersonEquipment/pageQuery";
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }).then(r => r.json())
+        .then(res2 => {
+          if (res2.code == '0' && res2.data && res2.data.list && res2.data.list.length != 0) {
+            let IscRelationMemberInfo = { personId: res2.data.list[0].equipmentId, personName: res.data.personName };
+            window.sessionStorage.setItem('IscRelationMemberInfo', JSON.stringify(IscRelationMemberInfo));
+          }
+        })
+    }
+    // 通过用户获取，所关联人员信息
+    getPersonBaseInfoByUserId = (userId) => {
+      let url = window.SYSTEM_CONFIG_APPLICATIONAPI + "/systemUser/getDataById";
+      let params = `?id=${userId}`;
+      fetch(url + params).then(r => r.json())
+        .then(res => {
+          if (res.code == '0' && Object.keys(res.data).length !== 0) {
+            // let requestData = {
+            //   pageNo: 1,
+            //   pageSize: 1000,
+            //   personId: res.data.personId || ""
+            // };
+            // this.equipmentOfPersonnel(requestData, res)
+            this.getAccount((res.data.personId || ""))
+          }
+        }).catch(err => {
+          console.error(err, 'getPersonIdByUserId');
+        })
+    }
   //刷新后，当前路由对应导航高亮
   getNowLocation() {
     let path = this.props.location.pathname
@@ -112,6 +158,7 @@ class Header extends React.Component {
   //导航跳转
   routeHandler(path, index, data) {
     if (this.props.location.pathname != path) {
+      this.props.history.push(path)
       this.setState({ active: index })
     }
     this.props.change(data.children)
@@ -145,6 +192,7 @@ class Header extends React.Component {
     </Menu>
     return (
       <div className="header">
+        {/* <div className='lfettitle'>智能预警中心</div> */}
         <div className="borderImg c_flex jc_c ai_c">
           <div style={{ color: "rgb(115, 251, 253)", fontSize: "25px" }}>{this.state.projectName == null ? '' : sessionStorage.getItem('projectName')}</div>
         </div>

@@ -286,12 +286,10 @@ class Main extends React.Component {
               <div className="tabs-title">
                 <div className={this.state.tabSelected == "area" ? "active" : ""}
                   onClick={this.tabHander.bind(this, "area")}>区域 {this.state.tabSelected == "area" ?
-                    <SearchOutlined /> : <SearchOutlined />
-                    }
-                    </div>
+                    <Icon type="caret-up" /> : <Icon type="caret-down" />}</div>
                 <div className={this.state.tabSelected == "org" ? "active" : ""}
                   onClick={this.tabHander.bind(this, "org")}>组织 {this.state.tabSelected == "org" ?
-                    <SearchOutlined /> : <SearchOutlined/>}</div>
+                    <Icon type="caret-up" /> : <Icon type="caret-down" />}</div>
               </div>
               {this.state.tabSelected == "area" ?
                 <div className="tabs-content" style={{ height: (window.document.documentElement.clientHeight - 223) }}>

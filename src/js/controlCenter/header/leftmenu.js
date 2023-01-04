@@ -1,6 +1,7 @@
 import React from "react";
-import { Menu,Badge } from 'antd';
+import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
+import { Badge } from 'antd';
 import './menu.css';
 import '../container/css/container.scss'
 class MenuList extends React.Component {
